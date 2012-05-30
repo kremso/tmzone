@@ -1,0 +1,204 @@
+body,td,th {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+
+h1 {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+}
+
+h3 {
+	font-style: normal;
+	font-weight: bold;
+}
+
+h4 {
+	font-style: italic;
+	font-weight: normal;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	height: 20px;
+	font-size: 11px;
+	border-width: 1px;
+	border-color: #7F9DB9;
+	border-style: solid;
+	max-width: 360px;
+	margin: 1px;
+}
+
+.input_datum {
+	width: 70px;
+}
+
+.input_text_short {
+	width: 120px;
+}
+
+.input_text {
+	width: 200px;
+}
+
+.input_text_long {
+	width: 360px;
+}
+
+input.btn {
+	height: 20px;
+	font-family: Tahoma, Verdana, Arial, Helvetica;
+	font-size: 11px;
+	color: #333333;
+	background-color: #CCCCCC;
+	border-color: #000000;
+}
+
+select {
+	height: 20px;
+	font-size: 11px;
+	border-width: 1px;
+	border-color: #7F9DB9;
+	border-style: solid;
+	max-width: 360px;
+	margin: 1px;
+        width: 100%;
+}
+
+select.sortby {
+	height: 15px;
+	font-size: 11px;
+	border-width: 1px;
+	border-color: #7F9DB9;
+	border-style: solid;
+	max-width: 360px;
+	margin: 0px;
+        width: auto;
+}
+
+.tdetail {
+    width: 670px;
+}
+
+.tdetail_idin {
+	width: 40px;
+	vertical-align: top;
+	padding: 1px;
+}
+
+.tdetail_name {
+	width: 200px;
+	vertical-align: top;
+	padding: 1px;
+}
+
+.tsearch_help {
+	width: 10px;
+	vertical-align: top;
+	padding: 1px;
+}
+
+.tdetail_value {
+	max-width: 400px;
+	vertical-align: top;
+	font-weight: bold;
+	padding: 1px;
+}
+
+.tdetail_value_stav {
+	max-width: 410px;
+	vertical-align: top;
+	font-weight: bold;
+	color: blue;
+	padding: 1px;
+}
+/*
+.tsearch {
+	width: 100%;
+}
+
+.tsearch_idin {
+	width: 40px;
+	vertical-align: top;
+	padding: 1px;
+}
+
+.tsearch_name {
+	width: 200px;
+	vertical-align: top;
+	padding: 1px;
+}
+
+.tsearch_value {
+	max-width: 410px;
+	vertical-align: top;
+	padding: 1px;
+}
+
+.tsearch_value_stav {
+	max-width: 410px;
+	vertical-align: top;
+	color: #0000CC;
+	padding: 1px;
+}
+*/
+.tsbox {
+	vertical-align: top;
+}
+
+.tlist {
+	width: 100%;
+}
+
+/*
+.tlist_col1 {
+	width: 10%;
+	min-width: 8%;
+}
+
+.tlist_col2 {
+	width: 20%;
+	min-width: 20%;
+}
+
+.tlist_col3 {
+	width: 12%;
+	min-width: 12%;
+}
+
+.tlist_col4 {
+	width: 8%;
+	min-width: 6%;
+}
+
+.tlist_col5 {
+	width: 12%;
+	min-width: 10%;
+}
+
+.tlist_col6 {
+	width: 13%;
+	min-width: 13%;
+}
+
+.tlist_col7 {
+	width: 12%;
+	min-width: 8%;
+}
+
+.tlist_col8 {
+	width: 13%;
+	min-width: 13%;
+}
+*/

@@ -1,0 +1,983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="sk"><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>UPV - WebRegistre - Register ochranných známok</title>
+        <link href="eset_files/default.css" rel="stylesheet" type="text/css">
+        <link href="eset_files/screen.css" rel="stylesheet" type="text/css" media="screen,projection">
+        <link href="eset_files/superfish.css" rel="stylesheet" type="text/css" media="screen,projection">
+        <link href="eset_files/print.css" rel="stylesheet" type="text/css" media="print">
+        <link href="eset_files/upv-index2-sk.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="eset_files/jquery-1.js"></script>
+        <script type="text/javascript" src="eset_files/superfish.js"></script>
+        <script type="text/javascript" src="eset_files/hoverIntent.js"></script>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            $(document).ready(function(){
+                // inicializacia pluginu pre menu superfish
+                $('ul.sf-menu').superfish({
+                    speed: 50,
+                    delay: 100,
+                    dropShadows: false,
+                    autoArrows: false
+                });
+
+                // skript pre nastavenie zmeny pozadia poloziek v zoznamoch
+                $(".listItem").hover(
+                    function () {
+                        $(this).removeClass("listItem");
+                        $(this).addClass("hoverListItem");
+                    },
+                    function () {
+                        $(this).removeClass("hoverListItem");
+                        $(this).addClass("listItem");
+                });
+
+                // obdoba predchádzajúceho skriptu ale pre zvyraznovanie
+                // aktualneho riadku vo vyhladavacich formularoch
+                $(".tsearch_row").hover(
+                    function () {
+                        $(this).removeClass("tsearch_row");
+                        $(this).addClass("tsearch_row_hover");
+                    },
+                    function () {
+                        $(this).removeClass("tsearch_row_hover");
+                        $(this).addClass("tsearch_row");
+                });
+
+                // skript pre otvaranie detailu k polozke zoznamu v novom okne
+                $(".listItem").click(
+                    function(){
+                        var aTarget = $(this).find('a').attr('href');
+                        window.open(aTarget);
+                        return false;
+                    }
+                );
+            });
+            //]]>
+        </script>
+    <link href="eset_files/core.css" rel="stylesheet" type="text/css" id="spool_core_style"></head>
+    <body id="center">
+        <div id="container">
+            <div class="header" id="header_sk">
+                <a class="hidden" href="#content">Skočiť na obsah</a>
+                <h1>Úrad priemyselného vlastníctva Slovenskej republiky</h1>
+            </div>
+            <div id="nav">
+                <h3 class="hidden">Hlavné menu:</h3>
+                <ul class="sf-menu sf-js-enabled">
+                    <!-- navigacia patenty -->
+                    <li>
+                        <a id="lnk_patenty_sk" class="lnk_menu" href="http://registre.indprop.gov.sk/registre/searchForm.do?register=p" accesskey="1"><span></span>Patenty</a>
+                        <ul style="display: none; visibility: hidden;">
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?lang=sk&amp;register=p&amp;kindof=vkonani">Prihlášky v konaní</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=p&amp;kindof=zapisane">Udelené patenty</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=p&amp;amp;kindof=all">Všetky podané prihášky</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=p">Vyhľadávanie</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=p&amp;adv=true">Rozšírené vyhľadávanie</a></li>
+                			<li><a title="Presmerovanie na informácie o systémoch triedenia patentov" href="http://www.upv.sk/?systemy-triedenia-patenty">Medzinárodné patentové triedenie</a></li>
+                            <li><a href="http://data.indprop.gov.sk/Patenty/index.php?typdokumentu=patenty&amp;new=1&amp;jazyk=sk">Patentové dokumenty</a></li>
+                            <li><a href="http://www.upv.sk/?vestnik-uradu-priemyselneho-vlastnictva-slovenskej-republiky">Vestník ÚPV SR</a></li>
+                            <li><a href="http://www.upv.sk/?patenty-ponuky-licencii">Ponuka licencií</a></li>
+                        </ul>
+                    </li>
+                    <!-- navigacia úžitkové vzory -->
+                    <li>
+                        <a id="lnk_uv_sk" class="lnk_menu" href="http://registre.indprop.gov.sk/registre/searchForm.do?register=uv" accesskey="2"><span></span>Úžitkové vzory</a>
+                        <ul style="display: none; visibility: hidden;">
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=uv&amp;kindof=vkonani">Prihlášky v konaní</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=uv&amp;kindof=zapisane">Zapísané úžitkové vzory</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=uv&amp;kindof=all">Všetky podané prihlášky</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=uv">Vyhľadávanie</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=uv&amp;adv=true">Rozšírené vyhľadávanie</a></li>
+                			<li><a title="Presmerovanie na informácie o systémoch triedenia patentov" href="http://www.upv.sk/?systemy-triedenia-patenty">Medzinárodné patentové triedenie</a></li>
+                            <li><a href="http://data.indprop.gov.sk/Patenty/index.php?typdokumentu=uv&amp;new=1&amp;jazyk=sk">Patentové dokumenty</a></li>
+                            <li><a href="http://www.upv.sk/?vestnik-uradu-priemyselneho-vlastnictva-slovenskej-republiky">Vestník ÚPV SR</a></li>
+                        </ul>
+                    </li>
+                    <!-- navigácia dizajny -->
+                    <li>
+                        <a id="lnk_dizajny_sk" class="lnk_menu" href="http://registre.indprop.gov.sk/registre/searchForm.do?register=vz" accesskey="3"><span></span>Dizajny</a>
+                        <ul style="display: none; visibility: hidden;">
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=vz&amp;kindof=vkonani">Prihlášky v konaní</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=vz&amp;kindof=zapisane">Zapísané dizajny</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=vz&amp;kindof=all">Všetky podané prihlášky</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=vz">Vyhľadávanie</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=vz&amp;adv=true">Rozšírené vyhľadávanie</a></li>
+                            <li><a title="Presmerovanie na informácie o systémoch triedenia dizajnov" href="http://www.upv.sk/?systemy-triedenia-dizajny">Medzinárodné triedenie dizajnov</a></li>
+                            <li><a href="http://www.upv.sk/?vestnik-uradu-priemyselneho-vlastnictva-slovenskej-republiky">Vestník ÚPV SR</a></li>
+                        </ul>
+                    </li>
+                    <!--   navigácia ochranné známky   -->
+                    <li>
+                        <a id="lnk_oz_sk" class="lnk_menu" href="http://registre.indprop.gov.sk/registre/searchForm.do?register=oz" accesskey="4"><span></span>Ochranné známky</a>
+                        <ul style="display: none; visibility: hidden;">
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=oz&amp;kindof=vkonani">Prihlášky v konaní</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=oz&amp;kindof=zapisane">Zapísané ochranné známky</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=oz&amp;kindof=all">Všetky podané prihlášky</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=oz">Vyhľadávanie</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=oz&amp;adv=true">Rozšírené vyhľadávanie</a></li>
+                            <li><a title="Presmerovanie na informácie o systémoch triedenia ochranných známok" href="http://www.upv.sk/?ochranne-znamky-systemy-triedenia">Medzinárodné triedenie tovarov a služieb</a></li>
+                            <li><a href="http://domino.indprop.gov.sk/triedniky/triedniky.nsf/prazdny?OpenForm&amp;typ=V">Medzinárodné triedenie obrazových prvkov</a></li>
+                            <li><a href="http://www.upv.sk/?vestnik-uradu-priemyselneho-vlastnictva-slovenskej-republiky">Vestník ÚPV SR</a></li>
+                        </ul>
+                    </li>
+                    <!-- navigácia Eu patenty -->
+                    <li>
+                        <a id="lnk_ep_sk" class="lnk_menu" href="http://registre.indprop.gov.sk/registre/searchForm.do?register=ep" accesskey="5"><span></span>Európske patenty s určením pre SR</a>
+                        <ul style="display: none; visibility: hidden;">
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=ep&amp;kindof=vkonani">Prihlášky v konaní</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=ep&amp;kindof=zapisane">Udelené patenty</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=ep&amp;kindof=all">Všetky podané prihášky</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=ep">Vyhľadávanie</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=ep&amp;adv=true">Rozšírené vyhľadávanie</a></li>
+                            <li><a title="Presmerovanie na informácie o systémoch triedenia patentov" href="http://www.upv.sk/?systemy-triedenia-patenty">Medzinárodné patentové triedenie</a></li>
+                            <li><a href="http://data.indprop.gov.sk/Patenty/index.php?typdokumentu=epatenty&amp;new=1&amp;jazyk=sk">Patentové dokumenty</a></li>
+                            <li><a href="http://www.upv.sk/?vestnik-uradu-priemyselneho-vlastnictva-slovenskej-republiky">Vestník ÚPV SR</a></li>
+                            <li><a href="http://my.epoline.org/portal/public/%21ut/p/.cmd/cs/.ce/7_0_A/.s/7_0_9K/_s.7_0_A/7_0_9K">Európsky register</a></li>
+                        </ul>
+                    </li>
+                    <!-- navigácia dodatkové ochranné osvedčenia -->
+                    <li>
+                        <a id="lnk_doo_sk" class="lnk_menu" href="http://registre.indprop.gov.sk/registre/searchForm.do?register=do" accesskey="6"><span></span>Dodatkové ochranné osvedčenia</a>
+                        <ul style="display: none; visibility: hidden;">
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=do&amp;kindof=vkonani">Žiadosti v konaní</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=do&amp;kindof=zapisane">Udelené DO</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/list.do?register=do&amp;kindof=all">Všetky podane žiadosti</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=do">Vyhľadávanie</a></li>
+                            <li><a href="http://registre.indprop.gov.sk/registre/searchForm.do?register=do&amp;adv=true">Rozšírené vyhľadávanie</a></li>
+                            <!-- <li><a href="http://www.upv.sk/?systemy-triedenia-patenty">Medzinárodné patentové triedenie</a></li>-->
+                            <!-- <li><a href="http://data.indprop.gov.sk/Patenty/index.php?jazyk=sk">Patentové dokumenty</a></li>-->
+                            <li><a href="http://www.upv.sk/?vestnik-uradu-priemyselneho-vlastnictva-slovenskej-republiky">Vestník ÚPV SR</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a id="lnk_licencie_sk" class="lnk_menu" href="http://www.upv.sk/?patenty-ponuky-licencii" accesskey="7"><span></span>Ponuka licencií</a></li>
+                </ul>
+                <!--
+                <div style="clear: left;">&nbsp;</div>
+                -->
+            </div>
+
+            <div id="toolbar">
+                <!-- bredacrumbs -->
+                
+                    <div id="breadcrumbs">
+                        Register ochranných známok &gt;&gt;
+                        Vyhľadávanie
+                    </div>
+                
+                <!-- end of bredacrumbs -->
+
+                <h3 class="hidden">Doplnkové tlačítka:</h3>
+                <ul>
+                    
+                    
+                        
+                        
+                            
+                        
+                    
+                    
+                    
+                        
+                        
+                            <li><a id="tool_lang_en" href="http://registre.indprop.gov.sk/registre/search.do?lang=en&amp;value%28majitel%29=*eset*&amp;value%28cislo_prihlasky%29=&amp;value%28cislo_zapisu%29=&amp;value%28register%29=oz" title="Switch to English / Prepni na angličtinu">Switch to English / Prepni na angličtinu</a></li>
+                        
+                    
+
+                    <!--<li><a id="tool_lang_en" href="index2.php?lang=en&amp;idd=1&amp;idd2=" title="Display page in english (sl: zobraziť stránky v anglickom jazkyu)">English</a></li>-->
+
+                    <li><a id="tool_print" href="" title="Vytlačiť stránku" onclick="window.print(); return false;">Vytlačiť stránku</a></li>
+
+                    <li><a id="tool_index" href="http://registre.indprop.gov.sk/registre?lang=sk" title="Domov">Domov</a></li>
+
+                </ul>
+            </div>
+
+            <div id="content"><!--  start content column -->
+                
+
+
+
+
+
+
+
+
+
+
+    
+        
+    
+    
+
+
+<form name="mapForm" method="post" action="/registre/search.do">
+    
+        
+        
+            <input name="value(register)" value="oz" type="hidden">
+            <input name="value(sortorder)" value="desc" type="hidden">
+            <input name="value(page)" value="1" type="hidden">
+            
+            
+            <input name="value(sortorder)" value="desc" type="hidden">
+            <input name="value(majitel)" value="*eset*" type="hidden">
+            <input name="value(search)" value="true" type="hidden">
+            
+            
+        
+    
+
+    <div>&nbsp;</div>
+    
+
+
+
+
+
+
+
+<table align="center" width="670px" bgcolor="#F0F0F0">
+	<tbody><tr>
+		<td align="left">Stránka 1 z 3</td>
+		<td align="center">
+			
+				<img title="Začiatok" alt="Začiatok" src="eset_files/nav_first_n.gif" border="0">
+			
+			
+			
+		 &nbsp;&nbsp;&nbsp; 
+			
+				<img title="Predchádzajúce" alt="Predchádzajúce" src="eset_files/nav_prev_n.gif" border="0">
+			
+			
+			
+		 &nbsp;&nbsp;&nbsp; 
+			
+			
+			
+				<img title="Nasledujúce" src="eset_files/nav_next.gif" onclick="document.forms[0]['value(page)'].value=2;document.forms[0].submit();" border="0">
+			
+		 &nbsp;&nbsp;&nbsp; 
+			
+			
+			
+				<img title="Koniec" alt="Koniec" src="eset_files/nav_last.gif" onclick="document.forms[0]['value(page)'].value=3;document.forms[0].submit();" border="0">
+			
+		</td>
+		<td align="right">
+			<div style="float:right; width:10px; margin:3px;"><img src="eset_files/sort_desc_n.gif" border="0"><img alt="Zostupne" title="Zostupne" src="eset_files/sort_asc.gif" onclick="document.forms[0]['value(page)'].value=1;document.forms[0]['value(sortorder)'].value='asc';document.forms[0].submit();" border="0"></div>
+			
+				
+				
+			<select name="value(sortby)" onchange="document.forms[0]['value(page)'].value=1;document.forms[0].submit();" class="sortby"><option value="nazov">Názov&nbsp;</option>
+				<option value="cislo_prihlasky">Číslo prihlášky&nbsp;</option>
+				<option value="datum_prihlasky" selected="selected">Dátum prihlášky&nbsp;</option>
+				<option value="cislo_zapisu">Číslo zápisu&nbsp;</option></select>
+				
+			
+		</td>
+		<td align="right">
+			Počet záznamov: 29
+		</td>
+	</tr>
+</tbody></table>
+
+    
+
+    <div class="list">
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=82736" target="_blank">&nbsp;</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">5274-2007
+                            
+                            /
+                                13.03.2007
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">219039</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    
+                                    9,38,41, ...
+                                    
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>ESET, spol. s r. o.; Einsteinova 24; 851 01 Bratislava; SK</span>
+                </div>
+            </div>
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=82273" target="_blank">Eset Smart Security</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">5089-2007
+                            
+                            /
+                                01.02.2007
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">218489</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    
+                                    9,38,41, ...
+                                    
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>ESET, spol. s r. o.; Einsteinova 24; 851 01 Bratislava; SK</span>
+                </div>
+            </div>
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=80719" target="_blank">&nbsp;</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">6015-2006
+                            
+                            /
+                                05.09.2006
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">217071</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    
+                                    
+                                    9,42
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>ESET, spol. s r. o.; Einsteinova 24; 851 01 Bratislava; SK</span>
+                </div>
+            </div>
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=78667" target="_blank">THREAT RADAR</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">5238-2006
+                            
+                            /
+                                28.02.2006
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">214746</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    
+                                    16,38,41, ...
+                                    
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>ESET, spol. s r. o.; Einsteinova 24; 851 01 Bratislava; SK</span>
+                </div>
+            </div>
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=75920" target="_blank">ThreatSense.Net</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">5737-2005
+                            
+                            /
+                                30.05.2005
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">211842</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    
+                                    
+                                    9,16,42
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>ESET, spol. s r. o.; Einsteinova 24; 851 01 Bratislava; SK</span>
+                </div>
+            </div>
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=75705" target="_blank">AntiThreat</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">5643-2005
+                            
+                            /
+                                12.05.2005
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">211828</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    
+                                    
+                                    9,16,42
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>ESET, spol. s r. o.; Einsteinova 24; 851 01 Bratislava; SK</span>
+                </div>
+            </div>
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=75297" target="_blank">ThreatSense</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">5491-2005
+                            
+                            /
+                                06.04.2005
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">211425</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    
+                                    
+                                    9,16,42
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>ESET, spol. s r. o.; Einsteinova 24; 851 01 Bratislava; SK</span>
+                </div>
+            </div>
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=75295" target="_blank">eset.eu</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">5490-2005
+                            
+                            /
+                                06.04.2005
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">211424</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    
+                                    
+                                    9,16,42
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>ESET, spol. s r. o.; Einsteinova 24; 851 01 Bratislava; SK</span>
+                </div>
+            </div>
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=73577" target="_blank">BONNY</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">3270-2004
+                            
+                            /
+                                15.11.2004
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">217401</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    32
+                                    
+                                    
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>VESETA spol. s r. o.; V. Vlčka 202; 273 51 Kyšice; CZ</span>
+                </div>
+            </div>
+        
+            
+            <div class="listItem">
+                <div class="listItemTitle" title="Pozri detail">
+                    
+                        
+                            
+                        
+                        
+                    
+                    
+                        
+                        
+                            <span><a href="/registre/detail/popup.do?register=oz&amp;puv_id=73576" target="_blank">BOND</a></span>
+                        
+                    
+                </div>
+                <div title="Pozri detail" class="listItemDetails">
+                    <span class="tlist_col1"><em>Prihláška</em>:</span>
+                    <span class="tlist_col2">3269-2004
+                            
+                            /
+                                15.11.2004
+                        </span>
+                    <span class="tlist_col3"><em>Číslo zápisu:</em></span>
+                    
+                        
+                        
+                            <span align="left" class="tlist_col4">214095</span>
+                        
+                    
+                    
+                        
+                            <span class="tlist_col5"><em>Právny stav:</em></span>
+                            <span class="tlist_col6">Platná</span>
+                        
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                            <span class="tlist_col7"><em>Triedy ZTS:</em></span>
+                        
+                    
+                    
+                        
+                        
+                            <span class="tlist_col8">
+                                
+                                    32
+                                    
+                                    
+                                    
+                                
+                            </span>
+                            
+                        
+                    
+                </div>
+                    <div title="Pozri detail" class="listItemDetails">
+                    <span><em>Majiteľ:</em></span>
+                    <span>VESETA spol. s r. o.; V. Vlčka 202; 273 51 Kyšice; CZ</span>
+                </div>
+            </div>
+        
+    </div>
+    
+</form>
+<div>&nbsp;</div>
+
+            </div><!--  end of content column -->
+            <div id="footer"><!-- start footer -->
+                <p>
+                    
+                    
+                    
+                    Tieto informácie boli získané z internetovej stránky
+ ÚPV SR dňa 24.05.2012 o 18 hodine.
+                    Posledná aktualizácia k 24.05.2012, verzia 1.3.4.
+                    Údaje zverejňované v databáze ÚPV SR na internete 
+majú iba informačný charakter a nenahrádzajú výpis z registra.
+                </p>
+            </div><!-- end footer -->
+        </div><!-- end of container -->
+    
+
+</body></html>

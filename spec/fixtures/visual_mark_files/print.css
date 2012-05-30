@@ -1,0 +1,43 @@
+body {
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin: 0px;
+}
+
+.tmain {
+}
+
+.tleftside {
+	display: none;
+}
+
+.trightside {
+	display: none;
+}
+
+.tlogo {
+	display: none;
+}
+
+.tmenubar {
+	display: none;
+}
+
+.ttop {
+	display: none;
+}
+
+.tfooter {
+	vertical-align: bottom;
+	text-align: center;
+	height: 70px;
+}
+
+.tcenter {
+	vertical-align: top;
+	text-align: justify;
+}
+/*Doplnenie Hudec*/
+.header, #nav, .sf-menu, #toolbar{
+    display: none;
+}

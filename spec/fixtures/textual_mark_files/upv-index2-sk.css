@@ -1,0 +1,398 @@
+/* CSS Document */
+html,body {
+    margin: 0;
+    padding: 0;
+    background: #ececec url(../img/bodybg.gif) repeat-y center;
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    text-align: center;
+}
+
+div#container {
+    width: 720px;
+    /*background: #FFFFFF url(../img/contentbg.jpg) repeat-y;*/
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*hlavicka*/
+div.header{
+    height: 114px;
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+/*nastavenie pozadia hlavicky*/
+div#header_sk{
+    background: #ffffff url(../img/header_sk.jpg) no-repeat scroll top;
+}
+div#header_en {
+    background: #ffffff url(../img/header_en.jpg) no-repeat scroll top;
+}
+
+/*definicia pre toolbar - prvok nachadzajuci sa priamo na obsahom*/
+div#toolbar{
+    height: 50px;
+    background: #ffffff url(../img/toolbar.jpg) no-repeat scroll top;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+div#toolbar ul{
+    list-style-type: none;
+    height: 23px;
+    position: relative;
+    top: 21px;
+    right: 16px;
+}
+div#toolbar ul li{
+    display: block;
+    float: right;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+div#toolbar a{
+    /*float: right;*/
+    display: block;
+    text-indent: -9000px;
+}
+
+div#toolbar ul li a#tool_index{
+    width: 34px;
+    height: 23px;
+    background: transparent url(../img/toolbar_home.gif) no-repeat scroll top right;
+}
+div#toolbar ul li a:hover#tool_index{
+    background: transparent url(../img/toolbar_home_o.gif) no-repeat scroll bottom right;
+}
+
+div#toolbar ul li a#tool_print{
+    width: 30px;
+    height: 23px;
+    background: transparent url(../img/toolbar_print.gif) no-repeat scroll top right;
+    cursor: pointer;
+}
+div#toolbar ul li a:hover#tool_print{
+    background: transparent url(../img/toolbar_print_o.gif) no-repeat scroll bottom right;
+}
+
+div#toolbar ul li a#tool_lang_sk{
+    width: 33px;
+    height: 23px;
+    background: transparent url(../img/toolbar_lang_sk.gif) no-repeat scroll top right;
+}
+div#toolbar ul li a:hover#tool_lang_sk{
+    background: transparent url(../img/toolbar_lang_sk_o.gif) no-repeat scroll bottom right;
+}
+
+div#toolbar ul li a#tool_lang_en{
+    width: 33px;
+    height: 23px;
+    background: transparent url(../img/toolbar_lang_en.gif) no-repeat scroll top right;
+}
+div#toolbar ul li a:hover#tool_lang_en{
+    background: transparent url(../img/toolbar_lang_en_o.gif) no-repeat scroll bottom right;
+}
+
+div#breadcrumbs{
+    font-weight: bold;
+    float: left;
+    position: relative;
+    font-size: 11px;
+    top: 24px;
+    left: 25px;
+    text-align: left;
+    z-index: 100;
+}
+
+/*definicia obahového bloku*/
+div#content{
+    clear: both;
+    background: #ffffff url(../img/layout_bg.jpg) repeat-y scroll top center;
+    /*height: 300px;*/
+    /*width: 720px;*/
+    text-align: left;
+    font-size: 0.8em;
+    color: #333333;
+    padding: 3px 25px;
+    /*float: left;*/
+}
+
+/*footer*/
+#footer{
+    height: 80px;
+    min-height: 80px;
+    clear: both;
+    background: #FFFFFF url(../img/foot_bg.jpg) no-repeat scroll top;
+    font-size: 0.6em;
+    text-align: center;
+    padding-top: 45px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+/*menu*/
+#nav{
+    padding-left: 35px;
+    height: 26px;
+    background:  url(../img/menu_bg.gif) no-repeat scroll top transparent;
+    z-index: 200;
+}
+
+.sf-menu{
+    background-color: #BDC3D3;
+    width: 645px
+}
+.sf-menu a{
+
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    border: none;
+    font-size: .8em;
+    background-color: #BDC3D3;
+}
+
+.sf-menu a span{
+    position: absolute;
+    overflow:hidden;
+    display: block;
+    cursor: pointer;
+}
+
+/*definicia zakladnych prvkov a ostanych stylov*/
+.hidden {
+    display: none;
+}
+.lnktop{
+    text-align: right;
+}
+
+
+a {
+    color: #003399;
+}
+a.light{
+    color: #4682b4;
+}
+
+a:hover {
+    color: red;
+}
+
+a img{
+    border: none;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+h1{
+    display: none;
+}
+
+h2{
+    background-color:#F0F0F0;
+    color:#000000;
+    font-size:1em;
+    padding:2px;
+    text-align:center;
+    text-transform:uppercase;
+}
+h3,h4{
+    font-size:1em;
+    color: #333333;
+}
+h4{
+    margin: 0;
+}
+
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+.underline{
+    text-decoration: underline;
+}
+
+
+
+/* Definicie pravidiel pre zoznamy, napr. vysledky vyhladavania*/
+div.list{
+    width: 670px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #333333;
+}
+
+div.listItem{
+    padding: 5px 3px;
+    border: 1px solid white;
+    line-height: 130%;
+}
+
+div.listItem:hover, .hoverListItem{
+    padding: 5px 3px;
+    background-color: #FBFDE3;
+    /*border: 1px solid #D8F4FE;*/
+    border: 1px solid silver;
+    cursor: pointer;
+    line-height: 130%;
+}
+div.listItemTitle{
+    /*background-color: #fffaef;*/
+    background-color: #FEEBD8;
+}
+div.listItemTitle a{
+    color: black;
+    /*text-decoration: underline;*/
+}
+div.listItemTitle a:hover{
+    color: black;
+    text-decoration: underline;
+}
+
+div.listItemDetails{
+    white-space: nowrap;
+    clear: both;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.tlist_col1, .tlist_col2, .tlist_col3, .tlist_col4,
+.tlist_col5, .tlist_col6, .tlist_col7, .tlist_col8{
+    display: block;
+    float: left;
+    padding-right: 3px;
+}
+.tlist_col3, .tlist_col5, .tlist_col7{
+    margin-left: 23px;
+}
+
+/* CSS pravidla pre detaily */
+h2.detail_title{
+    text-align: left;
+    padding: 3px 13px;
+}
+
+/* CSS pravidlá pre prvky formulárov na vyhľadávanie*/
+.tsearch{
+    width: 670px;
+}
+
+.tsearch_row, .tsearch_row_hover{
+    width: 100%;
+    clear: both;
+    float: left;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.tsearch_row label,
+.tsearch_row_hover label{
+    cursor: pointer;
+}
+
+.tsearch_row_hover{
+    background-color: #FBFDE3;
+}
+
+.tsearch_idin{
+    display: block;
+    float: left;
+    width: 60px;
+    margin-right: 3px;
+}
+
+.tsearch_name{
+    display: block;
+    float: left;
+    width: 225px;
+}
+
+.tsearch_help{
+    display: block;
+    float: left;
+    width: 15px;
+}
+
+.tsearch_value{
+    display: block;
+    float: left;
+    width: 360px;
+}
+
+.tsearch_buttons{
+    text-align: center;
+}
+
+/* CSS pravidla pre intro */
+ul.nav_intro{
+    line-height: 180%;
+    width: 325px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+ul.nav_intro li{
+    list-style-type: none;
+    text-align: left;
+    width: 100%;
+}
+
+ul.nav_intro li a{
+    display: block;
+    color: black;
+}
+
+ul.nav_intro li a:hover{
+    background-color: #FBFDE3;
+    color: red;
+}
+
+a.nav_intro_header{
+    background-color: #FEEBD8;
+    font-weight: bold;
+    border: 1px solid silver;
+    padding: 2px 1em;
+}
+
+ul.nav_intro li ul{
+    border: 1px solid silver;
+    border-top: none;
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+}
+
+ul.nav_intro li ul li{
+    /*list-style-type: circle;
+    list-style-position: inside;*/
+}
+
+ul.nav_intro li ul li a{
+    padding-left: 2em;
+    width: auto;
+}
+
+.left_col{
+    float: left;
+}
+
+.right_col{
+    float: right;
+}
+
+.clear{
+    clear: both;
+    /*margin-top: 3px;*/
+    height: 13px;
+}

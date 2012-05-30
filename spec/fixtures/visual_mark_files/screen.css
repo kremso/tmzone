@@ -1,0 +1,59 @@
+
+body {
+	background-color: #ECECEC;
+	padding: 0px;
+	margin: 0px;
+}
+
+.tmain {
+	width: 744px;
+	height: 100%;
+}
+
+.tleftside {
+	width: 12px;
+	background-image: url(../img/layout_bg_left.gif)
+}
+
+.trightside {
+	width: 12px;
+	background-image: url(../img/layout_bg_right.gif)
+}
+
+.tlogo {
+	height: 114px;
+	background-image: url(../img/logo_upv_bg.jpg)
+}
+
+.tmenubar {
+	height: 26px;
+	background-image: url(../img/menu_bar_bg.jpg)
+}
+
+.ttop {
+	height: 50px;
+	background-image: url(../img/top_bg.jpg)
+}
+
+.tfooter {
+	vertical-align: bottom;
+	text-align: center;
+	height: 70px;
+	background-image: url(../img/foot_bg.jpg)
+}
+
+.tcenter {
+	vertical-align: top;
+	text-align: justify;
+	padding-left: 30px;
+	padding-right: 30px;
+	background-image: url(../img/content_bg.jpg)
+}
+/* UPRAVA HUDEC 18. maja 2010 */
+.tsearch{
+    text-align: left;
+}
+
+.tsearch_row{
+    padding: 3px 0;
+}
