@@ -1,6 +1,7 @@
 #encoding: utf-8
 
 require 'nokogiri'
+require 'indprop/indprop'
 
 class IndpropMarkParser
   def self.parse(html, mark)
@@ -9,7 +10,7 @@ class IndpropMarkParser
       case tds[1].text
       when 'Znenie OZ / Reprodukcia známky' then
         if (img = tds[2].search('img').first)
-          mark.illustration_url = "http://registre.indprop.gov.sk#{img[:src]}"
+          mark.illustration_url = "#{Indprop::REGISTER_URL}#{img[:src]}"
         else
           mark.name = tds[2].text
         end
