@@ -5,7 +5,7 @@ describe Indprop::PageSearch do
     hits = stub
     marks = stub
     params = {
-      "value(majitel)" => "*term*",
+      "value(majitel)" => "term",
       "value(register)" => "oz",
       "value(page)" => 2
     }

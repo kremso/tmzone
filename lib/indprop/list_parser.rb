@@ -10,8 +10,11 @@ module Indprop
   class ListParser
     def parse(html, factory = Mark)
       @doc = Nokogiri::HTML(html)
-      hits = @doc.search('.listItemTitle span a').collect do |link|
-        factory.new(detail_url: "#{Indprop::REGISTER_URL}#{CGI.unescape(link[:href])}")
+      hits = @doc.search('.listItem').collect do |hit|
+        link = hit.search('.listItemTitle span a').first
+        detail_url =  "#{Indprop::REGISTER_URL}#{CGI.unescape(link[:href])}"
+        status = hit.search('.tlist_col6').first.text
+        factory.new(detail_url: detail_url, status: status)
       end
       [hits, next_page_number]
     end

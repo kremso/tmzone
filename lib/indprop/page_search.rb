@@ -8,7 +8,7 @@ module Indprop
 
     def search(term, page_number, hit_fetcher, marks_fetcher)
       params = {
-        "value(majitel)" => "*#{term}*",
+        "value(majitel)" => "#{term}",
         "value(register)" => "oz",
         "value(page)" => page_number
       }
