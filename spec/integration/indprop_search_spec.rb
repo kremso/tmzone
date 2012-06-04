@@ -4,11 +4,10 @@ require 'vcr_helper'
 describe "Indprop search" do
   it 'fetches results for the given query and page number' do
     VCR.use_cassette("indprop") do
-      results = Indprop.search("eset", 1)
-      results.hits.should have(10).marks
-      results.hits.first.registration_number.should == "219039"
-      results.hits.last.registration_number.should == "214095"
-      results.next_page_number.should == 2
+      marks = Indprop.search("eset")
+      marks.should have(10).marks
+      marks.first.registration_number.should == "219039"
+      marks.last.registration_number.should == "214095"
     end
   end
 end
