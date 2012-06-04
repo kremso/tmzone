@@ -1,4 +1,4 @@
-require 'indprop_mark_fetcher'
+require 'indprop/indprop_mark_fetcher'
 
 describe IndpropMarkFetcher do
   let(:downloader) { double(:Downloader) }

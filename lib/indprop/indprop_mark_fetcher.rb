@@ -1,5 +1,5 @@
 require 'net_http_downloader'
-require 'indprop_mark_parser'
+require 'indprop/indprop_mark_parser'
 
 class IndpropMarkFetcher
   def self.fetch_mark(hit, downloader = NetHttpDownloader, parser = IndpropMarkParser)

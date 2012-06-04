@@ -1,4 +1,4 @@
-require 'indprop_search'
+require 'indprop/indprop_search'
 require 'ostruct'
 
 describe IndpropSearch do

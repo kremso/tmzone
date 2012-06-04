@@ -4,7 +4,7 @@ require 'nokogiri'
 require 'cgi'
 
 require 'mark'
-require 'indprop'
+require 'indprop/indprop'
 
 class IndpropListParser
   def parse(html, factory = Mark)

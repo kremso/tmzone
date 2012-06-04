@@ -1,4 +1,4 @@
-require 'indprop_list_parser'
+require 'indprop/indprop_list_parser'
 
 describe IndpropListParser do
 

@@ -1,4 +1,4 @@
-require 'indprop_search'
+require 'indprop/indprop_search'
 require 'vcr_helper'
 
 describe "Indprop search" do

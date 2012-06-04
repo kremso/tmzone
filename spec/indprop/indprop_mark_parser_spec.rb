@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-require 'indprop_mark_parser'
+require 'indprop/indprop_mark_parser'
 
 describe IndpropMarkParser do
   context 'when parsing texual mark' do

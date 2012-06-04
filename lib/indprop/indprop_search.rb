@@ -1,5 +1,5 @@
-require 'indprop_list_parser'
-require 'indprop_mark_fetcher'
+require 'indprop/indprop_list_parser'
+require 'indprop/indprop_mark_fetcher'
 require 'net_http_downloader'
 
 class IndpropSearch
