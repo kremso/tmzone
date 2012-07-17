@@ -3,7 +3,7 @@ class Mark
     :application_date, :registration_date, :classes, :products_and_services,
     :valid_until, :detail_url, :status
 
-  def initialize(attributes)
+  def initialize(attributes = [])
     attributes.each do |name, value|
       send("#{name}=", value)
     end
