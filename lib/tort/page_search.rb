@@ -16,9 +16,5 @@ module Tort
     def has_next_page?
       @search_results_extraction_strategy.has_next_page?
     end
-
-    def next_page_number
-      @search_results_extraction_strategy.next_page_number
-    end
   end
 end

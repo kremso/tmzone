@@ -17,9 +17,5 @@ module Tort
     def has_next_page?
       @list_parser.has_next_page?
     end
-
-    def next_page_number
-      @list_parser.next_page_number
-    end
   end
 end

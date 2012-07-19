@@ -25,12 +25,6 @@ describe Tort::PageSearch do
       subject.search(instructions, downloader)
       subject.should have_next_page
     end
-
-    it 'knows the next search results page number' do
-      strategy.stub(next_page_number: 2)
-      subject.search(instructions, downloader)
-      subject.next_page_number.should == 2
-    end
   end
 
   context 'when the serach URL is not available' do

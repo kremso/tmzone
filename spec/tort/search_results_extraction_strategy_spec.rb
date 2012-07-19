@@ -21,12 +21,6 @@ describe Tort::SearchResultsExtractionStrategy do
     subject.hits.should == hits
   end
 
-  it 'returns next page number' do
-    list_parser.stub(next_page_number: 2)
-    subject.process_search_results('html')
-    subject.next_page_number.should == 2
-  end
-
   it 'knows if a results list has next page' do
     list_parser.stub(has_next_page?: true)
     subject.process_search_results('html')

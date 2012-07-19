@@ -31,7 +31,6 @@ module Tort
       if response.code == "200"
         response.body
       else
-        debugger
         raise ResourceNotAvailable
       end
     end
