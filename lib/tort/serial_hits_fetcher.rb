@@ -15,7 +15,7 @@ module Tort
           html = @downloader.download(download_instruction)
           @mark_parser.parse(html, factory.new)
         rescue Tort::ResourceNotAvailable
-          factory.new(incomplete: true, name: download_instruction.name)
+          factory.new(incomplete: true, name: "N/A") # TODO
         end
       end
     end

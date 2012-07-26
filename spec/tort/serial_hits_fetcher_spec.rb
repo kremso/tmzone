@@ -20,15 +20,13 @@ describe Tort::SerialHitsFetcher do
   end
 
   context 'when the hit cannot be retrieved' do
-    it 'marks the hit as unavailable and retains its original name' do
-      name = 'name'
-      mark_download_instructions = stub(name: name)
+    it 'marks the hit as unavailable' do
       hit = stub
       factory = stub
 
-      downloader.should_receive(:download).with(mark_download_instructions).and_raise(Tort::ResourceNotAvailable)
-      factory.should_receive(:new).with(incomplete: true, name: name)
-      subject.fetch_hits([mark_download_instructions], factory)
+      downloader.should_receive(:download).and_raise(Tort::ResourceNotAvailable)
+      factory.should_receive(:new).with(incomplete: true, name: "N/A")
+      subject.fetch_hits([stub], factory)
     end
   end
 end

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Tort
   class MarkValidityFilter
     def initialize(decorated_fetcher, valid_statuses)

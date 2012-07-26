@@ -12,21 +12,15 @@ module Tort
 
         tds = doc.search('td')
         current = 0
-        owner_name_used, nice_classification_used = false
+        owner_name_used = false
         while current < tds.length - 1
           title = tds[current].text.strip
           value = tds[current+1].text.strip
           case title
-          when "Trade mark name :" then mark.name = value
+          when "Trade mark name :" then mark.name = value.gsub("\u00A0", " ")
           when "Trade mark No :" then mark.application_number = value
           when "Filing date:" then mark.application_date = Date.parse(value).strftime('%d.%m.%Y')
           when "Date of registration:" then mark.registration_date = Date.parse(value).strftime('%d.%m.%Y')
-          when "Nice Classification:" then
-            unless nice_classification_used
-              mark.classes = value.match(/(\d+)/)[1]
-              nice_classification_used = true
-            end
-          when "List of goods and services" then mark.products_and_services = value
           when "Expiry Date:" then mark.valid_until = Date.parse(value).strftime('%d.%m.%Y')
           when "Status of trade mark:" then mark.status = tds[current+1].search('a').first.text
           when "Name:" then
@@ -37,7 +31,29 @@ module Tort
           end
           current += 1
         end
+
+        section = doc.search('p.sResultHeader:contains("List of goods and services")').first
+        if section
+          nice_table = find_parent(section, 'table').next
+          nice_table.search('tr').each do |tr|
+            tds = tr.search('td')
+            if tds[0].text == "Nice Classification:"
+              nice_code = tds[1].text
+              nice_description = tr.next.search('td')[1].text.strip
+              mark.add_class(nice_code, nice_description)
+            end
+          end
+        end
+
         mark
+      end
+
+      def find_parent(root, target_element_name)
+        current_element = root
+        begin
+          current_element = current_element.parent
+        end while current_element.name != target_element_name && current_element
+        current_element
       end
     end
   end

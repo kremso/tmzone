@@ -10,8 +10,7 @@ describe Tort::CTM::MarkParser do
       mark.should_receive(:application_number=).with("000105858")
       mark.should_receive(:application_date=).with("01.04.1996")
       mark.should_receive(:registration_date=).with("28.10.1998")
-      mark.should_receive(:classes=).with("32")
-      mark.should_receive(:products_and_services=).with("Beer, ale and porter; mineral and aerated waters and other non-alcoholic drinks; syrups and other preparations for making beverages.")
+      mark.should_receive(:add_class).with("32", "Beer, ale and porter; mineral and aerated waters and other non-alcoholic drinks; syrups and other preparations for making beverages.")
       mark.should_receive(:valid_until=).with("01.04.2016")
       mark.should_receive(:status=).with('Registered')
       subject.parse(File.read('spec/fixtures/ctm/textual_mark.html'), mark)
@@ -28,16 +27,27 @@ describe Tort::CTM::MarkParser do
       mark.should_receive(:application_number=).with("000105437")
       mark.should_receive(:application_date=).with("01.04.1996")
       mark.should_receive(:registration_date=).with("25.05.1998")
-      mark.should_receive(:classes=).with("32")
-      mark.should_receive(:products_and_services=).with("Beers; mineral and aerated waters and other non-alcoholic drinks; fruit drinks and fruit juices; syrups and other preparations for making beverages.")
+      mark.should_receive(:add_class).with("32", "Beers; mineral and aerated waters and other non-alcoholic drinks; fruit drinks and fruit juices; syrups and other preparations for making beverages.")
       mark.should_receive(:valid_until=).with("01.04.2006")
       mark.should_receive(:status=).with('Registration expired')
       subject.parse(File.read('spec/fixtures/ctm/visual_mark.html'), mark)
     end
   end
 
+  context 'when parsing CTM error report' do
+    it 'raises and exception'
+  end
+
+  it 'parses multiple nice classes correctly' do
+    mark = stub(:Mark).as_null_object
+    mark.should_receive(:add_class).with("9", "Telecommunication apparatus; apparatus for transmitting sound, pictures or data.")
+    mark.should_receive(:add_class).with("37", "Service of telecommunication installations.")
+    mark.should_receive(:add_class).with("38", "Telecommunication; rental of telecommunication installations.")
+    subject.parse(File.read('spec/fixtures/ctm/meditec.html'), mark)
+  end
+
   it 'returns the mark' do
-    mark = double(:Hit).as_null_object
+    mark = stub.as_null_object
     subject.parse(File.read('spec/fixtures/ctm/visual_mark.html'), mark).should == mark
   end
 end

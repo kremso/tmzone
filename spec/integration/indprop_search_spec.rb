@@ -1,21 +1,25 @@
 require 'tort/indprop'
 require 'vcr_helper'
 
-describe "Indprop search" do
-  it 'fetches results for the given query and page number' do
-    VCR.use_cassette("indprop_eset") do
-      marks = Tort::Indprop.search("*eset*", 1)
-      marks.should have(10).marks
-      marks.first.registration_number.should == "219039"
-      marks.last.registration_number.should == "214095"
-    end
-  end
+describe "CTM search" do
+  it 'finds all search results' do
+    first_call = true
+    VCR.use_cassette('indprop_eset') do
+      Tort::Indprop.search("eset") do |results|
+        if first_call
+          results.size.should == 10
+          results.source.should == "Indprop"
+          results.total.should == 17
+          results.hits.collect(&:name).should include("Eset Smart Security", "VIRUS RADAR")
 
-  it 'discards marks that are not valid' do
-    VCR.use_cassette("indprop_pepsi") do
-      marks = Tort::Indprop.search("pepsi", 1)
-      marks.should have(1).mark
-      marks.first.application_number.should == "362-2012"
+          first_call = false
+        else
+          results.size.should == 7
+          results.source.should == "Indprop"
+          results.total.should == 17
+          results.hits.collect(&:name).should include("NOD32", "eset softwae")
+        end
+      end
     end
   end
 end

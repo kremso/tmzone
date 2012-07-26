@@ -1,0 +1,1505 @@
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+
+<html lang="en">
+<head>
+ <base href="http://www.wipo.int/romarin/WEB-INF/jsp/list.jsp">
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
+ <title>  Simple search   </title>
+ <link href="http://www.wipo.int/export/sites/www/shared/css/default_2010.css" type="text/css" rel="stylesheet" media="screen">
+ <link href="http://www.wipo.int/export/sites/www/shared/css/tabmenu_2010.css" type="text/css" rel="stylesheet" media="screen">
+ <link href="http://www.wipo.int/export/sites/www/shared/scripts/udm4.5/udm-style_2010.css" media="screen,projection" rel="stylesheet" type="text/css">
+ 
+
+ <link href="/romarin//shared/css/print_2010.css" rel="stylesheet" type="text/css" media="print">
+ 
+ <link href="/madrid/en/rss" type="application/rss+xml" rel="alternate" title="RSS News Feed on Madrid System"/>
+ 
+ <!--
+ <link href="/romarin//shared/css/default.css" rel="stylesheet" type="text/css" media="screen">
+ <link href="/romarin//shared/css/default_2010.css" rel="stylesheet" type="text/css" media="screen"> 
+ <link href="http://www.wipo.int/export/sites/www/shared/css/print_2010.css" rel="stylesheet" type="text/css" media="print">
+ <link href="/romarin//shared/css/default_2010.css" rel="stylesheet" type="text/css" media="screen">
+ <link href="/romarin//shared/css/tabmenu_2010.css" type="text/css" rel="stylesheet">
+ <link href="/romarin//shared/css/udm-style_2010.css"  rel="stylesheet" type="text/css" media="screen,projection">
+
+ <link href="/romarin//shared/css/romarin_print.css"  rel="stylesheet" type="text/css"  media="print"> -->
+ 
+  <link href="/romarin//shared/css/romarin.css" rel="stylesheet" type="text/css" media="screen">
+ <link rel="search" type="application/opensearchdescription+xml" title="English language search"  href="/romarin//shared/osd/romarinEN.osd" />
+ 
+
+<script type="text/javascript" src="http://www.wipo.int/export/sites/www/shared/scripts/udm4.5/udm-custom.js"></script>
+<script type="text/javascript" src="http://www.wipo.int/export/sites/www/shared/scripts/udm4.5/udm-control.js"></script>
+<script type="text/javascript" src="http://www.wipo.int/export/sites/www/shared/scripts/udm4.5/menu-wipo.js"></script>
+<script type="text/javascript" src="http://www.wipo.int/export/sites/www/shared/scripts/menu/custom-en.js"></script>
+<script type="text/javascript" src="http://www.wipo.int/export/sites/www/shared/scripts/udm4.5/udm-dom.js"></script>
+<script type="text/javascript" src="http://www.wipo.int/export/sites/www/shared/scripts/udm4.5/udm-mod-keyboard.js"></script>
+
+ <script language="JavaScript1.1" src="/romarin//shared/scripts/romarin.js" type="text/javascript"> </script>
+ 
+
+
+
+
+
+
+
+
+<LINK href="/romarin//shared/css/jquery.tabs-ie.css" type=text/css rel=stylesheet>
+<LINK href="/romarin//shared/css/jquery.tabs.css" type=text/css rel=stylesheet media="print, projection, screen">
+<LINK href="/romarin//shared/css/jquery-ui.css" type=text/css rel=stylesheet media="screen,projection">
+
+<script src="/romarin//shared/scripts/jquery-1.1.3.1.pack.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/jquery-last.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/jquery-widget.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/jquery-tabs.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/jquery-ui-core.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/jquery-ui.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/smoothscroll.js" type="text/javascript"></script>
+<SCRIPT src="/romarin//shared/scripts/custom.js" type=text/javascript></SCRIPT>
+<SCRIPT src="/romarin//shared/scripts/udm-control.js" type=text/javascript></SCRIPT>
+<!--<SCRIPT src="/romarin//shared/scripts/menu-wipo.js" type=text/javascript></SCRIPT>-->
+<SCRIPT src="www.wipo.int//export/sites/www/shared/scripts/udm4.5/menu-wipo.js" type=text/javascript></SCRIPT>
+
+
+
+
+	<!-- <SCRIPT src="/romarin//shared/scripts/custom-en.js" type=text/javascript></SCRIPT>-->
+	<SCRIPT src="www.wipo.int/export/sites/www/shared/scripts/menu/custom-en.js" type=text/javascript></SCRIPT>
+
+
+
+
+
+<SCRIPT src="/romarin//shared/scripts/udm-dom.js" type=text/javascript></SCRIPT>
+<SCRIPT src="/romarin//shared/scripts/udm-mod-keyboard.js" type=text/javascript></SCRIPT>
+<script src="/romarin//shared/scripts/jquery.history_remote.pack.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/jquery.dimensions.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/accordeon.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/animate_fichiers/track.js" type="text/javascript"></script>
+<script src="/romarin//shared/scripts/boxover.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+function expandToggle(control){
+	$('#'+control).slideToggle('slow');
+	$('#'+control+'BtnCollapse').toggle();
+	$('#'+control+'BtnExpand').toggle();
+}
+
+
+
+$(function() {
+/*
+    $('#container-1').tabs();
+    $('#container-2').tabs(2);
+    $('#container-3').tabs({ fxSlide: true });
+    $('#container-4').tabs({ fxFade: true, fxSpeed: 'fast'});
+    $('#container-5').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'normal' });
+    $('#container-6').tabs({
+        fxFade: true,
+        fxSpeed: 'fast',
+        onClick: function() {
+            alert('onClick');
+        },
+        onHide: function() {
+            alert('onHide');
+        },
+        onShow: function() {
+            alert('onShow');
+        }
+    });
+    $('#container-7').tabs({ fxAutoHeight: true });
+    $('#container-8').tabs({ fxShow: { height: 'show', opacity: 'show' }, fxSpeed: 'normal' });
+    $('#container-9').tabs({ remote: true });
+    $('#container-10').tabs();
+    $('#container-11').tabs({ disabled: [3] });
+
+    $('<p><a href="#">Disable third tab<\/a><\/p>').prependTo('#fragment-28').find('a').click(function() {
+        $(this).parents('div').eq(1).disableTab(3);
+        return false;
+    });
+    $('<p><a href="#">Activate third tab<\/a><\/p>').prependTo('#fragment-28').find('a').click(function() {
+        $(this).parents('div').eq(1).triggerTab(3);
+        return false;
+    });
+    $('<p><a href="#">Enable third tab<\/a><\/p>').prependTo('#fragment-28').find('a').click(function() {
+        $(this).parents('div').eq(1).enableTab(3);
+        return false;
+    });*/
+
+});
+var timeLength = 8000;
+jQuery.fn.sortElements = (function(){
+	 
+    var sort = [].sort;
+ 
+    return function(comparator, getSortable) {
+ 
+        getSortable = getSortable || function(){return this;};
+ 
+        var placements = this.map(function(){
+ 
+            var sortElement = getSortable.call(this),
+                parentNode = sortElement.parentNode,
+ 
+                // Since the element itself will change position, we have
+                // to have some way of storing its original position in
+                // the DOM. The easiest way is to have a 'flag' node:
+                nextSibling = parentNode.insertBefore(
+                    document.createTextNode(''),
+                    sortElement.nextSibling
+                );
+ 
+            return function() {
+ 
+                if (parentNode === this) {
+                    throw new Error(
+                        "You can't sort elements if any one is a descendant of another."
+                    );
+                }
+ 
+                // Insert before flag:
+                parentNode.insertBefore(this, nextSibling);
+                // Remove flag:
+                parentNode.removeChild(nextSibling);
+ 
+            };
+ 
+        });
+ 
+        return sort.call(this, comparator).each(function(i){
+            placements[i].call(getSortable.call(this));
+        });
+ 
+    };
+ 
+})();
+/*
+$(document).ready(
+	function()
+	{
+		
+		$('#propertiesToAnimate').find('.imputSearch').each(function() {
+			if ($(this).val() == '') {
+				$(this).parent().parent().parent().parent().parent().hide();
+			}
+		});
+		$('#animateClass').bind(
+			'click',
+			function()
+			{
+				$('#ifxElement').animate(
+					{
+						className: $('#classToAnimate').val()
+					},
+					parseInt($('#animationSpeed').val())
+				);
+				$('pre').text(
+				"$('#ifxElement').animate(\n"
+				+"	{\n"
+				+"		className: '" + $('#classToAnimate').val() + "'\n"
+				+"	},\n"
+				+"	1000\n"
+				+")\n"
+				);
+				
+			}
+		);
+		$('#animateStyle').bind(
+			'click',
+			function()
+			{
+				$('#ifxElement').animate(
+					{
+						style: $('#styleToAnimate').val()
+					},
+					parseInt($('#animationSpeed').val())
+				);
+				$('pre').text(
+				"$('#ifxElement').animate(\n"
+				+"	{\n"
+				+"		style: '" + $('#styleToAnimate').val().replace(/\n/g, '') + "'\n"
+				+"	},\n"
+				+"	1000\n"
+				+")\n"
+				);
+			}
+		);
+		$('#addProperty').bind(
+			'click',
+			function()
+			{
+				$('#propertiesToAnimate')
+					//.append('<div class="elements"><table border="0" cellspacing="0" cellpadding="0" style="float:left"><tr><td style=" width:110px"><select name="operator" class="selectSearch"><option value="AND" selected>AND</option><option value="OR">OR</option><option value="AND NOT">ANDNOT</option><option value="OR NOT">ORNOT</option></select></td><td style=" width:300px"><select name="singleSelect" class="selectSearch"><option selected>Type de recherche</option><option value="IRN">Numéro de l enregistrement international</option><option value="HOL">Titulaire</option><option value="REP">Mandataire</option><option value="MAR">Marque</option><option value="VC">Classification de Vienne</option><option value="NCL">Classification de Nice</option><option value="GSE">Produits et services (anglais)</option><option value="GSF">Produits et services (français)</option><option value="GSS">Produits et services (espagnol)</option><option value="ORI">Office d origine</option><option value="OBA">Numéro de la demande de base</option><option value="OBR">Numéro de l enregistrement de base</option><option value="DSA">Parties contractantes désignées</option><option value="OBD">Date d enregistrement</option></select></td>							<td style="text-align:left; width:30px"><a href="#"><img src="images/info.gif" title="header=[INFO] body=[Texte pour l info</p>]"></a></td><td style=" width:110px"><input name="term" value="" type="text" class="imputSearch"></td></tr></table><a href="#" class="info"><img src="images/moins.gif" title="-"></a></div>')
+					.find('.elements:hidden:first').show();
+					//.find('a:last')
+					//.bind('click', removeProperty);
+				return false;
+			}
+		);
+		$('#propertiesToAnimate a').bind('click', removeProperty);
+		$('#animateProperties').bind(
+			'click',
+			function()
+			{
+				var props = {};
+				var propsText = "";
+				$('#propertiesToAnimate div').each(
+					function()
+					{
+						var inps = $('input', this);
+						props[inps[0].value] = inps[1].value;
+						propsText += "		" + inps[0].value + ": '" + inps[1].value + "',\n";
+					}
+				);
+				$('#ifxElement').animate(
+					props,
+					parseInt($('#animationSpeed').val())
+				);
+				$('pre').text(
+				"$('#ifxElement').animate(\n"
+				+"	{\n"
+				+propsText
+				+"	},\n"
+				+"	1000\n"
+				+")\n"
+				);
+			}
+		);
+		$('#animateAll').bind(
+			'click',
+			function()
+			{
+				var props = {};
+				var propsText = "";
+				$('#propertiesToAnimate div').each(
+					function()
+					{
+						var inps = $('input', this);
+						props[inps[0].value] = inps[1].value;
+						propsText += "		" + inps[0].value + ": '" + inps[1].value + "',\n";
+					}
+				);
+				props.className = $('#classToAnimate').val();
+				props.style = $('#styleToAnimate').val();
+				$('#ifxElement').animate(
+					props,
+					parseInt($('#animationSpeed').val())
+				);
+				$('pre').text(
+				"$('#ifxElement').animate(\n"
+				+"	{\n"
+				+"		className: '" + $('#classToAnimate').val() + "',\n"
+				+"		style: '" + $('#styleToAnimate').val().replace(/\n/g, '') + "',\n"
+				+propsText
+				+"	},\n"
+				+"	1000\n"
+				+")\n"
+				);
+			}
+		);
+	}
+);*/
+var removeProperty = function()
+{
+
+	var elt = $(this).parent();
+	$(elt).find('.imputSearch').val('');
+	$(elt).hide();
+	/*
+	var d = $(elt).parent();
+	alert(d.styleClass);
+	/*$(elt).hide();
+	$(elt).find('.imputSearch').val('');
+	$(elt).insertAfter(d.find('.elements:last'));
+	*/
+	//$('#propertiesToAnimate').find('.elements:hidden:first').show();
+	return false;
+}
+</script>
+</head>
+
+<body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
+ 
+
+
+
+
+
+
+
+
+
+<link href="/madrid/en/rss" type="application/rss+xml" rel="alternate" title="RSS News Feed on Madrid System"/>
+
+<div id="header">
+	<div id="leftHeader">
+	 	  <div id="mainLogo"><a href="http://www.wipo.int/portal/index.html.en"><img src="/romarin//shared/images/page/logo.gif" alt="WIPO Home" border="0" ></a></div>
+		  <div id="siteLogo" style="z-index: 20 !important;"><IMG style="z-index: 15 !important;" SRC="/romarin//shared/images/page/madrid.gif" WIDTH=400 HEIGHT=70></div>
+	</div>
+	<div id="rightHeader">
+	<div id="searchBox" class="tools">
+		<ul class='barSeparated'>
+                
+					<li class='listFirst'><a class='tools' href='/romarin//processLocalization.do?language=es'>Espa&#241;ol</a></li>
+					<li><a class='tools' href='/romarin//processLocalization.do?language=fr'>Fran&#231;ais</a></li>
+                
+                
+               
+                
+		</ul>
+		
+			<form action="http://www.wipo.int/tools/en/gsearch.html" id="searchbox_000395567151317721298:aqrs59qtjb0">
+				<label for="sitesearchbox">
+				<input type="hidden" value="000395567151317721298:aqrs59qtjb0" name="cx">
+				<input type="hidden" value="FORID:11" name="cof">
+				<input class="searchbox" id="sitesearchbox" name="q" size="20"></label>
+				<input class="searchbox" type="submit" value="Search" name="sa">
+			</form>
+			<ul class="barSeparated">
+	
+				<li class="listFirst"><a class='tools' href="http://www.wipo.int/contact/en/">Contact us</a></li>
+				<li><a class='tools' href="http://www.wipo.int/accessibility/en/">Accessibility</a></li>
+				<li><a class='tools' href='http://www.wipo.int/tools/en/sitemap.html'>Site map</a></li>
+			
+			</ul>
+		
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+<!--
+writeMenu();
+//-->
+
+</script>
+<div id='navigationBarBackgroundServices'>&nbsp;</div>
+	
+	
+	<div id='siteIdentifier'>
+		<img src='/romarin//shared/images/page/wipo-grey_en.gif' ALT='World Intellectual Property Organization'>
+		</div>
+	
+	
+	
+<div id="navigation">
+	<ul>
+		<li class='firstNav'><a href="http://www.wipo.int/portal/index.html.en">Home</a></li>
+		<li><a href='http://www.wipo.int/services/en/'>IP Services</a></li>
+		<li><a href='http://www.wipo.int/madrid/en/'>Madrid System for the International Registration of Marks</a></li>
+		<li class='lastNav'><a href='http://www.wipo.int/romarin/'>ROMARIN</a></li>
+	</ul>
+</div>
+<!-- header end here -->
+
+
+<!-- start of content main table -->
+
+
+      <!-- start of MENU section -->
+                   
+
+
+
+ 
+ 
+
+<!-- menu starts here -->
+<div ID="l-col">
+	<div class="vnav"><h3><a href="/romarin">ROMARIN</a></h3>
+<ul>
+
+<!-- menu line 2 -->
+<li>
+<a href="/romarin/newSearch.do">Simple search</a>
+</li>
+<!-- menu line 3 -->
+<li>
+<a href="/romarin/newAdvSearch.do">Advanced search</a>
+</li>
+<!-- menu line 4 -->
+
+<li>
+<a href="/romarin/preferences.do">Preferences</a>
+</li>
+
+
+
+
+
+ 
+
+
+  
+
+<!-- menu line 7 -->
+<li><a href="/romarin//samples.do?Language=en" >
+                   	Search Examples
+                </a>
+		</li>
+<!-- menu line 8 -->
+<li>
+        	<a href="/romarin//help.do?Language=en">
+                   	Help
+                </a>
+		</li>
+<!-- menu line 9 -->
+
+
+
+<!-- menu line 10 -->
+<li>
+        	<a href="/romarin//faq.do?Language=en" >
+                   	FAQ
+                </a>
+		</li>
+
+<!-- menu line 13 -->
+<li>
+        	<a href="http://www.wipo.int/tools/en/contacts?default_area=romarin/" target="_blank">
+                   	Feedback
+                </a>
+</li>
+</ul>
+<h3>Related Links</h3>
+<ul>
+<!-- menu line 11 -->
+<li>
+        	<a href="http://www.wipo.int/classifications/nivilo/nice/index.htm" target="_blank">
+                   	Nice Classification
+                </a>
+		</li>
+<!-- menu line 12 -->
+<li>
+        	<a href="http://www.wipo.int/classifications/nivilo/vienna/index.htm" target="_blank">
+                   	Vienna Classification
+                </a>
+		</li>
+<!-- Links line 1 -->
+<li>
+      	<a href="http://www.wipo.int/wipogold/en/" target="_blank">WIPO GOLD
+        </a>
+</li>
+<!-- Links line 2 -->
+<li>
+      	<a href="http://www.wipo.int/madrid/en/" target="_blank">
+                   	Trademarks(Madrid System)
+        </a>
+</li>
+<!-- Links line 3 -->
+<li>
+      	<a href="http://www.wipo.int/standards/en/pdf/03-60-01.pdf#INID" target="_blank">
+                   	Inid Codes
+        </a>
+</li>
+<!-- Links line 4 -->
+<li>
+      	<a href="http://www.wipo.int/export/sites/www/scit/en/standards/pdf/03-03-01.pdf#codes" target="_blank">
+                   	Country/Office Codes
+        </a>
+</li>
+
+</ul>
+</div>
+</div>
+<!-- menu end here -->
+
+      <!-- end of MENU section -->
+<div id="wrapper">
+	<div ID="main">
+		<div ID="c-col">  
+              	
+
+
+
+<script>
+function expandAll(fragment) {
+	$('#' + fragment).find('.collapse').show();
+	$('#' + fragment).find('.expand').hide();
+	$('#' + fragment).find('.box_content').each(function () {
+		var control = $(this).attr('id');
+		$(this).show();
+		$('#'+control+'BtnCollapse').show();
+		$('#'+control+'BtnExpand').hide();
+	});
+}
+function collapseAll(fragment) {
+	$('#' + fragment).find('.collapse').hide();
+	$('#' + fragment).find('.expand').show();
+	$('#' + fragment).find('.box_content').each(function () {
+		var control = $(this).attr('id');
+		$(this).hide();
+		$('#'+control+'BtnCollapse').hide();
+		$('#'+control+'BtnExpand').show();
+	});
+}
+function hideExpandation(fragment) {
+	if ($('#' + fragment).find('.box_content').length == 0) {
+		$('#' + fragment).find('.expand-content').hide();
+	}
+}
+
+</script>
+
+
+<div id="backToResult" class="floating-link">
+	<a href="/romarin//searchHit.do">
+		<img src="/romarin//shared/images/top.gif" border="0"></img>
+		<!--back to result-->
+	</a>
+</div>
+<script>
+                var tab_US = new Array(
+                 "div_N10009",
+                 "div_N1006F",
+                 "div_N1009F",
+                 "div_N100A7",
+                
+                "end");
+              
+          
+          var tabs;
+          /*$(document).ready( function() {
+				$('.collapse').toggle();
+				$('.fragment').each(function() {
+					hideExpandation($(this).attr('id'));
+				});
+				$('.fragment').find('.expandall').each(function() {
+					$(this).click(function(){
+						expandAll($(this).parent().parent().parent().attr('id'));
+					});
+					
+				});
+				$('.fragment').find('.collapseall').each(function() {
+					$(this).click(function(){
+						collapseAll($(this).parent().parent().parent().attr('id'));
+					});
+					
+				});
+				
+		  });
+		  */
+          function accessCountry(id, country) {
+            var array = eval("tab_" + country); 
+            collapseAll("fragment-detail");
+            for (var i = 0; i < array.length; i++) {
+            	var idToOpen = array[i];
+            	if (idToOpen == "end") {
+            		break;
+            	}
+            	idToOpen = idToOpen.substring(4);
+            	expandBlock(idToOpen);
+            }
+          
+          	/*var $tabs = $('#container-4').tabs('select', 2); // first tab selected
+          	var id = id.substring(8);
+          	expandBlock(id);
+          	var x = $("#" + id).parent().prev().offset().top;
+          	$('html,body').animate({scrollTop: x}, 0);
+          	*/
+          	
+          	
+          	return false;
+          }
+          
+         
+          function expandBlock(control){
+	
+				$('#'+control).show();
+				$('#'+control+'BtnCollapse').show();
+				$('#'+control+'BtnExpand').hide();
+				
+		  }
+			
+          function expandToggle(control){
+	
+				$('#'+control).slideToggle('fast');
+				$('#'+control+'BtnCollapse').toggle();
+				$('#'+control+'BtnExpand').toggle();
+				return false;
+			}
+
+            //function printpr()
+            //{
+            //  var OLECMDID = 7;
+              /* OLECMDID values:
+              * 6 - print
+              * 7 - print preview
+              * 1 - open window
+              * 4 - Save As
+              */
+            //  var PROMPT = 1; // 2 DONTPROMPTUSER
+            //  var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH=0 HEIGHT=0 CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+            //  document.body.insertAdjacentHTML('beforeEnd', WebBrowser);
+            //  WebBrowser1.ExecWB(OLECMDID, PROMPT);
+            //  WebBrowser1.outerHTML = "";
+            //}
+          
+        </script><div id="romarin">
+<div id="backNext">
+<div class="top"></div>
+<div class="body">
+<ul class="back">
+<li>
+<a href="/romarin//detail.do?ID=4&move=fwd" class="suivant">Next</a>
+</li>
+</ul>
+</div>
+</div>
+<div style="width:785px;" id="container-4">
+<div id="currentDate">Printed : 24/07/2012</div>
+<ul>
+<li>
+<a href="#fragment-detail"><span>Full details</span></a>
+</li>
+<li>
+<a href="#fragment-summary"><span>Summary</span></a>
+</li>
+<li>
+<a href="#fragment-office"><span>By Office</span></a>
+</li>
+<li>
+<a href="#fragment-docs"><span>Documents</span></a>
+</li>
+</ul>
+<div class="fragment" style="float:left; width:785px;" id="fragment-detail">
+<div style="display:none" class="description">
+<span onclick="javascript:printpr();" style="cursor:hand; font-weight:bold;" class="popup">Print preview</span>
+<br>
+<span onclick="javascript:print();" style="cursor:hand; font-weight:bold;" class="popup">Print</span>
+<br>
+<a href="/romarin//detail.do?ID=4&PDF=y" target="PDF"><img src="/romarin//shared/images/ico_pdf.gif" border="0" style="noDeco" title="PDF"></a>
+</div>
+<div id="titre2">
+<div class="markname">1016002 - ESET SMARTEST SECURITY</div>
+<div class="expand-content ">
+<div style="float:left" class="expandation floating-link expand">
+<div class="arrow">
+<img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></div>
+<div class="txt expandall">expand all</div>
+</div>
+<div style="float:left" class="expandation floating-link collapse">
+<div class="arrow">
+<img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></div>
+<div class="txt collapseall">collapse all</div>
+</div>
+<div class="floating-link pdfDetail">
+<a href="/romarin//detail.do?PDF=Y&ID=4" target="PDFPrint"><img src="/romarin//shared/images/ico_pdf.gif" border="0"></a>
+</div>
+</div>
+</div>
+<div class="ligneBox">
+<div class="top"></div>
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td style="vertical-align:top; padding:10px 0 0 20px">Countries</td><td>
+<div class="txt">
+<ul>
+<li class="pays">
+<a id="head_cp_N1006A" href="javascript:void(null);" onclick="accessCountry(this.id, 'US');" title="United States of America">US</a>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+<div class="bottom"></div>
+</div>
+<div class="description">
+<div class="p">
+<div class="txtUp">
+<div class="nb">151</div>
+<div class="txtDescTitle">Date of the registration</div>
+</div>
+<div class="txtDesc">28.05.2009</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">180</div>
+<div class="txtDescTitle">Expected expiration date of the registration/renewal</div>
+</div>
+<div class="txtDesc">28.05.2019</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">270</div>
+<div class="txtDescTitle">Language of the application</div>
+</div>
+<div class="txtDesc">English<br>
+</div>
+</div>
+</div>
+<div class="ligneBox">
+<div class="top"></div>
+<div class="left">
+<div id="N10009BtnExpand" class="masquer textHide">
+<a href="javascript:void(null);" onclick="expandToggle('N10009');"><img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+<div id="N10009BtnCollapse" class="masquer textShow" style="display:none;">
+<a href="javascript:void(null);" onclick="expandToggle('N10009');"><img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+</div>
+<div class="txt">
+<ul>
+<li>
+<a href="javascript:void(null);" onclick="expandToggle('N10009');">
+<div class="txtDesc">Current Status<br>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="description">
+<div id="N10009" class="box_content" style="display:none">
+<div class="retreci">
+<div class="p">
+<div class="txtUp">
+<div class="nb">732</div>
+<div class="txtDescTitle">Name and address of the holder of the registration</div>
+</div>
+<div class="txtDesc">
+<div>ESET, spol. s r.o.&nbsp; 
+          </div>
+<div>Einsteinova 24&nbsp;
+	              </div>
+<div>SK-851 01 Bratislava&nbsp;
+	              <span class="popup" onclick="javascript:displayCountry('SK');" title="Slovakia">
+	                  (SK)
+	                </span>
+</div>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">811</div>
+<div class="txtDescTitle">Contracting State of which the holder is a national</div>
+</div>
+<div class="txtDesc">
+<span title="Slovakia
+			                  test4
+		                  ">SK</span>
+</div>
+</div>
+<div class="p"></div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">740</div>
+<div class="txtDescTitle">Name and address of the representative</div>
+</div>
+<div class="txtDesc">
+<div>Ing. Edita Litv&aacute;kov&aacute;&nbsp; 
+          </div>
+<div>Pluhov&aacute; 78&nbsp;
+	              </div>
+<div>SK-831 03 Bratislava&nbsp;
+	              <span class="popup" onclick="javascript:displayCountry('SK');" title="Slovakia">
+	                  (SK)
+	                </span>
+</div>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">770</div>
+<div class="txtDescTitle">Name and address of the previous holder</div>
+</div>
+<div class="txtDesc">
+<div>ESET, spol. s r.o.&nbsp; 
+          </div>
+<div>Pionierska 9/A&nbsp;
+	              </div>
+<div>Bratislava&nbsp;
+	              <span class="popup" onclick="javascript:displayCountry('SK');" title="Slovakia">
+	                  (SK)
+	                </span>
+</div>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">540</div>
+<div class="txtDescTitle">Mark</div>
+</div>
+<div class="txtDesc">ESET SMARTEST SECURITY</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">541</div>
+<div class="txtDescTitle">Reproduction of the mark where the mark is represented in standard characters</div>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">511</div>
+<div class="txtDescTitle">International Classification of Goods and Services for the Purposes of the Registration of Marks (Nice Classification)
+						 - 
+         NCL(9)
+       </div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">09&nbsp;
+			     </div>
+<div class="txtDescRich">
+Computer software; computer software for data protection;
+ data processing apparatus and equipment; computers and
+ parts therefore; computer accessories; computer peripheral
+ devices.
+&nbsp;<br>
+</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">38&nbsp;
+			     </div>
+<div class="txtDescRich">
+Communications by computer terminals; transmission of
+ messages and images by computer.
+&nbsp;<br>
+</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">41&nbsp;
+			     </div>
+<div class="txtDescRich">
+Provision of on-line electronic publications (not
+ downloadable); publication of books and magazines in
+ electronic form; publishing texts in electronic form
+ (except advertising and recruitment texts).
+&nbsp;<br>
+</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">42&nbsp;
+			     </div>
+<div class="txtDescRich">
+Creating and developing computer software, in particular
+ data protection software; providing computer software;
+ consultancy and expert services regarding computer
+ software; providing of information relating to computer
+ software; rental of computers and peripheral equipment for
+ computers; specialist consultancy in the field of
+ computers, computer programs and data processing equipment.
+&nbsp;<br>
+</div>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">821</div>
+<div class="txtDescTitle">Basic application</div>
+</div>
+<div class="txtDesc">
+<SPAN class="popup" onclick="javascript:displayCountry('EM');" title="European Community">EM</SPAN>,
+	       19.12.2008,
+	       007481575</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">300</div>
+<div class="txtDescTitle">Data relating to priority under the Paris Convention and other data relating to registration of the mark in the country of origin</div>
+</div>
+<div class="txtDesc">
+<SPAN class="popup" onclick="javascript:displayCountry('EM');" title="European Community">EM</SPAN>,
+		       19.12.2008,
+		       007481575</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">832</div>
+<div class="txtDescTitle">Designation(s) under the Madrid Protocol</div>
+</div>
+<div class="txtDesc">
+<SPAN class="popup" onclick="javascript:displayCountry('US');" title="United States of America">US</SPAN>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">527</div>
+<div class="txtDescTitle">Indications regarding use requirements</div>
+</div>
+<div class="txtDesc">
+<SPAN class="popup" onclick="javascript:displayCountry('US');" title="United States of America">US</SPAN>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ligneBox">
+<div class="top"></div>
+<div class="left">
+<div id="N1006FBtnExpand" class="masquer textHide">
+<a href="javascript:void(null);" onclick="expandToggle('N1006F');"><img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+<div id="N1006FBtnCollapse" class="masquer textShow" style="display:none;">
+<a href="javascript:void(null);" onclick="expandToggle('N1006F');"><img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+</div>
+<div class="txt">
+<ul>
+<li>
+<a href="javascript:void(null);" onclick="expandToggle('N1006F');">
+<div class="txtDesc">Registration
+                  :&nbsp;
+                2009/42 Gaz,
+                  05.11.2009,
+                    US<br>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="description">
+<div id="N1006F" class="box_content" style="display:none">
+<div class="retreci">
+<div class="p">
+<div class="txtUp">
+<div class="nb">450</div>
+<div class="txtDescTitle">Publication number and date</div>
+</div>
+<div class="txtDesc">2009/42 Gaz,
+                05.11.2009<br>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">832</div>
+<div class="txtDescTitle">Designation(s) under the Madrid Protocol</div>
+</div>
+<div class="txtDesc">
+<SPAN class="popup" onclick="javascript:displayCountry('US');" title="United States of America">US</SPAN>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">527</div>
+<div class="txtDescTitle">Indications regarding use requirements</div>
+</div>
+<div class="txtDesc">
+<SPAN class="popup" onclick="javascript:displayCountry('US');" title="United States of America">US</SPAN>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">851</div>
+<div class="txtDescTitle">Limitation of the list of goods and services</div>
+</div>
+<div class="txtDesc">
+<SPAN class="popup" onclick="javascript:displayCountry('US');" title="United States of America">US</SPAN>
+</div>
+<div class="txtUp">
+<div class="nb">&nbsp;</div>
+<div class="txtDescTitle">List limited to:</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">09&nbsp;
+			     </div>
+<div class="txtDescRich">
+Software for use in protecting computer databases,
+ operating programs and application programs against
+ unauthorized infiltration and corruption; data protection
+ software; machines and apparatus for data processing
+ purposes, namely, data processors; computers and structural
+ parts therefor; computer accessories; computer peripheral
+ devices, namely, computer monitors, computer joysticks,
+ computer keyboards, computer mice.
+&nbsp;<br>
+</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">38&nbsp;
+			     </div>
+<div class="txtDescRich">
+Communications by computer terminals; computer-aided
+ transmission of messages and images.
+&nbsp;<br>
+</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">41&nbsp;
+			     </div>
+<div class="txtDescRich">
+Provision of on-line, not-downloadable electronic magazines
+ featuring information, tracking and analysis of historical
+ and current computer infiltration; online electronic
+ publishing of books, periodicals and articles; online
+ electronic publishing of texts featuring information
+ related to computer software, computer infiltration and
+ computers.
+&nbsp;<br>
+</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">42&nbsp;
+			     </div>
+<div class="txtDescRich">
+Software design and development, especially data protection
+ software; software provision, namely design and development
+ of software for others; advice, consulting and expert
+ services relating to software for use in protecting
+ computer databases, operating programs and application
+ programs against unauthorized infiltration and corruption;
+ providing information in the field of computer software and
+ computers, namely providing information in the field of
+ virus protection, protecting computer databases, operating
+ programs and application programs against unauthorized
+ infiltration and corruption; rental of computers and
+ computer accessories; professional consulting and advice
+ services in the fields of selection, implementation and use
+ of computer hardware and software systems for others, virus
+ protection and protecting computer databases, operating
+ programs and application programs against unauthorized
+ infiltration and corruption.
+&nbsp;<br>
+</div>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">580</div>
+<div class="txtDescTitle">Date of recording (date of notification from which the time limit to notify the refusal starts)</div>
+</div>
+<div class="txtDesc">29.10.2009</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ligneBox">
+<div class="top"></div>
+<div class="left">
+<div id="N1009FBtnExpand" class="masquer textHide">
+<a href="javascript:void(null);" onclick="expandToggle('N1009F');"><img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+<div id="N1009FBtnCollapse" class="masquer textShow" style="display:none;">
+<a href="javascript:void(null);" onclick="expandToggle('N1009F');"><img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+</div>
+<div class="txt">
+<ul>
+<li>
+<a href="javascript:void(null);" onclick="expandToggle('N1009F');">
+<div class="txtDesc">Total provisional refusal of protection 
+                  :&nbsp;
+                2009/49 Gaz,
+                    24.12.2009,
+                  US<br>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="description">
+<div id="N1009F" class="box_content" style="display:none">
+<div class="retreci">
+<div class="txtDesc">
+<a href="http://www.wipo.int/romarin//pdf/52/24/5224246.pdf" target="PDF"><img src="/romarin//shared/images/ico_pdf.gif" border="0" style="noDeco" title="PDF"></a><span title="United States of America
+			                  test4
+		                  ">US</span>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">450</div>
+<div class="txtDescTitle">Publication number and date</div>
+</div>
+<div class="txtDesc">2009/49 Gaz,
+                  24.12.2009<br>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">&nbsp;</div>
+<div class="txtDescTitle">Date of notification</div>
+</div>
+<div class="txtDesc">01.12.2009</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">&nbsp;</div>
+<div class="txtDescTitle">Date of receipt by the International Bureau</div>
+</div>
+<div class="txtDesc">23.11.2009</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ligneBox">
+<div class="top"></div>
+<div class="left">
+<div id="N100A7BtnExpand" class="masquer textHide">
+<a href="javascript:void(null);" onclick="expandToggle('N100A7');"><img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+<div id="N100A7BtnCollapse" class="masquer textShow" style="display:none;">
+<a href="javascript:void(null);" onclick="expandToggle('N100A7');"><img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+</div>
+<div class="txt">
+<ul>
+<li>
+<a href="javascript:void(null);" onclick="expandToggle('N100A7');">
+<div class="txtDesc">Other final decision - Awaiting translation before publication 
+                  :&nbsp;
+                US<br>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="description">
+<div id="N100A7" class="box_content" style="display:none">
+<div class="retreci">
+<div class="txtDesc">
+<a href="http://www.wipo.int/romarin//pdf/56/96/5696363.pdf" target="PDF"><img src="/romarin//shared/images/ico_pdf.gif" border="0" style="noDeco" title="PDF"></a><span title="United States of America
+			                  test4
+		                  ">US</span>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">&nbsp;</div>
+<div class="txtDescTitle">List limited to:</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">09&nbsp;
+			     </div>
+<div class="txtDescRich">
+Software for use in protecting computer databases,
+ operating programs and application programs against
+ unauthorized infiltration and corruption; data protection
+ software; machines and apparatus for data processing
+ purposes, namely, data processors; computers and structural
+ parts therefor; computer accessories, namely, printers,
+ computer switches, computer routers; computer peripheral
+ devices, namely, computer monitors, computer joysticks,
+ computer keyboards, computer mice.
+&nbsp;<br>
+</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">38&nbsp;
+			     </div>
+<div class="txtDescRich">
+Communications by computer terminals; computer-aided
+ transmission of messages and images.
+&nbsp;<br>
+</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">41&nbsp;
+			     </div>
+<div class="txtDescRich">
+Provision of on-line, not-downloadable electronic magazines
+ featuring information, tracking and analysis of historical
+ and current computer infiltration; online electronic
+ publishing of books, periodicals and articles; online
+ electronic publishing of texts featuring information
+ related to computer software, computer infiltration and
+ computers.
+&nbsp;<br>
+</div>
+</div>
+<div class="txtDesc">
+<div class="txtNbRich">42&nbsp;
+			     </div>
+<div class="txtDescRich">
+Software design and development of data protection
+ software; software provision, namely, design and
+ development of software for others; advice, consulting and
+ expert services, namely, computer consultation in the field
+ of software for use in protecting computer databases,
+ operating programs and application programs against
+ unauthorized infiltration and corruption; providing
+ information in the field of computer software and
+ computers, namely, providing information in the field of
+ virus protection, protecting computer databases, operating
+ programs and application programs against unauthorized
+ infiltration and corruption; rental of computers and
+ computer peripheral devices; computer consultation in the
+ fields of selection, implementation and use of computer
+ hardware and software systems for others, virus protection
+ and protecting computer databases, operating programs and
+ application programs against unauthorized infiltration and
+ corruption.
+&nbsp;<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" id="fragment-summary">
+<div id="titre2">
+<div class="markname">1016002 - ESET SMARTEST SECURITY</div>
+<div class="expand-content">
+<div class="expandation flaoting-link expand">
+<div class="arrow">
+<img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></div>
+<div class="txt expandall">expand all</div>
+</div>
+<div class="expandation floating-link collapse">
+<div class="arrow">
+<img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></div>
+<div class="txt collapseall">collapse all</div>
+</div>
+</div>
+</div>
+<div class="description">
+<div class="p">
+<div class="txtUp">
+<div class="nb">&nbsp;</div>
+<div class="txtDescTitle">Registration</div>
+</div>
+<div class="txtDesc">2009/42 Gaz,
+                  05.11.2009,
+                    US<br>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">861</div>
+<div class="txtDescTitle">Total provisional refusal of protection</div>
+</div>
+<div class="txtDesc">2009/49 Gaz,
+			                    24.12.2009,
+			                  US<br>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">&nbsp;</div>
+<div class="txtDescTitle">Other final decision - Awaiting translation before publication</div>
+</div>
+<div class="txtDesc">US<br>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" id="fragment-office">
+<div id="titre2">
+<div class="markname">1016002 - ESET SMARTEST SECURITY</div>
+<div class="expand-content">
+<div class="expandation flaoting-link expand">
+<div class="arrow">
+<img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></div>
+<div class="txt expandall">expand all</div>
+</div>
+<div class="expandation floating-link collapse">
+<div class="arrow">
+<img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></div>
+<div class="txt collapseall">collapse all</div>
+</div>
+</div>
+</div>
+<div class="ligneBox">
+<div class="top"></div>
+<div class="left">
+<div id="N1006ABtnExpand" class="masquer textHide">
+<a href="javascript:void(null);" onclick="expandToggle('N1006A');"><img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+<div id="N1006ABtnCollapse" class="masquer textShow" style="display:none;">
+<a href="javascript:void(null);" onclick="expandToggle('N1006A');"><img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+</div>
+<div class="txt">
+<ul>
+<li>
+<a href="javascript:void(null);" onclick="expandToggle('N1006A');">United States of America
+				            &nbsp;(US)
+			            </a>
+</li>
+</ul>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="description">
+<div id="N1006A" class="box_content" style="display:none">
+<div class="retreci">
+<div class="p">
+<div class="txtUp">
+<div class="nb">&nbsp;</div>
+<div class="txtDescTitle">Registration</div>
+</div>
+<div class="txtDesc">&nbsp;2009/42 Gaz,
+								                   		    05.11.2009<br>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">861</div>
+<div class="txtDescTitle">Total provisional refusal of protection</div>
+</div>
+<div class="txtDesc">
+<a href="http://www.wipo.int/romarin//pdf/52/24/5224246.pdf" target="PDF"><img src="/romarin//shared/images/ico_pdf.gif" border="0" style="noDeco" title="PDF"></a>&nbsp;2009/49 Gaz,
+								                   		    24.12.2009<br>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">&nbsp;</div>
+<div class="txtDescTitle">Other final decision - Awaiting translation before publication</div>
+</div>
+<div class="txtDesc">
+<a href="http://www.wipo.int/romarin//pdf/56/96/5696363.pdf" target="PDF"><img src="/romarin//shared/images/ico_pdf.gif" border="0" style="noDeco" title="PDF"></a>&nbsp;<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" id="fragment-docs">
+<div id="titre2">
+<div class="markname">1016002 - ESET SMARTEST SECURITY</div>
+<div class="expand-content">
+<div class="expandation flaoting-link expand">
+<div class="arrow">
+<img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></div>
+<div class="txt expandall">expand all</div>
+</div>
+<div class="expandation floating-link collapse">
+<div class="arrow">
+<img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></div>
+<div class="txt collapseall">collapse all</div>
+</div>
+</div>
+</div>
+<div class="ligneBox">
+<div class="top"></div>
+<div class="left">
+<div id="divPDFUSBtnExpand" class="masquer textHide">
+<a href="javascript:void(null);" onclick="expandToggle('divPDFUS');"><img src="/romarin//shared/images/ico-off.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+<div id="divPDFUSBtnCollapse" class="masquer textShow" style="display:none;">
+<a href="javascript:void(null);" onclick="expandToggle('divPDFUS');"><img src="/romarin//shared/images/ico-on.gif" width="20" height="30" style="border:0px;"></a>
+</div>
+</div>
+<div class="txt">
+<ul>
+<li>
+<a href="javascript:void(null);" onclick="expandToggle('divPDFUS');">United States of America
+				            &nbsp;(US)
+			            </a>
+</li>
+</ul>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="description">
+<div id="divPDFUS" class="box_content" style="display:none">
+<div class="retreci">
+<div class="p">
+<div class="txtUp">
+<div class="nb">861</div>
+<div class="txtDescTitle">Total provisional refusal of protection</div>
+</div>
+<div class="txtDesc">
+<a href="http://www.wipo.int/romarin//pdf/52/24/5224246.pdf" target="PDF"><img src="/romarin//shared/images/ico_pdf.gif" border="0" style="noDeco" title="PDF"></a>&nbsp;2009/49 Gaz,
+						                   		24.12.2009<br>
+</div>
+</div>
+<div class="p">
+<div class="txtUp">
+<div class="nb">&nbsp;</div>
+<div class="txtDescTitle">Other final decision - Awaiting translation before publication</div>
+</div>
+<div class="txtDesc">
+<a href="http://www.wipo.int/romarin//pdf/56/96/5696363.pdf" target="PDF"><img src="/romarin//shared/images/ico_pdf.gif" border="0" style="noDeco" title="PDF"></a>&nbsp;<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><script>
+		 
+			$('.collapse').toggle();
+			$('.fragment').each(function() {
+				hideExpandation($(this).attr('id'));
+			});
+			$('.fragment').find('.expandall').each(function() {
+				$(this).click(function(){
+					expandAll($(this).parent().parent().parent().parent().attr('id'));
+				});
+				
+			});
+			$('.fragment').find('.collapseall').each(function() {
+				$(this).click(function(){
+					collapseAll($(this).parent().parent().parent().parent().attr('id'));
+				});
+				
+			});
+			//$(function() {
+               $("#container-4").tabs({ fxFade: true, fxSpeed: 'fast',selected:3, selected:0});
+             //});
+             var box = $('.ligneBox')[1];
+            var idbtn = $(box).find('.left :first-child').attr('id');
+            idbtn = idbtn.substring(0, idbtn.indexOf('BtnExpand'));
+            expandToggle(idbtn);
+			  
+	</script>
+
+				
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+      
+
+<!-- footer starts here -->
+<div ID="footer">
+
+	<ul class="barSeparated">
+		<li class="listFirst"><a class="tools" href="http://www.wipo.int/portal/en/scam_warning.html">Scam Warning</a></li>
+		<li><a class="tools" href="http://www.wipo.int/news/en/newsfeed.jsp">RSS</a></li>
+		<li><a class="tools" href="http://www.wipo.int/tools/en/disclaim.html">Disclaimer</a></li>
+	</ul>
+
+
+<!-- <a href="/romarin/disclaimer.do">Disclaimer</a> -->
+</div>
+
+<!-- footer end here -->
+
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-138270-1";
+urchinTracker();
+</script>
+</body>
+</html>
+
+
+

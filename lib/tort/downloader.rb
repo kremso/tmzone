@@ -5,7 +5,7 @@ require 'tort/tort'
 
 module Tort
   class Downloader
-    def self.download(instructions)
+    def download(instructions)
       uri = URI.parse(instructions.url)
       http = Net::HTTP.new(uri.host, uri.port)
 
@@ -15,6 +15,8 @@ module Tort
       else raise "Unsupported method: #{instructions.method}"
       end
 
+      request['User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64; rv:14.0) Gecko/20100101 Firefox/14.0.1'
+
       if instructions.cookies
         request['Cookie'] = instructions.cookies
       end
@@ -23,16 +25,20 @@ module Tort
         if instructions.method == 'POST'
           request.set_form_data(instructions.params)
         else
-          raise "Parameter setting only supported for GET requests"
+          raise "Parameter setting only supported for POST requests"
         end
       end
 
-      response = http.request(request)
-      if response.code == "200"
-        response.body
+      @response = http.request(request)
+      if @response.code == "200"
+        @response.body
       else
         raise ResourceNotAvailable
       end
+    end
+
+    def response_cookies
+      @response.response['set-cookie']
     end
   end
 end

@@ -5,34 +5,38 @@ describe Tort::Indprop::ListParser do
 
   it 'parses the HTML and extracts hits with URLs and statuses' do
     factory = mock(:Factory)
-    factory.should_receive(:new).with(url: "http://registre.indprop.gov.sk/registre/detail/popup.do?register=oz&puv_id=99251", method: 'POST')
-    factory.should_receive(:new).with(url: "http://registre.indprop.gov.sk/registre/detail/popup.do?register=oz&puv_id=11156", method: 'POST')
-    factory.should_receive(:new).with(url: "http://registre.indprop.gov.sk/registre/detail/popup.do?register=oz&puv_id=1498", method: 'POST')
-    factory.should_receive(:new).with(url: "http://registre.indprop.gov.sk/registre/detail/popup.do?register=oz&puv_id=1490", method: 'POST')
-    factory.should_receive(:new).with(url: "http://registre.indprop.gov.sk/registre/detail/popup.do?register=oz&puv_id=1296", method: 'POST')
-    factory.should_receive(:new).with(url: "http://registre.indprop.gov.sk/registre/detail/popup.do?register=oz&puv_id=16070", method: 'POST')
-    factory.should_receive(:new).with(url: "http://registre.indprop.gov.sk/registre/detail/popup.do?register=oz&puv_id=16062", method: 'POST')
-    download_instructions = subject.parse_download_instructions(File.read('spec/fixtures/indprop/pepsi.htm'), factory)
-    download_instructions.should have(7).instructions
+    factory.should_receive(:new).with('/registre/detail/popup.do?register=oz&puv_id=99251')
+    factory.should_receive(:new).with('/registre/detail/popup.do?register=oz&puv_id=11156')
+    factory.should_receive(:new).with('/registre/detail/popup.do?register=oz&puv_id=1498')
+    factory.should_receive(:new).with('/registre/detail/popup.do?register=oz&puv_id=1490')
+    factory.should_receive(:new).with('/registre/detail/popup.do?register=oz&puv_id=1296')
+    factory.should_receive(:new).with('/registre/detail/popup.do?register=oz&puv_id=16070')
+    factory.should_receive(:new).with('/registre/detail/popup.do?register=oz&puv_id=16062')
+    subject.parse(File.read('spec/fixtures/indprop/pepsi.htm'))
+    subject.hits_download_instructions(factory)
   end
 
-  it 'returns next page number' do
-    subject.parse_download_instructions(File.read('spec/fixtures/indprop/eset.html'), stub.as_null_object)
-    subject.next_page_number.should == 2
+  it 'returns the download instructions' do
+    factory = stub.as_null_object
+    subject.parse(File.read('spec/fixtures/indprop/pepsi.htm'))
+    subject.hits_download_instructions(factory).should have(7).instructions
   end
 
-  it 'returns nil when there is no next page' do
-    subject.parse_download_instructions(File.read('spec/fixtures/indprop/eset_no_next_link.htm'), stub.as_null_object)
-    subject.next_page_number.should be_nil
+  it 'returns download instructions for next page' do
+    instructions = stub
+    subject.parse(File.read('spec/fixtures/indprop/eset.html'))
+    subject.next_page_download_instructions(instructions).should == instructions
   end
 
-  it 'knows when there is next page' do
-    subject.parse_download_instructions(File.read('spec/fixtures/indprop/eset.html'), stub.as_null_object)
-    subject.should have_next_page
+  it 'returns nil instead of download instructions when there is no next page' do
+    instructions = stub
+    subject.parse(File.read('spec/fixtures/indprop/eset_no_next_link.htm'))
+    subject.next_page_download_instructions(instructions).should be_nil
   end
 
-  it 'knows when there is no next page' do
-    subject.parse_download_instructions(File.read('spec/fixtures/indprop/eset_no_next_link.htm'), stub.as_null_object)
-    subject.should_not have_next_page
+  it 'knows the total number of hits' do
+    subject.parse(File.read('spec/fixtures/indprop/eset_no_next_link.htm'))
+    subject.total_hits.should == 29
   end
+
 end

@@ -2,33 +2,32 @@ require 'tort/ctm'
 require 'vcr_helper'
 
 describe "CTM search" do
-  it 'fetches results for the given query and page number' do
-    VCR.use_cassette("ctm_pepsi_1") do
-      marks = Tort::CTM.search("pepsi", 1)
-      marks.should have(20).marks
-      marks.first.application_number.should == "010909026"
-      marks.last.application_number.should == "004104998"
-    end
-  end
+  first_call, second_call = true, false
+  it 'finds all search results' do
+    VCR.use_cassette('ctm_ditec') do
+      Tort::CTM.search("ditec") do |results|
+        if first_call
+          results.size.should == 20
+          results.source.should == "CTM"
+          results.total.should == 46
+          results.hits.collect(&:name).should include("HIDITEC DESIGNING TECHNOLOGY", "CANDITECT")
 
-  it 'searches even beyond the first page' do
-    VCR.use_cassette("ctm_pepsi_2") do
-      marks = Tort::CTM.search("pepsi", 2)
-      marks.collect(&:application_number).should =~
-      [
-        "003994811", "003613007", "003449121", "003449063", "003448966",
-        "002967735", "002967719", "002967214", "002967164", "002744225",
-        "002334605", "000991224", "000563163", "000106179"
-      ]
-    end
-  end
+          first_call = false
+          second_call = true
+        elsif second_call
+          results.size.should == 20
+          results.source.should == "CTM"
+          results.total.should == 46
+          results.hits.collect(&:name).should include("YUDITEC", "MEDITECH")
 
-  it 'fetches correct marks for different search' do
-    VCR.use_cassette("ctm_nike") do
-      marks = Tort::CTM.search("nike", 1)
-      marks.should have(20).marks
-      marks.first.application_number.should == "011003621"
-      marks.last.application_number.should == "009729773"
+          second_call = false
+        else
+          results.size.should == 6
+          results.source.should == "CTM"
+          results.total.should == 46
+          results.hits.collect(&:name).should include("kiditec", "DITEC")
+        end
+      end
     end
   end
 end
