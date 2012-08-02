@@ -3,6 +3,8 @@ require 'vcr_helper'
 
 describe "CTM search" do
   first_call, second_call = true, false
+  all_results_fetched = false
+
   it 'finds all search results' do
     VCR.use_cassette('ctm_ditec') do
       Tort::CTM.search("ditec") do |results|
@@ -26,8 +28,12 @@ describe "CTM search" do
           results.source.should == "CTM"
           results.total.should == 46
           results.hits.collect(&:name).should include("kiditec", "DITEC")
+
+          all_results_fetched = true
         end
       end
+
+      all_results_fetched.should be_true
     end
   end
 end
