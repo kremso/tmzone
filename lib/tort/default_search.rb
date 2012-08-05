@@ -1,6 +1,6 @@
 require 'tort/external_search'
 require 'tort/downloader'
-require 'tort/serial_hits_fetcher'
+require 'tort/parallel_hits_fetcher'
 require 'tort/page_search'
 
 module Tort
@@ -15,7 +15,7 @@ module Tort
     def search(phrase, &block)
       downloader = Downloader.new
       page_search = Tort::PageSearch.new(downloader, @list_parser, @instructions_factory)
-      hit_fetcher = Tort::SerialHitsFetcher.new(downloader, @mark_parser)
+      hit_fetcher = Tort::ParallelHitsFetcher.new(downloader, @mark_parser)
       engine = Tort::ExternalSearch.new(@engine_name, page_search, hit_fetcher)
       engine.search(phrase, &block)
     end
