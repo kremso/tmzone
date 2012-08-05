@@ -40,4 +40,23 @@ describe Tort::Wipo::ListParser do
     subject.parse(File.read('spec/fixtures/wipo/nivea.html'))
     subject.total_hits.should == 236
   end
+
+  context 'when parsing page informing about no search results found' do
+    it 'parses no hits download instructions' do
+      subject.parse(File.read('spec/fixtures/wipo/unsuccessful_search.html'))
+      factory = mock(:Factory)
+      subject.hits_download_instructions(factory).should be_empty
+    end
+
+    it 'knows there is not next page' do
+      subject.parse(File.read('spec/fixtures/wipo/unsuccessful_search.html'))
+      factory = mock(:Factory)
+      subject.next_page_download_instructions(factory).should be_nil
+    end
+
+    it 'returns 0 as the total number of hits' do
+      subject.parse(File.read('spec/fixtures/ctm/unsuccessful_search.html'))
+      subject.total_hits.should == 0
+    end
+  end
 end

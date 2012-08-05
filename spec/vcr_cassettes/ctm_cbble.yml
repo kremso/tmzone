@@ -1,0 +1,163 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://oami.europa.eu/CTMOnline/RequestManager/en_Result_NoReg
+    body:
+      encoding: US-ASCII
+      string: AppliRef=&application=&bAdvanced=0&bRefine=0&bRefineModify=&backList=0&blimited=200&deno=cbble&denoaux=cbble&denoselect=1&entity=&expirydatefrom=&expirydateto=&filingdatefrom=&filingdateto=&idappli=&idappliSelected=&idstatus=&importTradeMarkId=&importctmidscriptmethod=&importctmidscriptmodule=&indusage=&language=en&listType=1&listTypeDate=&markorigin=3&niceclassificationnumber=&ntmark=&objIdappli=&objRefine=&objRefineAux=&objSQLBasic=&objSQLBasic2=&objSQLOwner=&objSQLOwner2=&objSQLRepre=&objSQLRepre2=&objSearchBasic=&owner=&ownerselect=&printPage=1&pageNumber=1&publicationdatefrom=&publicationdateto=&readonly=&registrationdatefrom=&registrationdateto=&representative=&representativeselect=&search_for_transition=&selectOrderby=&selectOrderby2=&source=search_basic.jsp&totalFound=&transition=ResultsDetailed&userCurrentAccount=&userid=
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:14.0) Gecko/20100101 Firefox/14.0.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 05 Aug 2012 11:56:06 GMT
+      Server:
+      - Apache
+      Cache-Control:
+      - no-cache="set-cookie"
+      Set-Cookie:
+      - JSESSIONID=7sGNQpfXSTb7xg95vzPv4wGWgPt4qdgNMQVBwpLmnQ0kkwR7hnfG!1528776288;
+        path=/
+      X-Powered-By:
+      - Servlet/2.4 JSP/2.0
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: US-ASCII
+      string: ! "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!doctype html public \"-//W3C//DTD
+        HTML 3.2 Final//EN\">\r\n\r\n<html>\r\n\r\n    <head>\r\n        <meta http-equiv=\"Content-Type\"
+        \ content=\"text/html; charset=UTF-8\"> \r\n        <meta http-equiv=\"Expires\"
+        content=\"12 Jan 1999 01:01:01 GMT\">\r\n        <meta http-equiv=\"Pragma\"
+        content=\"no-cache\">\r\n        <meta http-equiv=\"cache-control\" content=\"no-cache\">\r\n
+        \       <meta http-equiv=\"cache-control\" content=\"no-store\">\r\n        <meta
+        http-equiv=\"cache-control\" content=\"must-revalidate\">\r\n        <meta
+        http-equiv=\"no-cache\">\r\n\r\n    \t<title>OAMI-ONLINE - CTM-ONLINE - Detailed
+        results</title>\r\n\r\n        <link rel=\"stylesheet\" type=\"text/css\"
+        href=\"/CTMOnline/css/ohim.css\" />\r\n        <link rel=\"stylesheet\" type=\"text/css\"
+        href=\"http://oami.europa.eu/OWSCommon/css/oami_menu.css\" />\r\n        <!--[if
+        IE]>\r\n            <link rel=\"stylesheet\" type=\"text/css\" href=\"http://oami.europa.eu/OWSCommon/css/oami_menu_ie-fix.css\"
+        />\r\n        <![endif]-->\r\n\r\n        <script language=\"JavaScript\"
+        type=\"text/javascript\" src=\"http://oami.europa.eu/NavMenu.js\"></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/javascript\" src=\"http://oami.europa.eu/NavMenuFuncs.js\"></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/javascript\" src=\"http://oami.europa.eu/OWSCommon/js/owscommon.js\"></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/javascript\" src=\"/CTMOnline/js/CTMWindows.js\"></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/javascript\" src=\"/CTMOnline/js/topbar.js\"></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/javascript\" src=\"/CTMOnline/js/CTMValidation.js\"></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/javascript\" src=\"/CTMOnline/js/tools.js\"></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/javascript\" src=\"/CTMOnline/js/calendar.js\"></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/javascript\" src=\"/CTMOnline/js/calendar-setup.js\"></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/javascript\" src='/CTMOnline/js/calendar-en.js'></script>\r\n
+        \       <script language=\"JavaScript\" type=\"text/JavaScript\" src=\"/CTMOnline/js/tree.js\"></script>\r\n
+        \   \r\n        <script language=\"JavaScript\" type=\"text/javascript\">\r\n
+        \           function CaptureEnter(theEvent){\r\n                var iKeyCode;\r\n
+        \               if(window.event) { //IE\r\n                    iKeyCode =
+        window.event.keyCode;     \r\n                } else {           //firefox\r\n
+        \                   iKeyCode = theEvent.which;     \r\n                }\r\n\r\n
+        \               if (iKeyCode == 13) { \r\n                    SearchTradeMark();\r\n
+        \                   return false;\r\n                }\r\n            }\r\n
+        \       </script>    \r\n    </head>\r\n\r\n    \r\n        <body topmargin=\"0\"
+        leftmargin=\"0\" bgcolor=\"#FFFFFF\" text=\"#000000\">\r\n    \r\n\r\n\t    <!--
+        OWS common --------------- -->\r\n        <input type=\"hidden\" name=\"fontSize\"
+        id=\"fontSize\" value=\"false\" />\r\n\t    <input type=\"hidden\" name=\"lang\"
+        id=\"lang\" value=\"en\" />\r\n\t    <input type=\"hidden\" name=\"app\" id=\"app\"
+        value=\"ctmonline\" />\r\n\t    <input type=\"hidden\" name=\"version\" id=\"version\"
+        value=\"9.4.7\" />\r\n\t    <input type=\"hidden\" name=\"urlhelp\" id=\"urlhelp\"
+        value=\"images/helpbtn.gif\" />\r\n\t    <script language=\"JavaScript\" type=\"text/javascript\">\r\n\t
+        \       var label = getMenuID(document.getElementById(\"app\").value);\r\n\t
+        \       </script>\r\n\t    <!-- OWS common END -------- -->    \r\n\r\n        <!--
+        HEADER -->\r\n        <SCRIPT LANGUAGE=\"JavaScript\" TYPE=\"text/javascript\">
+        \t\r\ndocument.write('<iframe id=\"iframeHeader\" name=\"iframeHeader\" src=\"http://oami.europa.eu/OWSCommon/header.htm?lang='
+        + document.getElementById(\"lang\").value + '&fontsize=' + document.getElementById(\"fontSize\").value
+        + '&app=' + document.getElementById(\"app\").value + '&helpurl=http://oami.europa.eu/ows/rw/pages/FAQ/FAQ.'
+        + document.getElementById(\"lang\").value + '.do\" scrolling=\"no\" frameborder=\"0\"
+        width=\"100%\" onLoad=\"resizeIframe(this.id, this.name);\" ></iframe>');\r\n</SCRIPT>\r\n\r\n\r\n
+        \       <!-- LEFT MENU -->\r\n        <table width=\"790\" border=\"0\" cellspacing=\"0\"
+        cellpadding=\"0\"><tr>\r\n    \r\n            <td id=\"idleftmenu\" valign=\"top\">
+        \r\n                \r\n\r\n\r\n\r\n\r\n<SCRIPT LANGUAGE=\"JavaScript\" TYPE=\"text/javascript\">\r\n
+        \   document.write('<div id=\"leftMenu\" style=\"float:left; width:260px;\"
+        ><iframe id=\"iframeMenu\" name=\"iframeMenu\" src=\"http://oami.europa.eu/OWSCommon/menu'
+        + label + '.htm?lang=' + document.getElementById(\"lang\").value + '\" scrolling=\"no\"
+        frameborder=\"0\" width=\"240\" onLoad=\"resizeIframe(this.id, this.name);\"
+        ></iframe></div>');\r\n    \r\n            document.getElementById(\"leftMenu\").style.marginLeft
+        = \"15px\";\r\n            document.getElementById(\"leftMenu\").style.marginTop
+        = \"10px\";\r\n    \r\n</SCRIPT> \r\n\r\n            </td>\r\n    \r\n            <td
+        width=\"530\" valign=\"top\">\r\n            \r\n                <table width=\"5\"
+        border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                    <tr>
+        \r\n\t\t                <!-- CONTENT -->\r\n\t\t                <td id=\"content\"
+        width=\"700\" colspan=\"2\"> \r\n\t\t                    \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!--Integration
+        OAF with CTM2006 Begin -->\r\n\r\n\r\n\r\n\r\n<script language=\"JavaScript\">\r\n\t\r\n\t\tfunction
+        showMyPageLogin(){\r\n\t\t    document.ctmSubmit.action=\"https://secure.oami.europa.eu/mypage/login?action=login&oafCTMparams=oaf&langId=EN\";\r\n\t\t
+        \   document.ctmSubmit.submit();\r\n\t}\t\r\n\t\r\n\tfunction remLink(){\r\n
+        \   \tif( window.sMPlogin && window.sMPlogin.open && !window.sMPlogin.closed
+        ){\r\n\t\t\twindow.sMPlogin.opener = null;\r\n\t\t}\r\n\t}\r\n</script>\r\n<!--Integration
+        OAF with CTM2006 End -->        \r\n\r\n<FORM NAME=\"ctmSubmit\"  ACTION=\"../RequestManager/UnsuccessfulSearch\"
+        METHOD=\"post\">\r\n<input type=\"hidden\" name=\"listType\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"registrationdatefrom\" value=\"\"/>\n<input type=\"hidden\"
+        name=\"transition\" value=\"UnsuccessfulSearch\"/>\n<input type=\"hidden\"
+        name=\"selectOrderby2\" value=\"\"/>\n<input type=\"hidden\" name=\"niceclassificationnumber\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"denoselect\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"indusage\" value=\"\"/>\n<input type=\"hidden\" name=\"publicationdateto\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"objIdappli\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"idxidappli\" value=\"0\"/>\n<input type=\"hidden\"
+        name=\"idappli\" value=\"\"/>\n<input type=\"hidden\" name=\"objRefine\" value=\"|$@|1|cbble|$@|$@|1|1|2|$@|$@|$@|$@|$@|$@|$@|$@|$@|$@|200|$@|1|3|$@|$@|$@|$@|$@|$@\"/>\n<input
+        type=\"hidden\" name=\"filingdateto\" value=\"\"/>\n<input type=\"hidden\"
+        name=\"listTypeDate\" value=\"\"/>\n<input type=\"hidden\" name=\"AppliRef\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"application\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"bAdvanced\" value=\"0\"/>\n<input type=\"hidden\" name=\"owner\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"expirydatefrom\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"objSQLBasic2\" value=\"VE1OYW1lQ29udGFpbnMqLS0tKChjYmJsZSA8SU4%2BIFRNX0RFU0MpIDxPUj4gKFRNX0RFU0MgPFNV%0AQlNUUklORz4gY2JibGUpKV9fXw%3D%3D\"/>\n<input
+        type=\"hidden\" name=\"language\" value=\"en\"/>\n<input type=\"hidden\" name=\"objSQLRepre\"
+        value=\"not+Applicable+any+More\"/>\n<input type=\"hidden\" name=\"importTradeMarkId\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"ownerselect\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"idappliSelected\" value=\"\"/>\n<input type=\"hidden\"
+        name=\"idstatus\" value=\"\"/>\n<input type=\"hidden\" name=\"objSearchBasic\"
+        value=\"|$@|1|cbble|$@|$@|1|1|2|$@|$@|$@|$@|$@|$@|$@|$@|$@|$@|200|$@|1|3|$@|$@|$@|$@|$@|$@\"/>\n<input
+        type=\"hidden\" name=\"objSQLBasic\" value=\"\"/>\n<input type=\"hidden\"
+        name=\"source\" value=\"search_basic.jsp\"/>\n<input type=\"hidden\" name=\"transitionPrevious\"
+        value=\"ResultsDetailed\"/>\n<input type=\"hidden\" name=\"objSQLOwner\" value=\"not+Applicable+any+More\"/>\n<input
+        type=\"hidden\" name=\"objSQLRepre2\" value=\"not+Applicable+any+More\"/>\n<input
+        type=\"hidden\" name=\"selectOrderby\" value=\"\"/>\n<input type=\"hidden\"
+        name=\"representative\" value=\"\"/>\n<input type=\"hidden\" name=\"printPage\"
+        value=\"1\"/>\n<input type=\"hidden\" name=\"userid\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"readonly\" value=\"\"/>\n<input type=\"hidden\" name=\"filingdatefrom\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"importctmidscriptmodule\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"representativeselect\" value=\"\"/>\n<input type=\"hidden\"
+        name=\"ntmark\" value=\"\"/>\n<input type=\"hidden\" name=\"expirydateto\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"bRefine\" value=\"0\"/>\n<input
+        type=\"hidden\" name=\"totalFound\" value=\"0\"/>\n<input type=\"hidden\"
+        name=\"pageNumber\" value=\"\"/>\n<input type=\"hidden\" name=\"importctmidscriptmethod\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"publicationdatefrom\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"markorigin\" value=\"3\"/>\n<input type=\"hidden\"
+        name=\"deno\" value=\"cbble\"/>\n<input type=\"hidden\" name=\"bRefineModify\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"userCurrentAccount\" value=\"\"/>\n<input
+        type=\"hidden\" name=\"blimited\" value=\"\"/>\n<input type=\"hidden\" name=\"registrationdateto\"
+        value=\"\"/>\n<input type=\"hidden\" name=\"objSQLOwner2\" value=\"not+Applicable+any+More\"/>\n<input
+        type=\"hidden\" name=\"idcategory\" value=\"\"/>\n \r\n</form>\r\n<script
+        language=\"Javascript\"><!--\r\n\tdocument.ctmSubmit.action = '../RequestManager/en_UnsuccessfulSearch_NoReg';\r\n\tdocument.ctmSubmit.submit();
+        //-->\r\n</script>\r\n\r\n\t\t                </td>\r\n\t\t                <td>&nbsp;</td>\r\n
+        \                       </td></tr></table>\r\n\t\t            </tr>\r\n                </table>\t
+        \       \r\n\r\n            </td>\r\n        </tr></table>\r\n        \r\n
+        \       <!-- FOOTER -->\r\n                    <div class=\"SLabel0\"> \r\n
+        \           \t<script language=\"JavaScript\" type=\"text/javascript\">\r\n
+        \                    document.write('<iframe id=\"iframeFooter\" name=\"iframeFooter\"
+        src=\"http://oami.europa.eu/OWSCommon/footer.htm?lang=' + document.getElementById(\"lang\").value
+        + '&version=' + document.getElementById(\"version\").value + '\" scrolling=\"no\"
+        frameborder=\"0\" width=\"100%\" onLoad=\"resizeIframe(this.id, this.name);\"
+        ></iframe>');        \r\n                </script>\r\n            </div>\r\n\r\n\r\n
+        \   </body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Sun, 05 Aug 2012 11:57:32 GMT
+recorded_with: VCR 2.1.1

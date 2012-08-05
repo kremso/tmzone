@@ -55,4 +55,23 @@ describe Tort::CTM::ListParser do
     factory.should_receive(:new).with(anything, anything, {status: 'Application withdrawn', name: 'DITEC'})
     subject.hits_download_instructions(factory)
   end
+
+  context 'when parsing information about no search results found' do
+    it 'correctly parses hits download instructions' do
+      subject.parse(File.read('spec/fixtures/ctm/unsuccessful_search.html'))
+      factory = mock(:Factory)
+      subject.hits_download_instructions(factory).should be_empty
+    end
+
+    it 'knows there is no next page' do
+      subject.parse(File.read('spec/fixtures/ctm/unsuccessful_search.html'))
+      factory = mock(:Factory)
+      subject.next_page_download_instructions(factory).should be_nil
+    end
+
+    it 'knows the total number of hits is 0' do
+      subject.parse(File.read('spec/fixtures/ctm/unsuccessful_search.html'))
+      subject.total_hits.should == 0
+    end
+  end
 end

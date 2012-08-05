@@ -5,10 +5,12 @@ module Tort
     class ListParser
       def parse(html)
         @doc = Nokogiri::HTML(html)
+        @search_results_tables = @doc.search("//table[.//*[contains(concat(' ', @class, ' '), ' sResultLink ')]]").slice(3..-1)
       end
 
       def hits_download_instructions(factory)
-        @doc.search("//table[.//*[contains(concat(' ', @class, ' '), ' sResultLink ')]]").slice(3..-1).collect do |table|
+        return [] unless @search_results_tables
+        @search_results_tables.collect do |table|
           link = table.search('.sResultLink:not(:empty)').first
           mark_id = link["href"].match(/ctmSubmit\.idappli\.value='(.+?)'/)[1]
           mark_type_id = link["href"].match(/DetailedTrademark\('(\d)'\)/)[1]
@@ -38,7 +40,11 @@ module Tort
       private
 
       def has_next_page?
-        @doc.search('*[title="Next 20"]').first[:src] !~ /_grey\.gif/
+        if @search_results_tables
+          @doc.search('*[title="Next 20"]').first[:src] !~ /_grey\.gif/
+        else
+          false
+        end
       end
     end
   end

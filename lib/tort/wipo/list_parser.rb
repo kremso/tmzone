@@ -25,7 +25,12 @@ module Tort
       end
 
       def total_hits
-        @doc.search('.pagination td:nth-child(1)').first.text.gsub("\u00A0", " ").match(/\((\d+) results\)/)[1].to_i
+        paging = @doc.search('.pagination td:nth-child(1)').first
+        if paging
+          paging.text.gsub("\u00A0", " ").match(/\((\d+) results\)/)[1].to_i
+        else
+          0
+        end
       end
     end
   end

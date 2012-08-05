@@ -27,4 +27,17 @@ describe "WIPO search" do
       all_results_fetched.should be_true
     end
   end
+
+  it 'calls the block with no search results if no search results were found' do
+    VCR.use_cassette('wipo_cbble') do
+      block_called = false
+      Tort::Wipo.search('cbble') do |results|
+        results.size.should == 0
+        results.total.should == 0
+        results.hits.should be_empty
+        block_called = true
+      end
+      block_called.should be_true
+    end
+  end
 end

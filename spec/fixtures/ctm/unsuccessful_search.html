@@ -1,0 +1,521 @@
+
+
+
+
+
+
+
+
+
+<!doctype html public "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type"  content="text/html; charset=UTF-8"> 
+        <meta http-equiv="Expires" content="12 Jan 1999 01:01:01 GMT">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="cache-control" content="no-store">
+        <meta http-equiv="cache-control" content="must-revalidate">
+        <meta http-equiv="no-cache">
+
+    	<title>OAMI-ONLINE - CTM-ONLINE - Detailed results</title>
+
+        <link rel="stylesheet" type="text/css" href="/CTMOnline/css/ohim.css" />
+        <link rel="stylesheet" type="text/css" href="http://oami.europa.eu/OWSCommon/css/oami_menu.css" />
+        <!--[if IE]>
+            <link rel="stylesheet" type="text/css" href="http://oami.europa.eu/OWSCommon/css/oami_menu_ie-fix.css" />
+        <![endif]-->
+
+        <script language="JavaScript" type="text/javascript" src="http://oami.europa.eu/NavMenu.js"></script>
+        <script language="JavaScript" type="text/javascript" src="http://oami.europa.eu/NavMenuFuncs.js"></script>
+        <script language="JavaScript" type="text/javascript" src="http://oami.europa.eu/OWSCommon/js/owscommon.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/CTMOnline/js/CTMWindows.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/CTMOnline/js/topbar.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/CTMOnline/js/CTMValidation.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/CTMOnline/js/tools.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/CTMOnline/js/calendar.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/CTMOnline/js/calendar-setup.js"></script>
+        <script language="JavaScript" type="text/javascript" src='/CTMOnline/js/calendar-en.js'></script>
+        <script language="JavaScript" type="text/JavaScript" src="/CTMOnline/js/tree.js"></script>
+    
+        <script language="JavaScript" type="text/javascript">
+            function CaptureEnter(theEvent){
+                var iKeyCode;
+                if(window.event) { //IE
+                    iKeyCode = window.event.keyCode;     
+                } else {           //firefox
+                    iKeyCode = theEvent.which;     
+                }
+
+                if (iKeyCode == 13) { 
+                    SearchTradeMark();
+                    return false;
+                }
+            }
+        </script>    
+    </head>
+
+    
+        <body topmargin="0" leftmargin="0" bgcolor="#FFFFFF" text="#000000">
+    
+
+	    <!-- OWS common --------------- -->
+        <input type="hidden" name="fontSize" id="fontSize" value="false" />
+	    <input type="hidden" name="lang" id="lang" value="en" />
+	    <input type="hidden" name="app" id="app" value="ctmonline" />
+	    <input type="hidden" name="version" id="version" value="9.4.7" />
+	    <input type="hidden" name="urlhelp" id="urlhelp" value="images/helpbtn.gif" />
+	    <script language="JavaScript" type="text/javascript">
+	        var label = getMenuID(document.getElementById("app").value);
+	        </script>
+	    <!-- OWS common END -------- -->    
+
+        <!-- HEADER -->
+        <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript"> 	
+document.write('<iframe id="iframeHeader" name="iframeHeader" src="http://oami.europa.eu/OWSCommon/header.htm?lang=' + document.getElementById("lang").value + '&fontsize=' + document.getElementById("fontSize").value + '&app=' + document.getElementById("app").value + '&helpurl=http://oami.europa.eu/ows/rw/pages/FAQ/FAQ.' + document.getElementById("lang").value + '.do" scrolling="no" frameborder="0" width="100%" onLoad="resizeIframe(this.id, this.name);" ></iframe>');
+</SCRIPT>
+
+
+        <!-- LEFT MENU -->
+        <table width="790" border="0" cellspacing="0" cellpadding="0"><tr>
+    
+            <td id="idleftmenu" valign="top"> 
+                
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+    document.write('<div id="leftMenu" style="float:left; width:260px;" ><iframe id="iframeMenu" name="iframeMenu" src="http://oami.europa.eu/OWSCommon/menu' + label + '.htm?lang=' + document.getElementById("lang").value + '" scrolling="no" frameborder="0" width="240" onLoad="resizeIframe(this.id, this.name);" ></iframe></div>');
+    
+            document.getElementById("leftMenu").style.marginLeft = "15px";
+            document.getElementById("leftMenu").style.marginTop = "10px";
+    
+</SCRIPT> 
+
+            </td>
+    
+            <td width="530" valign="top">
+            
+                <table width="5" border="0" cellspacing="0" cellpadding="0">
+                    <tr> 
+		                <!-- CONTENT -->
+		                <td id="content" width="700" colspan="2"> 
+		                    
+
+
+
+
+
+
+
+
+<!--Integration OAF with CTM2006 Begin -->
+
+
+
+
+<script language="JavaScript">
+	
+		function showMyPageLogin(){
+		    document.ctmSubmit.action="https://secure.oami.europa.eu/mypage/login?action=login&oafCTMparams=oaf&langId=EN";
+		    document.ctmSubmit.submit();
+	}	
+	
+	function remLink(){
+    	if( window.sMPlogin && window.sMPlogin.open && !window.sMPlogin.closed ){
+			window.sMPlogin.opener = null;
+		}
+	}
+</script>
+<!--Integration OAF with CTM2006 End -->
+
+	 
+	
+<!-- Req 104 - OAF Integration Toolbar Harmonization  End -->
+<script language="JavaScript">
+<!-- Req 104 - OAF Integration Toolbar Harmonization  Begin -->
+function showPrintView() {
+ 	
+     	 		showPrintViewNT(0);
+     	 
+}
+
+<!-- Req 104 - OAF Integration Toolbar Harmonization  End -->     	
+//CTM 2006	
+
+function searchAdvanced() {
+	
+	document.ctmSubmit.bRefineModify.value="0";
+	document.ctmSubmit.objSQLOwner.value='';
+	document.ctmSubmit.objSQLRepre.value='';
+	document.ctmSubmit.objSQLBasic.value='';
+	document.ctmSubmit.objSQLOwner2.value='';
+	document.ctmSubmit.objSQLRepre2.value='';
+	document.ctmSubmit.objSQLBasic2.value='';
+	document.ctmSubmit.deno.value='';
+	document.ctmSubmit.owner.value='';
+	document.ctmSubmit.representative.value='';
+
+	document.ctmSubmit.transition.value='New_search_advanced';
+	document.ctmSubmit.action='../RequestManager/en_SearchAdvanced_NoReg';
+	document.ctmSubmit.submit();
+}
+
+function searchBasic() {
+	document.ctmSubmit.bRefineModify.value="0";
+	document.ctmSubmit.objSQLOwner.value='';
+	document.ctmSubmit.objSQLRepre.value='';
+	document.ctmSubmit.objSQLBasic.value='';
+	document.ctmSubmit.objSQLOwner2.value='';
+	document.ctmSubmit.objSQLRepre2.value='';
+	document.ctmSubmit.objSQLBasic2.value='';
+	document.ctmSubmit.deno.value='';
+	document.ctmSubmit.owner.value='';
+	document.ctmSubmit.representative.value='';
+
+	document.ctmSubmit.transition.value='New_search';
+	document.ctmSubmit.action='../RequestManager/en_SearchBasic';
+	document.ctmSubmit.submit();
+}
+
+function modifySearch(){
+
+			document.ctmSubmit.owner.value='';
+			document.ctmSubmit.representative.value='';
+	
+		    document.ctmSubmit.bRefineModify.value="0";
+			document.ctmSubmit.objSQLOwner.value='';
+			document.ctmSubmit.objSQLRepre.value='';
+			document.ctmSubmit.objSQLBasic.value='';
+			document.ctmSubmit.objSQLOwner2.value='';
+			document.ctmSubmit.objSQLRepre2.value='';
+			document.ctmSubmit.objSQLBasic2.value='';
+		
+			
+			document.ctmSubmit.transition.value='Search_modify';
+			document.ctmSubmit.action='../RequestManager/en_SearchBasic_NoReg';
+			document.ctmSubmit.submit();
+		
+	
+}
+
+// PRINT PAGE
+function showPrintViewIE()
+{
+	if (document.ctmSubmit.printPage.value==0) {
+		document.ctmSubmit.printPage.value=1;
+	}else{
+		document.ctmSubmit.printPage.value=0;
+	}
+	if (document.ctmSubmit.printPage.value==0) {
+		idleftmenu.style.display='none';
+	}else{
+		idleftmenu.style.display='block';
+	}
+}
+
+function showPrintViewNT(value)
+{
+  if(value == 1)
+  {
+ 	document.ctmSubmit.printPage.value=1;
+  }
+  else
+  {
+  	document.ctmSubmit.printPage.value=0;
+  }
+  
+  //location.reload();
+ 
+   document.ctmSubmit.source.value="search_basic.jsp";
+   document.ctmSubmit.transition.value='ResultsDetailed';
+   document.ctmSubmit.action='../RequestManager/en_print_NoReg';	 
+   document.ctmSubmit.submit();		
+}
+// END PRINT PAGE
+</script>
+
+<FORM NAME="ctmSubmit"  ACTION="../RequestManager/en_UnsuccessfulSearch_NoReg" METHOD="post">
+
+   
+
+<input type="hidden" name="listType" value=""/>
+<input type="hidden" name="registrationdatefrom" value=""/>
+<input type="hidden" name="transition" value="ReloadPage"/>
+<input type="hidden" name="selectOrderby2" value=""/>
+<input type="hidden" name="niceclassificationnumber" value=""/>
+<input type="hidden" name="denoselect" value="1"/>
+<input type="hidden" name="indusage" value=""/>
+<input type="hidden" name="publicationdateto" value=""/>
+<input type="hidden" name="objIdappli" value=""/>
+<input type="hidden" name="idxidappli" value="0"/>
+<input type="hidden" name="idappli" value=""/>
+<input type="hidden" name="objRefine" value="|$@|1|cbble|$@|$@|1|1|2|$@|$@|$@|$@|$@|$@|$@|$@|$@|$@|200|$@|1|3|$@|$@|$@|$@|$@|$@"/>
+<input type="hidden" name="filingdateto" value=""/>
+<input type="hidden" name="listTypeDate" value=""/>
+<input type="hidden" name="AppliRef" value=""/>
+<input type="hidden" name="application" value=""/>
+<input type="hidden" name="bAdvanced" value="0"/>
+<input type="hidden" name="owner" value=""/>
+<input type="hidden" name="expirydatefrom" value=""/>
+<input type="hidden" name="objSQLBasic2" value="VE1OYW1lQ29udGFpbnMqLS0tKChjYmJsZSA8SU4%2BIFRNX0RFU0MpIDxPUj4gKFRNX0RFU0MgPFNV%0AQlNUUklORz4gY2JibGUpKV9fXw%3D%3D"/>
+<input type="hidden" name="language" value="en"/>
+<input type="hidden" name="objSQLRepre" value="not+Applicable+any+More"/>
+<input type="hidden" name="importTradeMarkId" value=""/>
+<input type="hidden" name="ownerselect" value=""/>
+<input type="hidden" name="idappliSelected" value=""/>
+<input type="hidden" name="idstatus" value=""/>
+<input type="hidden" name="objSearchBasic" value="|$@|1|cbble|$@|$@|1|1|2|$@|$@|$@|$@|$@|$@|$@|$@|$@|$@|200|$@|1|3|$@|$@|$@|$@|$@|$@"/>
+<input type="hidden" name="objSQLBasic" value=""/>
+<input type="hidden" name="source" value="unsuccessful_search.jsp"/>
+<input type="hidden" name="transitionPrevious" value="ReloadDetailed"/>
+<input type="hidden" name="objSQLOwner" value="not+Applicable+any+More"/>
+<input type="hidden" name="objSQLRepre2" value="not+Applicable+any+More"/>
+<input type="hidden" name="selectOrderby" value=""/>
+<input type="hidden" name="representative" value=""/>
+<input type="hidden" name="printPage" value=""/>
+<input type="hidden" name="userid" value=""/>
+<input type="hidden" name="readonly" value=""/>
+<input type="hidden" name="filingdatefrom" value=""/>
+<input type="hidden" name="importctmidscriptmodule" value=""/>
+<input type="hidden" name="representativeselect" value=""/>
+<input type="hidden" name="ntmark" value=""/>
+<input type="hidden" name="expirydateto" value=""/>
+<input type="hidden" name="bRefine" value="0"/>
+<input type="hidden" name="totalFound" value="0"/>
+<input type="hidden" name="pageNumber" value=""/>
+<input type="hidden" name="importctmidscriptmethod" value=""/>
+<input type="hidden" name="publicationdatefrom" value=""/>
+<input type="hidden" name="markorigin" value="0"/>
+<input type="hidden" name="deno" value="cbble"/>
+<input type="hidden" name="bRefineModify" value="0"/>
+<input type="hidden" name="userCurrentAccount" value=""/>
+<input type="hidden" name="blimited" value="200"/>
+<input type="hidden" name="registrationdateto" value=""/>
+<input type="hidden" name="objSQLOwner2" value="not+Applicable+any+More"/>
+<input type="hidden" name="idcategory" value=""/>
+ 
+
+      <table width="530" border="0" cellspacing="0" cellpadding="4">
+        <tr>           
+          <TD align="center" VALIGN="top" WIDTH="7"><IMG BORDER="0" HEIGHT="100%" src="/CTMOnline/images/invis.gif" WIDTH="1" ALT=""></TD>
+          <td valign="top" class="sTitleData1">
+           
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td><img src="/CTMOnline/images/invis.gif" width="20" height="20"></td>
+                <td valign="top"> 
+                  <div align="right"><font face="Verdana" size="1"></font></div>
+                </td>
+              </tr>
+            </table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+    <td class="STitle1">
+    
+                <FONT class="STitle1">CTM-ONLINE - Detailed results </FONT>
+    
+      <BR>&nbsp; 
+    </td>
+    <td>&nbsp;</td>
+    </tr>
+</table>
+ <!-- Inicio TOPBARSEARCH -->
+ 			<table width="100%" border="0" cellspacing="0" cellpadding="0">                        
+ 	            <tr>
+                 <td>
+             				<!-- Req 104 - OAF Integration Toolbar Harmonization  Begin -->
+									                   <!-- Begin Toolbar -->
+                    <script language="JavaScript" TYPE="text/javascript">
+                        var codedButtons;
+                        	codedButtons = "(Disabled)|";
+		                    codedButtons+="Search|New basic search|";
+		                  	
+	                           codedButtons+="javascript:searchBasic()|";
+					     				 	
+		                    codedButtons+="Advanced|New advanced search|";
+		                  	
+                            codedButtons+="javascript:searchAdvanced()|";
+                        
+		                    codedButtons+="Modify|Modify Search|";
+		                  	
+                            codedButtons+="javascript:modifySearch();|";
+						  					
+		                    codedButtons+="_Refine|Refine search|";
+		                  	
+		                    codedButtons+="_Back|List of results|";
+		                  	
+							codedButtons+="_ListDocument|Access to file|";
+							
+                        codedButtons+="_BackTrademark|Trade mark Detail|";
+												
+		                    codedButtons+="LongEmpty|";
+		                    codedButtons+="Login|Login to MYPAGE|";
+												
+                            codedButtons+="javascript:showMyPageLogin();|";
+                        
+		                    codedButtons+="_BackMyPage|Back to MYPAGE|";
+												
+		                    codedButtons+="_Save|Save search to my page|";
+		                  
+		                    codedButtons+="Print|Print|";
+		                  
+                            codedButtons+="javascript:showPrintView()|";
+                          
+		                    codedButtons+="Help|Help";
+		                  
+                            codedButtons+="|javascript:WindowOpenHelp(\"http://oami.europa.eu/ows/rw/pages/helpFiles/CTM-Online/tm_help.en.do\")";
+                          
+                    </script>
+                  <!-- End Toolbar -->
+									<script language="JavaScript" TYPE="text/javascript">
+									 writeToolbar(codedButtons, '/CTMOnline/'); 									
+									 </script>
+							  <!-- Req 104 - OAF Integration Toolbar Harmonization  End -->
+						 </td>
+              </tr>
+          </table> 
+			<!-- Fin TOPBARSEARCH -->
+            <hr size="1" color="bcc6cb">
+			<div align="center" class="sSubTitle1">
+              <TABLE border="0">
+                <TBODY>
+                  <TR>
+                  	 
+	                    <TD align="center"><font class="sSubTitle2"><b>						
+	                    		Unsuccessful search: Found 0 trade marks.            
+													</b><br>
+											</font></TD>
+											
+										
+		  					</TR>
+                </TBODY>
+              </TABLE>
+              
+ <!-- START UNSUCCESSFULL -------------------->             
+         
+	      <table width="100%" border="0" cellspacing="0" cellpadding="1" style="font-weight:normal;">
+	      	<tr>
+	      		<td>&nbsp;</td>
+	      	</tr>	      	
+	      	<tr> 
+                	<td align="left">Your search was unsuccessful, please check the following
+			</td>
+		</tr>
+		<tr>
+	      		<td>&nbsp;</td>
+	      	</tr>
+		<tr> 			
+                	<td align="left">&nbsp;&nbsp;&nbsp;1. Spelling of data entered.<br>
+			</td>
+		</tr>
+		<tr> 			
+                	<td align="left">&nbsp;&nbsp;&nbsp;2. Options selected.<br>
+			</td>
+		</tr>
+		<tr>
+	      		<td>&nbsp;</td>
+	      	</tr>
+		<tr> 
+                	<td align="left">If criteria was entered correctly please modify your search and try again<br>
+			</td>
+		</tr>
+	      </table>
+
+<!-- START TABLE CRITERIA -->
+	
+	<p align="left" style="padding-top:15px;padding-bottom:15px"">The values for your criteria were:</p>
+	<TABLE border="0" align="center" cellPadding="0" cellSpacing="0">
+                    <TBODY>
+                       <TR bgColor="#cecfc6"> 
+                        <TD> <TABLE border="0" align="center" cellPadding="1" cellSpacing="1" style="font-weight:normal;">
+                            <TBODY>
+				
+					
+                              <TR> 
+                                <TD class="sTextLabelT1" width="150" bgColor="#bbbeee">Criteria</TD>
+                                <TD class="sTextLabelT1" width="150" bgColor="#bbbeee">Value</TD>
+                              </TR>
+					
+					
+					
+					
+					
+										
+				 	
+						<TR> 
+							<TD width="150" bgColor="white">Trade mark basis:</TD>
+							<TD width="150" bgColor="white">All trade marks </TD>
+						</TR>
+					           
+					
+					
+					
+						<TR> 
+							<TD width="150" bgColor="white">Trade mark name:</TD>
+							<TD width="150" bgColor="white">Contains cbble</TD>
+						</TR>
+						
+		<!--  Code added by CTM 2006 - CHANGEREQ APPlIRef  - BEGIN  -->
+						
+		<!--  Code added by CTM 2006 - CHANGEREQ APPlIRef  - EDN  -->
+					
+						
+							  
+							 
+							  
+							  
+							  
+							  
+							   
+							<!--  Code added by CTM 2006 - REQ 102  - BEGIN   -->
+							  
+							<!--  Code added by CTM 2006 - REQ 102  - END   -->		
+			 				<!-- Code added by CTM 2006 - CHANGEREQ APPlIRef  - BEGIN  -->
+  								
+							  <!-- Code added by CTM 2006 - CHANGEREQ APPlIRef  - END  -->							
+							
+												  
+							  
+                            </TBODY>
+                          </TABLE></TD>
+                      </TR>
+                    </TBODY>
+                  </TABLE>
+            </div>
+<!-- END TABLE CRITERA -->
+
+<!-- END UNSUCCESSFULL -------------------->  
+	
+    </td>
+  </tr>
+</table>
+</form>
+
+<script language="Javascript">
+
+</script>
+
+		                </td>
+		                <td>&nbsp;</td>
+                        </td></tr></table>
+		            </tr>
+                </table>	        
+
+            </td>
+        </tr></table>
+        
+        <!-- FOOTER -->
+                    <div class="SLabel0"> 
+            	<script language="JavaScript" type="text/javascript">
+                     document.write('<iframe id="iframeFooter" name="iframeFooter" src="http://oami.europa.eu/OWSCommon/footer.htm?lang=' + document.getElementById("lang").value + '&version=' + document.getElementById("version").value + '" scrolling="no" frameborder="0" width="100%" onLoad="resizeIframe(this.id, this.name);" ></iframe>');        
+                </script>
+            </div>
+
+
+    </body>
+</html>
