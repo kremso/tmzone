@@ -1,9 +1,12 @@
 require 'nokogiri'
 require 'date'
+require 'tort/cleanup'
 
 module Tort
   module CTM
     class MarkParser
+      include Tort::Cleanup
+
       def parse(html, mark)
         doc = Nokogiri::HTML(html)
 
@@ -15,9 +18,9 @@ module Tort
         owner_name_used = false
         while current < tds.length - 1
           title = tds[current].text.strip
-          value = tds[current+1].text.strip
+          value = cleanup(tds[current+1].text)
           case title
-          when "Trade mark name :" then mark.name = value.gsub("\u00A0", " ")
+          when "Trade mark name :" then mark.name = value
           when "Trade mark No :" then mark.application_number = value
           when "Filing date:" then mark.application_date = Date.parse(value).strftime('%d.%m.%Y')
           when "Date of registration:" then mark.registration_date = Date.parse(value).strftime('%d.%m.%Y')

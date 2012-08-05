@@ -2,7 +2,7 @@
 
 require 'nokogiri'
 require 'tort/indprop'
-
+:wa
 module Tort
   module Indprop
     class MarkParser

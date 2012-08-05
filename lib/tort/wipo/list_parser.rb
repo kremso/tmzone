@@ -1,8 +1,12 @@
 require 'nokogiri'
 
+require 'tort/cleanup'
+
 module Tort
   module Wipo
     class ListParser
+      include Tort::Cleanup
+
       def parse(html)
         @html = html
         @doc = Nokogiri::HTML(html)
@@ -27,7 +31,7 @@ module Tort
       def total_hits
         paging = @doc.search('.pagination td:nth-child(1)').first
         if paging
-          paging.text.gsub("\u00A0", " ").match(/\((\d+) results\)/)[1].to_i
+          cleanup(paging.text).match(/\((\d+) results\)/)[1].to_i
         else
           0
         end

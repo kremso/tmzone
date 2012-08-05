@@ -1,9 +1,13 @@
 require 'nokogiri'
 require 'tort/mark'
 
+require 'tort/cleanup'
+
 module Tort
   module Wipo
     class MarkParser
+      include Tort::Cleanup
+
       def parse(html, mark)
         doc = Nokogiri::HTML(html)
         mark.name = cleanup(doc.search('.markname').first.text.match(/\d+ - (.*)/)[1])
@@ -41,20 +45,6 @@ module Tort
         end
 
         mark
-      end
-
-      private
-
-      def cleanup(string)
-        remove_nonbreaking_space(remove_newlines(string)).strip
-      end
-
-      def remove_nonbreaking_space(string)
-        string.gsub("\u00A0", "")
-      end
-
-      def remove_newlines(string)
-        string.gsub("\n", "")
       end
     end
   end

@@ -1,8 +1,11 @@
 require 'nokogiri'
+require 'tort/cleanup'
 
 module Tort
   module CTM
     class ListParser
+      include Tort::Cleanup
+
       def parse(html)
         @doc = Nokogiri::HTML(html)
         @search_results_tables = @doc.search("//table[.//*[contains(concat(' ', @class, ' '), ' sResultLink ')]]").slice(3..-1)
@@ -19,7 +22,7 @@ module Tort
           when 1 then 'IA'
           when 2 then 'IR'
           end
-          name = link.text.strip
+          name = cleanup(link.text)
           status_td = table.search('.sResultName:contains("Status:")').first
           status = status_td.search('font').first.text
           factory.new(mark_type, mark_id, {status: status, name: name})
