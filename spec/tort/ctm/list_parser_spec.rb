@@ -11,7 +11,7 @@ describe Tort::CTM::ListParser do
   it 'parses the HTML and extracts correct download instructions' do
     subject.parse(File.read('spec/fixtures/ctm/pepsi.html'))
     factory = mock(:Factory)
-    factory.should_receive(:new).with(type: 'CTM', mark_id: '010909026')
+    factory.should_receive(:new).with('CTM', '010909026', anything)
     factory.should_receive(:new).exactly(19).times
     subject.hits_download_instructions(factory)
   end
@@ -19,12 +19,12 @@ describe Tort::CTM::ListParser do
   it 'extracts correct mark URLs' do
     subject.parse(File.read('spec/fixtures/ctm/multiple_mark_urls.html'))
     factory = mock(:Factory)
-    factory.should_receive(:new).with(type: 'IR', mark_id: 'W00891116')
-    factory.should_receive(:new).with(type: 'IR', mark_id: 'W00874338')
-    factory.should_receive(:new).with(type: 'CTM', mark_id: '000684233')
-    factory.should_receive(:new).with(type: 'CTM', mark_id: '000501411')
-    factory.should_receive(:new).with(type: 'CTM', mark_id: '000423749')
-    factory.should_receive(:new).with(type: 'CTM', mark_id: '000274696')
+    factory.should_receive(:new).with('IR', 'W00891116', anything)
+    factory.should_receive(:new).with('IR', 'W00874338', anything)
+    factory.should_receive(:new).with('CTM', '000684233', anything)
+    factory.should_receive(:new).with('CTM', '000501411', anything)
+    factory.should_receive(:new).with('CTM', '000423749', anything)
+    factory.should_receive(:new).with('CTM', '000274696', anything)
     subject.hits_download_instructions(factory)
   end
 
@@ -42,5 +42,17 @@ describe Tort::CTM::ListParser do
   it 'knows the total number of hits' do
     subject.parse(File.read('spec/fixtures/ctm/pepsi.html'))
     subject.total_hits.should == 54
+  end
+
+  it 'parses mark status and mark name' do
+    subject.parse(File.read('spec/fixtures/ctm/multiple_mark_urls.html'))
+    factory = mock(:Factory)
+    factory.should_receive(:new).with(anything, anything, {status: 'International registration accepted', name: 'kiditec'})
+    factory.should_receive(:new).with(anything, anything, {status: 'International registration accepted', name: 'MEDITECHLAB'})
+    factory.should_receive(:new).with(anything, anything, {status: 'Registered', name: 'MediTec'})
+    factory.should_receive(:new).with(anything, anything, {status: 'Registered', name: 'BENDITEC'})
+    factory.should_receive(:new).with(anything, anything, {status: 'Application withdrawn', name: 'DITECnology'})
+    factory.should_receive(:new).with(anything, anything, {status: 'Application withdrawn', name: 'DITEC'})
+    subject.hits_download_instructions(factory)
   end
 end

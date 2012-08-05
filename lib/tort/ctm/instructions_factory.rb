@@ -95,10 +95,11 @@ module Tort
     end
 
     class HitDownloadInstructions < Tort::DownloadInstructions
-      def initialize(phrase, type, mark_id)
+      def initialize(phrase, type, mark_id, preparse)
         @phrase = phrase
         @type = type
         @mark_id = mark_id
+        @preparse = preparse
       end
 
       def url
@@ -192,8 +193,8 @@ module Tort
         @phrase = phrase
       end
 
-      def new(params)
-        HitDownloadInstructions.new(@phrase, params[:type], params[:mark_id])
+      def new(type, mark_id, preparse)
+        HitDownloadInstructions.new(@phrase, type, mark_id, preparse)
       end
     end
   end

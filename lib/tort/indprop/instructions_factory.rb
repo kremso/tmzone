@@ -27,8 +27,9 @@ module Tort
       end
 
       class HitDownloadInstructions < Tort::DownloadInstructions
-        def initialize(url)
+        def initialize(url, preparse)
           @url = url
+          @preparse = preparse
         end
 
         def url

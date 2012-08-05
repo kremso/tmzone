@@ -1,6 +1,6 @@
 module Tort
   class DownloadInstructions
-    attr_accessor :url, :cookies, :params, :method
+    attr_accessor :url, :cookies, :params, :method, :preparse
 
     def initialize(options)
       options.each do |k, v|

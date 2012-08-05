@@ -2,27 +2,32 @@
 require 'tort/mark_validity_filter'
 
 describe Tort::MarkValidityFilter do
-  let(:decorated_fetcher) { mock(:DecoratedFetcher) }
+  let(:list_parser) { mock(:ListParser) }
+  let(:factory) { mock(:Factory) }
 
-  it 'forwards all parameters to the decorated fetcher' do
-    filter = Tort::MarkValidityFilter.new(decorated_fetcher, {})
-    instructions = stub
-    factory = stub
-    decorated_fetcher.should_receive(:fetch_hits).with(instructions, factory) { [] }
-    filter.fetch_hits(instructions, factory)
+  it 'forwards all parameters to the decorated parser' do
+    filter = Tort::MarkValidityFilter.new(list_parser, {})
+    list_parser.should_receive(:hits_download_instructions).with(factory).and_return([])
+    filter.hits_download_instructions(factory)
+  end
+
+  it 'forwards all methods' do
+    filter = Tort::MarkValidityFilter.new(list_parser, {})
+    list_parser.should_receive(:parse)
+    filter.parse
   end
 
   it 'allows specified marks' do
-    filter = Tort::MarkValidityFilter.new(decorated_fetcher, {"v konaní" => true})
-    mark = stub(status: "v konaní")
-    decorated_fetcher.stub(fetch_hits: [mark])
-    filter.fetch_hits.should == [mark]
+    filter = Tort::MarkValidityFilter.new(list_parser, {"v konaní" => true})
+    instruction = stub(preparse: { status: "v konaní" })
+    list_parser.stub(hits_download_instructions: [instruction])
+    filter.hits_download_instructions(factory).should == [instruction]
   end
 
   it 'rejects marks that were not specified' do
-    filter = Tort::MarkValidityFilter.new(decorated_fetcher, {"v konaní" => true})
-    mark = stub(status: "zamietnutá")
-    decorated_fetcher.stub(fetch_hits: [mark])
-    filter.fetch_hits.should == []
+    filter = Tort::MarkValidityFilter.new(list_parser, {"v konaní" => true})
+    instruction = stub(preparse: { status: "zamietnutá" })
+    list_parser.stub(hits_download_instructions: [instruction])
+    filter.hits_download_instructions(factory).should == []
   end
 end

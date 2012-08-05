@@ -1,13 +1,16 @@
+require 'delegate'
+
 module Tort
-  class MarkValidityFilter
-    def initialize(decorated_fetcher, valid_statuses)
-      @decorated_fetcher = decorated_fetcher
+  class MarkValidityFilter < SimpleDelegator
+    def initialize(list_parser, valid_statuses)
+      @list_parser = list_parser
+      __setobj__(list_parser)
       @valid_statuses = valid_statuses
     end
 
-    def fetch_hits(*args)
-      @decorated_fetcher.fetch_hits(*args).select do |mark|
-        @valid_statuses[mark.status]
+    def hits_download_instructions(*args)
+      @list_parser.hits_download_instructions(*args).select do |instruction|
+        @valid_statuses[instruction.preparse[:status]]
       end
     end
   end

@@ -17,17 +17,19 @@ describe "CTM search" do
           first_call = false
           second_call = true
         elsif second_call
-          results.size.should == 20
+          results.size.should == 11
           results.source.should == "CTM"
           results.total.should == 46
           results.hits.collect(&:name).should include("YUDITEC", "MEDITECH")
+          results.hits.collect(&:name).should_not include("EURO-MEDITECH COMFORT")
 
           second_call = false
         else
-          results.size.should == 6
+          results.size.should == 4
           results.source.should == "CTM"
           results.total.should == 46
-          results.hits.collect(&:name).should include("kiditec", "DITEC")
+          results.hits.collect(&:name).should include("kiditec", "BENDITEC")
+          results.hits.collect(&:name).should_not include("DITECnology")
 
           all_results_fetched = true
         end

@@ -16,8 +16,10 @@ module Tort
       def hits_download_instructions(factory)
         @doc.search('.listItem').collect do |hit|
           link = hit.search('.listItemTitle span a').first
+          name = link.text.gsub("\u00A0", " ").strip
           detail_url = CGI.unescape(link[:href])
-          factory.new(detail_url)
+          status = hit.search('.tlist_col6').first.text
+          factory.new(detail_url, {status: status, name: name})
         end
       end
 
