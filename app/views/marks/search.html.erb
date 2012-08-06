@@ -1,0 +1,9 @@
+<%= form_tag marks_search_path, id: 'search' do %>
+  <%= text_field_tag :q, '' %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<div class="paging">
+</div>
+<div class="results">
+</div>

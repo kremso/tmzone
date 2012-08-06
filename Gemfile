@@ -5,7 +5,19 @@ gem 'journey',   github: 'rails/journey'
 gem 'arel',      github: 'rails/arel'
 gem 'active_record_deprecated_finders', github: 'rails/active_record_deprecated_finders'
 
+gem 'puma'
+
+gem 'therubyracer'
+
 gem 'nokogiri'
+
+gem 'sidekiq'
+gem 'slim'
+gem 'sinatra', require: nil
+
+gem 'redis'
+
+gem 'uuid'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,7 +32,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :test, :development do
+group :test do
   gem 'rspec-rails'
   gem 'vcr'
   gem 'webmock'

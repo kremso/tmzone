@@ -28,4 +28,7 @@ Tmzone::Application.configure do
 
   # In development, use an in-memory queue for queueing
   config.queue = Rails::Queueing::Queue
+
+  config.preload_frameworks = true
+  config.allow_concurrency = true
 end

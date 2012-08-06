@@ -13,3 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $('#search').submit(function() {
+    var form = $(this);
+    $.post(form.attr('action'), form.serialize(), function(results_url) {
+      var source = new EventSource(results_url);
+      source.addEventListener('results', function(e) {
+        var results = $.parseJSON(e.data);
+
+        $('.paging').html("Zobrazujem " + results.status.fetched + " vysledkov z " + results.status.total);
+        $.each(results.hits, function(index, result) {
+          $('.results').append("<div>" + result.name + "<img src='" + result.illustration_url + "' width='100px'/></div>" );
+        });
+      });
+    });
+
+    return false;
+  });
+});
