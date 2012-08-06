@@ -29,7 +29,12 @@ module Tort
         end
       end
 
-      @response = http.request(request)
+      begin
+        @response = http.request(request)
+      rescue Timeout::Error
+        raise ResourceNotAvailable
+      end
+
       if @response.code == "200"
         @response.body
       else
