@@ -18,6 +18,7 @@ $(document).ready(function() {
   $('#search').submit(function() {
     var form = $(this);
     $.post(form.attr('action'), form.serialize(), function(results_url) {
+      $('.status').html('Vyhladavam...');
       var source = new EventSource(results_url);
       source.addEventListener('results', function(e) {
         var results = $.parseJSON(e.data);
@@ -30,6 +31,10 @@ $(document).ready(function() {
 
       source.addEventListener('error', function(e) {
         $('.errors').html("Pri vyhladavani v registroch ochrannych znamok sa vyskytla chyba, vysledky nie su kompletne");
+      });
+
+      source.addEventListener('finished', function(e) {
+        $('.status').html("Hotovo.");
       });
     });
 

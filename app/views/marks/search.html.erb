@@ -1,6 +1,8 @@
 <%= form_tag marks_search_path, id: 'search' do %>
   <%= text_field_tag :q, '' %>
   <%= submit_tag 'Search' %>
+  <div class="status">
+  </div>
 <% end %>
 
 <div class="errors">

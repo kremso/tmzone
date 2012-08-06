@@ -30,8 +30,9 @@ class MarksController < ApplicationController
           when "results" then
             sse.write(message.except("type"), event: 'results')
           when "error" then
-            sse.write(event: 'error')
+            sse.write({}, event: 'error')
           when "finished" then
+            sse.write({}, event: 'finished')
             redis.unsubscribe(channel)
           end
         end
