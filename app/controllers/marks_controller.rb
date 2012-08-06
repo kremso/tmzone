@@ -21,10 +21,15 @@ class MarksController < ApplicationController
     redis = Redis.new
 
     begin
-      loop do
-        redis.subscribe("search:#{params[:job]}") do |on|
-          on.message do |channel, message|
-            sse.write(message, event: 'results')
+      channel = "search:#{params[:job]}"
+      redis.subscribe(channel) do |on|
+        on.message do |channel, json_message|
+          message = JSON.parse(json_message)
+          case message["type"]
+          when "results" then
+            sse.write(message.except("type"), event: 'results')
+          when "finished" then
+            redis.unsubscribe(channel)
           end
         end
       end
