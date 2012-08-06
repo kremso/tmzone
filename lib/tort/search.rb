@@ -28,13 +28,27 @@ module Tort
     end
 
     def search(phrase, &block)
+      block.call(self)
+
       status = Status.new(@searchers.size)
       @searchers.each do |searcher|
-        searcher.search(phrase) do |search_results|
-          status.update(search_results.source, search_results.size, search_results.total)
-          block.call(status, search_results.hits)
+        begin
+          searcher.search(phrase) do |search_results|
+            status.update(search_results.source, search_results.size, search_results.total)
+            @results_callback.call(status, search_results.hits)
+          end
+        rescue Tort::ResourceNotAvailable
+          @error_callback.call
         end
       end
+    end
+
+    def results(&block)
+      @results_callback = block
+    end
+
+    def error(&block)
+      @error_callback = block
     end
   end
 end

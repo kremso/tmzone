@@ -27,6 +27,10 @@ $(document).ready(function() {
           $('.results').append("<div>" + result.name + "<img src='" + result.illustration_url + "' width='100px'/></div>" );
         });
       });
+
+      source.addEventListener('error', function(e) {
+        $('.errors').html("Pri vyhladavani v registroch ochrannych znamok sa vyskytla chyba, vysledky nie su kompletne");
+      });
     });
 
     return false;

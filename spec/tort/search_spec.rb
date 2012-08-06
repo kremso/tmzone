@@ -1,4 +1,5 @@
 require 'tort/search'
+require 'tort/tort'
 
 describe Tort::Search do
 
@@ -13,7 +14,9 @@ describe Tort::Search do
     block.should_receive(:call).twice
 
     search = Tort::Search.new(searcher_1, searcher_2)
-    search.search("pepsi", &block)
+    search.search("pepsi") do |on|
+      on.results(&block)
+    end
   end
 
   it 'runs the callback with the hits from the searcher' do
@@ -24,7 +27,9 @@ describe Tort::Search do
     block.should_receive(:call).with(anything, hits)
 
     search = Tort::Search.new(searcher)
-    search.search("pepsi", &block)
+    search.search("pepsi") do |on|
+      on.results(&block)
+    end
   end
 
   context 'runs the callback with the status information, which' do
@@ -46,7 +51,9 @@ describe Tort::Search do
       end.ordered
 
       search = Tort::Search.new(indprop_searcher, wipo_searcher)
-      search.search("pepsi", &block)
+      search.search("pepsi") do |on|
+        on.results(&block)
+      end
     end
 
     it 'contains information about total number of hits expected' do
@@ -59,7 +66,9 @@ describe Tort::Search do
       end.ordered
 
       search = Tort::Search.new(indprop_searcher, wipo_searcher)
-      search.search("pepsi", &block)
+      search.search("pepsi") do |on|
+        on.results(&block)
+      end
     end
   end
 
@@ -76,6 +85,26 @@ describe Tort::Search do
     end.ordered
 
     search = Tort::Search.new(searcher)
-    search.search("pepsi", &block)
+    search.search("pepsi") do |on|
+      on.results(&block)
+    end
+  end
+
+  it 'calls the error callback in case the searcher fails' do
+    searcher = stub(:Searcher)
+    search = Tort::Search.new(searcher)
+
+    searcher.stub(:search).and_raise(Tort::ResourceNotAvailable)
+
+    error_callback = lambda{}
+    results_callback = lambda{}
+
+    error_callback.should_receive(:call)
+    results_callback.should_not_receive(:call)
+
+    search.search("pepsi") do |on|
+      on.results(&results_callback)
+      on.error(&error_callback)
+    end
   end
 end

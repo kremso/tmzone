@@ -28,6 +28,8 @@ class MarksController < ApplicationController
           case message["type"]
           when "results" then
             sse.write(message.except("type"), event: 'results')
+          when "error" then
+            sse.write(event: 'error')
           when "finished" then
             redis.unsubscribe(channel)
           end
