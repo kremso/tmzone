@@ -55,8 +55,15 @@ describe Tort::Wipo::ListParser do
     end
 
     it 'returns 0 as the total number of hits' do
-      subject.parse(File.read('spec/fixtures/ctm/unsuccessful_search.html'))
+      subject.parse(File.read('spec/fixtures/wipo/unsuccessful_search.html'))
       subject.total_hits.should == 0
+    end
+  end
+
+  context 'when parsing search results with only sinlge page' do
+    it 'knows the total number of hits is equal to number of search results on that page' do
+      subject.parse(File.read('spec/fixtures/wipo/few_search_results.html'))
+      subject.total_hits.should == 5
     end
   end
 end

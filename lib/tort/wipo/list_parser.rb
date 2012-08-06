@@ -31,7 +31,12 @@ module Tort
       def total_hits
         paging = @doc.search('.pagination td:nth-child(1)').first
         if paging
-          cleanup(paging.text).match(/\((\d+) results\)/)[1].to_i
+          match = cleanup(paging.text).match(/\((\d+) results\)/)
+          if match
+            match[1].to_i
+          else
+            @doc.search('.table1 tbody tr td:nth-child(2) a').size
+          end
         else
           0
         end
