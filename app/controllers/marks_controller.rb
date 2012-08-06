@@ -1,5 +1,6 @@
 require 'uuid'
 require 'sse'
+require 'channel'
 
 class MarksController < ApplicationController
   include ActionController::Live
@@ -21,7 +22,7 @@ class MarksController < ApplicationController
     redis = Redis.new
 
     begin
-      channel = "search:#{params[:job]}"
+      channel = Channel.for_job(params[:job])
       redis.subscribe(channel) do |on|
         on.message do |channel, json_message|
           message = JSON.parse(json_message)
