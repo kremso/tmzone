@@ -34,20 +34,26 @@ module Tort
     def search(phrase, &block)
       block.call(self)
 
+      threads = []
+
       status = Status.new(@searchers.size)
       @searchers.each do |searcher|
-        begin
-          searcher.search(phrase) do |search_results|
-            status.update(searcher, search_results.size, search_results.total)
-            @results_callback.call(search_results.hits)
+        threads << Thread.new do
+          begin
+            searcher.search(phrase) do |search_results|
+              status.update(searcher, search_results.size, search_results.total)
+              @results_callback.call(search_results.hits)
+              @status_change_callback.call(status)
+            end
+          rescue Tort::ResourceNotAvailable
+            status.update(searcher, 0, 0)
             @status_change_callback.call(status)
+            @error_callback.call if @error_callback
           end
-        rescue Tort::ResourceNotAvailable
-          status.update(searcher, 0, 0)
-          @status_change_callback.call(status)
-          @error_callback.call if @error_callback
         end
       end
+
+      threads.each(&:join)
     end
 
     def results(&block)
