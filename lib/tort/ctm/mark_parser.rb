@@ -10,6 +10,8 @@ module Tort
       def parse(html, mark)
         doc = Nokogiri::HTML(html)
 
+        raise Tort::ResourceNotAvailable if doc.search('font.STitle1:contains("Error Report")').any?
+
         img = doc.search('#Graphic').first
         mark.illustration_url = img[:src] if img
 

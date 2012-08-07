@@ -1,4 +1,5 @@
 require 'tort/ctm/mark_parser'
+require 'tort/tort'
 
 describe Tort::CTM::MarkParser do
   context 'when parsing texual mark' do
@@ -35,7 +36,10 @@ describe Tort::CTM::MarkParser do
   end
 
   context 'when parsing CTM error report' do
-    it 'raises and exception'
+    it 'raises an exception' do
+      mark = stub(:Mark).as_null_object
+      expect { subject.parse(File.read('spec/fixtures/ctm/error_report.html'), mark) }.to raise_error Tort::ResourceNotAvailable
+    end
   end
 
   it 'parses multiple nice classes correctly' do
