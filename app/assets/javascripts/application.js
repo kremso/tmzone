@@ -20,17 +20,28 @@ $(document).ready(function() {
     $.post(form.attr('action'), form.serialize(), function(results_url) {
       $('.status').html('Vyhladavam...');
       var source = new EventSource(results_url);
+
       source.addEventListener('results', function(e) {
         var results = $.parseJSON(e.data);
 
-        $('.paging').html("Zobrazujem " + results.status.fetched + " vysledkov z " + results.status.total);
-        $.each(results.hits, function(index, result) {
+        $.each(results, function(index, result) {
           $('.results').append("<div>" + result.name + "<img src='" + result.illustration_url + "' width='100px'/></div>" );
         });
       });
 
       source.addEventListener('error', function(e) {
         $('.errors').html("Pri vyhladavani v registroch ochrannych znamok sa vyskytla chyba, vysledky nie su kompletne");
+      });
+
+      source.addEventListener('status', function(e) {
+        var status = $.parseJSON(e.data);
+        var status_text = "Zobrazujem " + status.fetched + " vysledkov z " + status.total;
+
+        if(!status["has_finalized_total?"]) {
+          status_text += " (...)"
+        }
+
+        $('.paging').html(status_text);
       });
 
       source.addEventListener('finished', function(e) {

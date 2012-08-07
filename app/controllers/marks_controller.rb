@@ -28,9 +28,11 @@ class MarksController < ApplicationController
           message = JSON.parse(json_message)
           case message["type"]
           when "results" then
-            sse.write(message.except("type"), event: 'results')
+            sse.write(message["data"], event: 'results')
           when "error" then
             sse.write({}, event: 'error')
+          when "status" then
+            sse.write(message["data"], event: 'status')
           when "finished" then
             sse.write({}, event: 'finished')
             redis.unsubscribe(channel)

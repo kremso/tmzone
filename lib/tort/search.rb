@@ -21,6 +21,10 @@ module Tort
       def has_finalized_total?
         @total_searchers == @totals.size
       end
+
+      def as_json(options = {})
+        { fetched: fetched, total: total, has_finalized_total?: has_finalized_total? }
+      end
     end
 
     def initialize(*searchers)
@@ -34,11 +38,14 @@ module Tort
       @searchers.each do |searcher|
         begin
           searcher.search(phrase) do |search_results|
-            status.update(search_results.source, search_results.size, search_results.total)
-            @results_callback.call(status, search_results.hits)
+            status.update(searcher, search_results.size, search_results.total)
+            @results_callback.call(search_results.hits)
+            @status_change_callback.call(status)
           end
         rescue Tort::ResourceNotAvailable
-          @error_callback.call
+          status.update(searcher, 0, 0)
+          @status_change_callback.call(status)
+          @error_callback.call if @error_callback
         end
       end
     end
@@ -49,6 +56,10 @@ module Tort
 
     def error(&block)
       @error_callback = block
+    end
+
+    def status_change(&block)
+      @status_change_callback = block
     end
   end
 end

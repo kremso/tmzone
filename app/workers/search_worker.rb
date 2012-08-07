@@ -6,10 +6,13 @@ class SearchWorker
 
   def perform(phrase, job_id)
     redis = Redis.new
+    channel = Channel.for_job(job_id)
     Tort.search(phrase) do |on|
-      channel = Channel.for_job(job_id)
-      on.results do |status, hits|
-        redis.publish(channel, { type: "results", status: status, hits: hits }.to_json)
+      on.results do |hits|
+        redis.publish(channel, { type: "results", data: hits }.to_json)
+      end
+      on.status_change do |status|
+        redis.publish(channel, { type: "status", data: status }.to_json)
       end
       on.error do
         redis.publish(channel, { type: 'error' }.to_json)
