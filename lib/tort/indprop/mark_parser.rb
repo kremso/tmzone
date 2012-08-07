@@ -2,7 +2,7 @@
 
 require 'nokogiri'
 require 'tort/indprop'
-:wa
+
 module Tort
   module Indprop
     class MarkParser
@@ -12,7 +12,7 @@ module Tort
           case tds[1].text
           when 'Znenie OZ / Reprodukcia známky' then
             if (img = tds[2].search('img').first)
-              mark.illustration_url = img[:src]
+              mark.illustration_url = "http://registre.indprop.gov.sk#{img[:src]}"
             end
             mark.name = tds[2].text if tds[2].text != ""
           when 'Číslo zápisu' then mark.registration_number = tds[2].text

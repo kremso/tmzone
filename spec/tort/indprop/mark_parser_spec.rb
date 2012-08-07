@@ -24,7 +24,7 @@ describe Tort::Indprop::MarkParser do
   context 'when parsing visual mark' do
     it 'parses mark attributes' do
       mark = mock(:Hit, status: 'status')
-      mark.should_receive(:illustration_url=).with("/registre/obrazky/znamky/2007/2007005274.jpg")
+      mark.should_receive(:illustration_url=).with("http://registre.indprop.gov.sk/registre/obrazky/znamky/2007/2007005274.jpg")
       mark.should_receive(:registration_number=).with("219039")
       mark.should_receive(:owner=).with("ESET, spol. s r. o.; Einsteinova 24; 851 01 Bratislava; SK")
       mark.should_receive(:application_number=).with("5274-2007")
@@ -43,7 +43,7 @@ describe Tort::Indprop::MarkParser do
   context 'when parsing visual and text mark' do
     it 'extracts both name and image' do
       mark = mock(:Hit, status: 'status').as_null_object
-      mark.should_receive(:illustration_url=).with("/registre/obrazky/znamky/1995/1995002072.jpg")
+      mark.should_receive(:illustration_url=).with("http://registre.indprop.gov.sk/registre/obrazky/znamky/1995/1995002072.jpg")
       mark.should_receive(:name=).with("eset softwae")
     subject.parse(File.read('spec/fixtures/indprop/visual_and_text.htm'), mark).should == mark
     end
