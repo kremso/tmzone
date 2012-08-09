@@ -73,6 +73,7 @@ Searcher.prototype.search = function(endpoint) {
 
   self.source.addEventListener('finished', function(e) {
     self.status.searchFinished();
+    self.source.close();
   });
 }
 
