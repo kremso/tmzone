@@ -15,7 +15,7 @@ class SearchWorker
         redis.publish(channel, { type: "status", data: status }.to_json)
       end
       on.error do
-        redis.publish(channel, { type: 'error' }.to_json)
+        redis.publish(channel, { type: 'failure' }.to_json)
       end
     end
     redis.publish("search:#{job_id}", { type: "finished" }.to_json)

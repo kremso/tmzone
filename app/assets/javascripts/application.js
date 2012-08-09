@@ -63,7 +63,7 @@ Searcher.prototype.search = function(endpoint) {
     self.marks.appendMarks($.parseJSON(e.data));
   });
 
-  self.source.addEventListener('error', function(e) {
+  self.source.addEventListener('failure', function(e) {
     self.errors.showError();
   });
 

@@ -29,8 +29,8 @@ class MarksController < ApplicationController
           case message["type"]
           when "results" then
             sse.write(message["data"], event: 'results')
-          when "error" then
-            sse.write({}, event: 'error')
+          when "failure" then
+            sse.write({}, event: 'failure')
           when "status" then
             sse.write(message["data"], event: 'status')
           when "finished" then
