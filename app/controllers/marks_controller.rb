@@ -20,8 +20,7 @@ class MarksController < ApplicationController
   def results
     response.headers['Content-Type'] = 'text/event-stream'
     sse = SSE.new(response.stream)
-    redis = Redis.new
-    queue = SafeQueue.new(Channel.for_job(params[:job]), redis)
+    queue = SafeQueue.new(Channel.for_job(params[:job]), Tmzone.redis)
 
     begin
       loop do
