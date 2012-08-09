@@ -15,21 +15,23 @@
 //= require hogan.js
 //= require_tree .
 
+
 $(document).ready(function() {
+  var searcher = new Searcher();
+
   $('#search').submit(function() {
     var form = $(this);
 
     $.post(form.attr('action'), form.serialize(), function(results_url) {
-      var searcher = new Searcher(results_url);
-      searcher.search();
+      searcher.search(results_url);
     });
 
     return false;
   });
 });
 
-var Searcher = function(endpoint) {
-  this.source = new EventSource(endpoint);
+var Searcher = function() {
+  this.searchInProgress = false;
 
   this.marks = new Marks($('.results'));
   this.paging = new Paging($('.paging'));
@@ -37,7 +39,22 @@ var Searcher = function(endpoint) {
   this.errors = new Errors($('.errors'));
 }
 
+Searcher.prototype.resetSearch = function() {
+  if(this.searchInProgress) {
+    this.source.close();
+
+    this.marks.reset();
+    this.paging.reset();
+    this.status.reset();
+    this.errors.reset();
+  }
+}
+
 Searcher.prototype.search = function(endpoint) {
+  this.resetSearch();
+  this.source = new EventSource(endpoint);
+
+  this.searchInProgress = true;
   var self = this;
 
   self.status.searchStarted();
@@ -70,6 +87,9 @@ Marks.prototype.appendMarks = function(marks) {
     var markView = MarkViewFactory.viewFor(mark, $markEl);
     markView.render();
   });
+}
+Marks.prototype.reset = function() {
+  this.$el.html('');
 }
 
 var MarkViewFactory = {};
@@ -110,6 +130,9 @@ var Paging = function($el) {
 Paging.prototype.update = function(data) {
   this.$el.html(HoganTemplates['paging'].render(data));
 }
+Paging.prototype.reset = function() {
+  this.$el.html('');
+}
 
 var Status = function($el) {
   this.$el = $el;
@@ -123,9 +146,16 @@ Status.prototype.searchFinished = function() {
   this.$el.html(HoganTemplates['status_finished'].render());
 }
 
+Status.prototype.reset = function() {
+  this.$el.html('');
+}
+
 var Errors = function($el) {
   this.$el = $el;
 }
 Errors.prototype.showError = function() {
   this.$el.html(HoganTemplates['error'].render());
+}
+Errors.prototype.reset = function() {
+  this.$el.html('');
 }
