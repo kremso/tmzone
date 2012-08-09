@@ -1,2 +1,24 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+= Spustenie
+
+1. redis start
+2. bundle exec sidekiq
+3. puma -p 3000 (`rails s` nebude fungovat)
+4. http://localhost:3000/marks/search
+
+= Ako to funguje
+
+1. MarksController.search! vlozi do sidekiq queue novy job a okamzite vrati
+   adresu, z ktorej sa daju tahat priebezne vysledky.
+2. Sidekiq spusti SearchWorker, ktory zacne vyhladavat a stahovat vysledky,
+   priebezne ich sype do redisu.
+3. Medzitym klient zacne stahovat vysledky z MarksController#results.
+4. MarksController#results taha z redisu vysledky, ktore tam z druhej strany
+   sype SearchWorker a generuje Server Sent Events.
+   http://www.html5rocks.com/en/tutorials/eventsource/basics/
+5. Klient reaguje na rozne typy SSE a priebezne zobrazuje vysledky.
+
+Vysledky musia byt niekde docasne odlozene a nie je to mozne sypat priamo z
+MarksController#search!. Podla specifikacie sa moze klient kedykolvek odpojit
+(IOError) a potom znovu napojit a pokracovat. Navyse, IE nepodporuje SSE,
+polyfill app/assets/javascripts/EventSource.js to v tom pripade fallbackne na
+periodicky polling.
