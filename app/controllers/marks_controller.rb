@@ -21,9 +21,10 @@ class MarksController < ApplicationController
     response.headers['Content-Type'] = 'text/event-stream'
     sse = SSE.new(response.stream)
     queue = SafeQueue.new(Channel.for_job(params[:job]), Tmzone.redis)
+    finished = false
 
     begin
-      loop do
+      begin
         queue.next_message do |json_message|
           message = JSON.parse(json_message)
           case message["type"]
@@ -35,10 +36,10 @@ class MarksController < ApplicationController
             sse.write(message["data"], event: 'status')
           when "finished" then
             sse.write({}, event: 'finished')
-            break
+            finished = true
           end
         end
-      end
+      end while !finished
     rescue IOError
 
     ensure
