@@ -1,0 +1,17 @@
+<p>Majitel: {{owner}}</p>
+<p>Cislo zapisu: {{registration_number}}</p>
+<a href="#" class="show-details">...</a>
+<div class="details" style="display: none">
+  <p>Cislo prihlasky: {{application_number}}</p>
+  <p>Datum podania: {{application_date}}</p>
+  <p>Datum zapisu: {{registration_date}}</p>
+  <p>Platnost do: {{valid_until}}</p>
+  <ul>
+    {{#classes}}
+      <li>
+        {{code}} - {{description}}
+      </li>
+    {{/classes}}
+  </ul>
+</div>
+<hr/>

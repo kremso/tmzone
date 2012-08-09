@@ -103,6 +103,10 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.1)
+    hogan_assets (1.3.2)
+      execjs (>= 1.2.9)
+      sprockets (>= 2.0.3)
+      tilt (>= 1.3.3)
     i18n (0.6.0)
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
@@ -195,6 +199,7 @@ DEPENDENCIES
   active_record_deprecated_finders!
   arel!
   coffee-rails!
+  hogan_assets
   journey!
   jquery-rails
   nokogiri
