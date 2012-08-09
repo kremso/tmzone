@@ -1,6 +1,7 @@
 require 'uuid'
 require 'sse'
 require 'channel'
+require 'safe_queue'
 
 class MarksController < ApplicationController
   include ActionController::Live
@@ -20,11 +21,11 @@ class MarksController < ApplicationController
     response.headers['Content-Type'] = 'text/event-stream'
     sse = SSE.new(response.stream)
     redis = Redis.new
+    queue = SafeQueue.new(Channel.for_job(params[:job]), redis)
 
     begin
-      channel = Channel.for_job(params[:job])
-      redis.subscribe(channel) do |on|
-        on.message do |channel, json_message|
+      loop do
+        queue.next_message do |json_message|
           message = JSON.parse(json_message)
           case message["type"]
           when "results" then
@@ -35,15 +36,14 @@ class MarksController < ApplicationController
             sse.write(message["data"], event: 'status')
           when "finished" then
             sse.write({}, event: 'finished')
-            redis.unsubscribe(channel)
+            break
           end
         end
       end
     rescue IOError
-      # When the client disconnects, we'll get an IOError on write
+
     ensure
       sse.close
     end
-
   end
 end

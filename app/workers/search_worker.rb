@@ -9,15 +9,15 @@ class SearchWorker
     channel = Channel.for_job(job_id)
     Tort.search(phrase) do |on|
       on.results do |hits|
-        redis.publish(channel, { type: "results", data: hits }.to_json)
+        redis.rpush(channel, { type: "results", data: hits }.to_json)
       end
       on.status_change do |status|
-        redis.publish(channel, { type: "status", data: status }.to_json)
+        redis.rpush(channel, { type: "status", data: status }.to_json)
       end
       on.error do
-        redis.publish(channel, { type: 'failure' }.to_json)
+        redis.rpush(channel, { type: 'failure' }.to_json)
       end
     end
-    redis.publish("search:#{job_id}", { type: "finished" }.to_json)
+    redis.rpush("search:#{job_id}", { type: "finished" }.to_json)
   end
 end
