@@ -73,6 +73,7 @@ Searcher.prototype.search = function(endpoint) {
 
   self.source.addEventListener('finished', function(e) {
     self.status.searchFinished();
+    self.paging.consolidate();
     self.source.close();
   });
 }
@@ -129,10 +130,19 @@ var Paging = function($el) {
   this.$el = $el;
 }
 Paging.prototype.update = function(data) {
-  this.$el.html(HoganTemplates['paging'].render(data));
+  data['total'] = "asi " + data['total'];
+  this.data = data;
+  this.render();
 }
 Paging.prototype.reset = function() {
   this.$el.html('');
+}
+Paging.prototype.render = function() {
+  this.$el.html(HoganTemplates['paging'].render(this.data));
+}
+Paging.prototype.consolidate = function() {
+  this.data['total'] = this.data['fetched'];
+  this.render();
 }
 
 var Status = function($el) {
