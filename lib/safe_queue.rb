@@ -13,4 +13,8 @@ class SafeQueue
       raise error
     end
   end
+
+  def push(message)
+    @redis.rpush(@channel, message)
+  end
 end
