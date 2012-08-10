@@ -100,7 +100,11 @@
     });
   }
   TmZone.Marks.prototype.reset = function() {
-    this.$el.html('');
+    // Point src attribute of each image to '' to prevent it from loading.
+    // #empty() removes the elements from DOM, but not from memory where they
+    // continue loading.
+    $('img', this.$el).attr("src", "");
+    this.$el.empty();
   }
 
   TmZone.MarkViewFactory = {};
@@ -144,7 +148,7 @@
     this.render();
   }
   TmZone.Paging.prototype.reset = function() {
-    this.$el.html('');
+    this.$el.empty();
   }
   TmZone.Paging.prototype.render = function() {
     this.$el.html(HoganTemplates['paging'].render(this.data));
@@ -167,7 +171,7 @@
   }
 
   TmZone.Status.prototype.reset = function() {
-    this.$el.html('');
+    this.$el.empty();
   }
 
   TmZone.Errors = function($el) {
@@ -177,6 +181,6 @@
     this.$el.html(HoganTemplates['error'].render());
   }
   TmZone.Errors.prototype.reset = function() {
-    this.$el.html('');
+    this.$el.empty();
   }
 })();
