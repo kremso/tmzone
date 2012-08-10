@@ -1,5 +1,10 @@
 <p>Majitel: {{owner}}</p>
-<p>Cislo zapisu: {{registration_number}}</p>
+{{#registration_number}}
+  <p>Cislo zapisu: {{registration_number}}</p>
+{{/registration_number}}
+{{^registration_number}}
+  <p>Cislo prihlasky: {{application_number}}</p>
+{{/registration_number}}
 <a href="#" class="show-details">...</a>
 <div class="details" style="display: none">
   <p>Cislo prihlasky: {{application_number}}</p>
