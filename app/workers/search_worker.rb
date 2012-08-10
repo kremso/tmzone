@@ -3,9 +3,7 @@ require 'channel'
 require 'safe_queue'
 
 class SearchWorker
-  include Sidekiq::Worker
-
-  def perform(phrase, job_id)
+  def self.perform(phrase, job_id)
     channel = Channel.for_job(job_id)
     queue = SafeQueue.new(channel, Tmzone.redis)
 
@@ -21,5 +19,13 @@ class SearchWorker
       end
     end
     queue.push({ type: "finished" }.to_json)
+  end
+
+  def handle(ex)
+    if ex.respond_to? :job_id
+      channel = Channel.for_job(ex.job_id)
+      queue = SafeQueue.new(channel, Tmzone.redis)
+      queue.push({ type: 'fatal' }.to_json)
+    end
   end
 end

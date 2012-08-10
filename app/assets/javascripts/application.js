@@ -70,6 +70,12 @@
       self.errors.showError();
     });
 
+    self.source.addEventListener('fatal', function(e) {
+      self.errors.showError();
+      self.status.searchFinished();
+      self.source.close();
+    });
+
     self.source.addEventListener('status', function(e) {
       self.paging.update($.parseJSON(e.data));
     });

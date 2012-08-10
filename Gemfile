@@ -11,9 +11,8 @@ gem 'therubyracer'
 
 gem 'nokogiri'
 
-gem 'sidekiq'
-gem 'slim'
 gem 'sinatra', require: nil
+gem 'girl_friday'
 
 gem 'redis'
 

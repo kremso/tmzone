@@ -1,6 +1,6 @@
 Tmzone::Application.routes.draw do
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  require 'girl_friday/server'
+  mount GirlFriday::Server => '/girl_friday'
 
   get 'marks/search', to: 'marks#search'
   post 'marks/search', to: 'marks#search!'
