@@ -24,9 +24,9 @@ module Tort
           case title
           when "Trade mark name :" then mark.name = value
           when "Trade mark No :" then mark.application_number = value
-          when "Filing date:" then mark.application_date = Date.parse(value).strftime('%d.%m.%Y')
-          when "Date of registration:" then mark.registration_date = Date.parse(value).strftime('%d.%m.%Y')
-          when "Expiry Date:" then mark.valid_until = Date.parse(value).strftime('%d.%m.%Y')
+          when "Filing date:" then mark.application_date = Date.parse(value)
+          when "Date of registration:" then mark.registration_date = Date.parse(value)
+          when "Expiry Date:" then mark.valid_until = Date.parse(value)
           when "Status of trade mark:" then mark.status = tds[current+1].search('a').first.text
           when "Name:" then
             unless owner_name_used

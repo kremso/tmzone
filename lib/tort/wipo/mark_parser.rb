@@ -18,7 +18,7 @@ module Tort
           value = heading.parent.parent.search('.txtDesc').first
           case heading.text
           when "151" then
-            mark.registration_date = value.text
+            mark.registration_date = Date.parse(value.text)
           when "450" then
             unless registration_number_set
               mark.registration_number = cleanup(value.text.split(',').first)
@@ -32,7 +32,7 @@ module Tort
           when "821" then
             application_components = value.text.split(',')
             mark.application_number = cleanup(application_components[2])
-            mark.application_date = cleanup(application_components[1])
+            mark.application_date = Date.parse(cleanup(application_components[1]))
           when "511" then
             heading.parent.parent.search('.txtDesc').each do |classification|
               nice_code = cleanup(classification.search('.txtNbRich').first.text)
@@ -40,7 +40,7 @@ module Tort
               mark.add_class(nice_code, nice_description)
             end
           when "180" then
-            mark.valid_until = value.text
+            mark.valid_until = Date.parse(value.text)
           end
         end
 
