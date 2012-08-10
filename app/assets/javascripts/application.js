@@ -16,157 +16,161 @@
 //= require_tree .
 
 
-$(document).ready(function() {
-  var searcher = new Searcher();
+;(function() {
+  var TmZone = {};
 
-  $('#search').submit(function() {
-    var form = $(this);
+  $(document).ready(function() {
+    var searcher = new TmZone.Searcher();
 
-    $.post(form.attr('action'), form.serialize(), function(results_url) {
-      searcher.search(results_url);
+    $('#search').submit(function() {
+      var form = $(this);
+
+      $.post(form.attr('action'), form.serialize(), function(results_url) {
+        searcher.search(results_url);
+      });
+
+      return false;
+    });
+  });
+
+  TmZone.Searcher = function() {
+    this.searchInProgress = false;
+
+    this.marks = new TmZone.Marks($('.results'));
+    this.paging = new TmZone.Paging($('.paging'));
+    this.status = new TmZone.Status($('.status'));
+    this.errors = new TmZone.Errors($('.errors'));
+  }
+
+  TmZone.Searcher.prototype.resetSearch = function() {
+    if(this.searchInProgress) {
+      this.source.close();
+
+      this.marks.reset();
+      this.paging.reset();
+      this.status.reset();
+      this.errors.reset();
+    }
+  }
+
+  TmZone.Searcher.prototype.search = function(endpoint) {
+    this.resetSearch();
+    this.source = new EventSource(endpoint);
+
+    this.searchInProgress = true;
+    var self = this;
+
+    self.status.searchStarted();
+
+    self.source.addEventListener('results', function(e) {
+      self.marks.appendMarks($.parseJSON(e.data));
     });
 
-    return false;
-  });
-});
+    self.source.addEventListener('failure', function(e) {
+      self.errors.showError();
+    });
 
-var Searcher = function() {
-  this.searchInProgress = false;
+    self.source.addEventListener('status', function(e) {
+      self.paging.update($.parseJSON(e.data));
+    });
 
-  this.marks = new Marks($('.results'));
-  this.paging = new Paging($('.paging'));
-  this.status = new Status($('.status'));
-  this.errors = new Errors($('.errors'));
-}
-
-Searcher.prototype.resetSearch = function() {
-  if(this.searchInProgress) {
-    this.source.close();
-
-    this.marks.reset();
-    this.paging.reset();
-    this.status.reset();
-    this.errors.reset();
-  }
-}
-
-Searcher.prototype.search = function(endpoint) {
-  this.resetSearch();
-  this.source = new EventSource(endpoint);
-
-  this.searchInProgress = true;
-  var self = this;
-
-  self.status.searchStarted();
-
-  self.source.addEventListener('results', function(e) {
-    self.marks.appendMarks($.parseJSON(e.data));
-  });
-
-  self.source.addEventListener('failure', function(e) {
-    self.errors.showError();
-  });
-
-  self.source.addEventListener('status', function(e) {
-    self.paging.update($.parseJSON(e.data));
-  });
-
-  self.source.addEventListener('finished', function(e) {
-    self.status.searchFinished();
-    self.paging.consolidate();
-    self.source.close();
-  });
-}
-
-var Marks = function($el) {
-  this.$el = $el;
-}
-Marks.prototype.appendMarks = function(marks) {
-  var self = this;
-  $.each(marks, function(index, mark) {
-    $markEl = $('<div>');
-    self.$el.append($markEl);
-    var markView = MarkViewFactory.viewFor(mark, $markEl);
-    markView.render();
-  });
-}
-Marks.prototype.reset = function() {
-  this.$el.html('');
-}
-
-var MarkViewFactory = {};
-MarkViewFactory.viewFor = function(attributes, $el) {
-  var template;
-  if(attributes.name != "" && attributes.illustration_url) {
-    template = 'textual_visual_mark';
-  } else if(attributes.name != "") {
-    template = 'textual_mark';
-  } else if(attributes.illustration_url) {
-    template = 'visual_mark';
-  } else {
-    template = 'unavailable_mark';
+    self.source.addEventListener('finished', function(e) {
+      self.status.searchFinished();
+      self.paging.consolidate();
+      self.source.close();
+    });
   }
 
-  return new MarkView($el, attributes, template);
-}
+  TmZone.Marks = function($el) {
+    this.$el = $el;
+  }
+  TmZone.Marks.prototype.appendMarks = function(marks) {
+    var self = this;
+    $.each(marks, function(index, mark) {
+      var $markEl = $('<div>');
+      self.$el.append($markEl);
+      var markView = TmZone.MarkViewFactory.viewFor(mark, $markEl);
+      markView.render();
+    });
+  }
+  TmZone.Marks.prototype.reset = function() {
+    this.$el.html('');
+  }
 
-var MarkView = function($el, json, template) {
-  this.$el = $el;
-  this.json = json;
-  this.template = template;
-}
-MarkView.prototype.render = function() {
-  var html = HoganTemplates[this.template].render(this.json, { mark: HoganTemplates['_mark'].render(this.json) })
-  this.$el.html(html);
+  TmZone.MarkViewFactory = {};
+  TmZone.MarkViewFactory.viewFor = function(attributes, $el) {
+    var template;
+    if(attributes.name != "" && attributes.illustration_url) {
+      template = 'textual_visual_mark';
+    } else if(attributes.name != "") {
+      template = 'textual_mark';
+    } else if(attributes.illustration_url) {
+      template = 'visual_mark';
+    } else {
+      template = 'unavailable_mark';
+    }
 
-  var self = this;
-  this.$el.delegate(".show-details", "click", function() {
-    $('.details', self.$el).show();
-    return false;
-  });
-}
+    return new TmZone.MarkView($el, attributes, template);
+  }
 
-var Paging = function($el) {
-  this.$el = $el;
-}
-Paging.prototype.update = function(data) {
-  data['total'] = "asi " + data['total'];
-  this.data = data;
-  this.render();
-}
-Paging.prototype.reset = function() {
-  this.$el.html('');
-}
-Paging.prototype.render = function() {
-  this.$el.html(HoganTemplates['paging'].render(this.data));
-}
-Paging.prototype.consolidate = function() {
-  this.data['total'] = this.data['fetched'];
-  this.render();
-}
+  TmZone.MarkView = function($el, json, template) {
+    this.$el = $el;
+    this.json = json;
+    this.template = template;
+  }
+  TmZone.MarkView.prototype.render = function() {
+    var html = HoganTemplates[this.template].render(this.json, { mark: HoganTemplates['_mark'].render(this.json) })
+    this.$el.html(html);
 
-var Status = function($el) {
-  this.$el = $el;
-};
+    var self = this;
+    this.$el.delegate(".show-details", "click", function() {
+      $('.details', self.$el).show();
+      return false;
+    });
+  }
 
-Status.prototype.searchStarted = function() {
-  this.$el.html(HoganTemplates['status_busy'].render());
-}
+  TmZone.Paging = function($el) {
+    this.$el = $el;
+  }
+  TmZone.Paging.prototype.update = function(data) {
+    data['total'] = "asi " + data['total'];
+    this.data = data;
+    this.render();
+  }
+  TmZone.Paging.prototype.reset = function() {
+    this.$el.html('');
+  }
+  TmZone.Paging.prototype.render = function() {
+    this.$el.html(HoganTemplates['paging'].render(this.data));
+  }
+  TmZone.Paging.prototype.consolidate = function() {
+    this.data['total'] = this.data['fetched'];
+    this.render();
+  }
 
-Status.prototype.searchFinished = function() {
-  this.$el.html(HoganTemplates['status_finished'].render());
-}
+  TmZone.Status = function($el) {
+    this.$el = $el;
+  };
 
-Status.prototype.reset = function() {
-  this.$el.html('');
-}
+  TmZone.Status.prototype.searchStarted = function() {
+    this.$el.html(HoganTemplates['status_busy'].render());
+  }
 
-var Errors = function($el) {
-  this.$el = $el;
-}
-Errors.prototype.showError = function() {
-  this.$el.html(HoganTemplates['error'].render());
-}
-Errors.prototype.reset = function() {
-  this.$el.html('');
-}
+  TmZone.Status.prototype.searchFinished = function() {
+    this.$el.html(HoganTemplates['status_finished'].render());
+  }
+
+  TmZone.Status.prototype.reset = function() {
+    this.$el.html('');
+  }
+
+  TmZone.Errors = function($el) {
+    this.$el = $el;
+  }
+  TmZone.Errors.prototype.showError = function() {
+    this.$el.html(HoganTemplates['error'].render());
+  }
+  TmZone.Errors.prototype.reset = function() {
+    this.$el.html('');
+  }
+})();
