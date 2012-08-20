@@ -6,21 +6,21 @@ describe "Indprop search" do
   it 'finds all search results' do
     first_call = true
     all_results_fetched = false
-    VCR.use_cassette('indprop_nike') do
-      Tort::Indprop.search("nike") do |results|
+    VCR.use_cassette('indprop_eset') do
+      Tort::Indprop.search("eset") do |results|
         if first_call
           results.size.should == 7
           results.source.should == "Indprop"
           results.total.should == 16
-          results.hits.collect(&:name).should include("acg", "JUST DO IT", "NIKE AIR")
-          results.hits.collect(&:name).should_not include("nike ALPHA PROJECT")
+          results.hits.collect(&:name).should include("CAFE RESET", "RESET")
+          results.hits.collect(&:name).should_not include("ESET")
 
           first_call = false
         else
-          results.size.should == 4
+          results.size.should == 5
           results.source.should == "Indprop"
           results.total.should == 16
-          results.hits.collect(&:name).should include("NIKÉ", "NIKE")
+          results.hits.collect(&:name).should include("ESET", "eset softwae")
           all_results_fetched = true
         end
       end

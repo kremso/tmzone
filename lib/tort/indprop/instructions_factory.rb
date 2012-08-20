@@ -19,7 +19,7 @@ module Tort
 
         def params
           {
-            "value(majitel)" => "#{@phrase}",
+            "value(n_udelenie)" => "*#{@phrase}*",
             "value(register)" => "oz",
             "value(page)" => @page_number
           }
