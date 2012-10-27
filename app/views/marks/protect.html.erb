@@ -3,7 +3,7 @@
     <h1>Chráňte si svoju <br/> <strong>ochrannú známku</strong></h1>
 
     <%= form_tag marks_watch_path, method: :get, class: 'form-search' do %>
-      <%= text_field_tag '' %>
+      <%= text_field_tag :q, @q %>
       <%= submit_tag 'Vyhľadať', class: 'btn btn-warning' %>
       <div class="help-block">
         <p>Sledovanie slúži na sit amet, consectetur adipiscing elit. Praesent sagittis, tortor nec vehicula molestie, enim purus porttitor dui, eget gravida diam enim egestas diam. Ut sed elit justo. Aliquam congue nibh a metus luctus tristique. Suspendisse eget libero sit amet dolor blandit bibendum.</p>
