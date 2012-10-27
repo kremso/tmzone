@@ -2,7 +2,7 @@ Tmzone::Application.routes.draw do
   require 'girl_friday/server'
   mount GirlFriday::Server => '/girl_friday'
 
-  root to: 'marks#search'
+  root to: 'marks#research'
 
   get 'marks/research', to: 'marks#research'
   get 'marks/protect', to: 'marks#protect'
