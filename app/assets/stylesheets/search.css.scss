@@ -1,0 +1,164 @@
+@import 'bootstrap';
+
+body {
+  background-color: #edeae4;
+  // TODO prec s tymto
+}
+
+.search {
+  margin-top: 11px;
+  padding: 23px;
+  @include gradient-vertical(#3a3a3a, #1d1d1d);
+  @include border-radius(8px);
+  border-top: 1px solid #000;
+  font-size: 13px;
+
+  form {
+    margin: 0;
+  }
+
+  input[type="text"] {
+    @include size(30px, 360px);
+  }
+
+  input[type="submit"] {
+    background-image: url(image-path('lens.png'));
+    background-repeat: no-repeat;
+    background-position: 18px 11px;
+    @include size(40px, 54px);
+  }
+
+  .help {
+    height: 40px;
+    line-height: 40px;
+    color: #a0a0a0;
+    border-left: 1px solid #474747;
+    width: 48%;
+    padding-left: 10px;
+    a {
+      color: #fe9d0a;
+      &:hover {
+        color: #fe9d0a;
+      }
+    }
+  }
+}
+
+.paging {
+  padding-left: 25px;
+  margin: 20px 0;
+
+  .loading {
+    background: url(image-path('circle-loader.gif')) no-repeat center left;
+    padding-left: 40px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .count-unknown {
+    background: url(image-path('dots-loader.gif')) no-repeat center right;
+    padding-right: 25px;
+  }
+}
+
+.results {
+  .mark {
+    @include clearfix;
+    margin: 10px 0;
+    padding: 25px;
+    border: 1px solid #dad8d1;
+    background: #fff;
+    @include border-radius(6px);
+    @include box-shadow(6px);
+
+    position: relative;
+    overflow: hidden;
+
+    h3 {
+      color: #be1400;
+      font-size: 18px;
+      font-weight: normal;
+    }
+
+    h4 {
+      color: #606060;
+      font-weight: normal;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 0px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+
+    em {
+      color: #be1400;
+      font-style: normal;
+    }
+
+    .column-main {
+      float: left;
+      width: 400px;
+
+      p {
+        width: 308px;
+      }
+
+      img {
+        max-height: 200px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .column-middle {
+      float: left;
+      width: 160px;
+      border-left: 1px solid #e7e4dd;
+      padding-left: 20px;
+
+      position: absolute;
+      height: 100%;
+      right: 320px;
+    }
+
+    .column-right {
+      border-left: 1px solid #e7e4dd;
+      padding: 0 20px;
+      width: 280px;
+
+      position: absolute;
+      height: 100%;
+      right: 0;
+
+      .pull-left {
+        padding-right: 20px;
+      }
+
+      .pull-right {
+        border-left: 1px solid #e7e4dd;
+        padding-left: 20px;
+      }
+    }
+
+    .action-watch {
+      text-indent: -9000px;
+      text-transform: capitalize;
+      background: url(image-path('watch.png')) no-repeat;
+      @include size(25px, 25px);
+      position: absolute;
+      right: 27px;
+      top: 6px;
+    }
+  }
+}
+
+.status {
+  .busy {
+    background: url(image-path('circle-loader.gif')) #f5f3f0 center center no-repeat;
+    @include size(80px, 100%);
+    border: 1px solid #dad8d1;
+    @include border-radius(6px);
+    margin-bottom: 11px;
+  }
+}

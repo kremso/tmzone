@@ -27,6 +27,7 @@ end
 group :assets do
   gem 'sprockets-rails', github: 'rails/sprockets-rails'
   gem 'sass-rails',   github: 'rails/sass-rails'
+  gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
   gem 'coffee-rails', github: 'rails/coffee-rails'
   gem 'hogan_assets'
 

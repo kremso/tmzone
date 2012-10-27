@@ -1,6 +1,8 @@
-<p>
-  Zobrazujem {{fetched}} vysledkov z {{total}}
-  {{^has_finalized_total?}}
-    (...)
+<div class="loading">
+  {{#has_finalized_total?}}
+    Zobrazujem <strong>{{fetched}}</strong> výsledkov z celkového počtu {{total}}</strong>
   {{/has_finalized_total?}}
-</p>
+  {{^has_finalized_total?}}
+    Zobrazujem <strong>{{fetched}}</strong> výsledkov z celkového počtu <strong class="count-unknown">{{total}}</strong>
+  {{/has_finalized_total?}}
+</div>

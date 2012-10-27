@@ -1,0 +1,86 @@
+@import 'bootstrap';
+
+.start-here {
+  padding: 0 200px;
+  margin-top: 54px;
+
+  h1 {
+    font-weight: normal;
+    text-align: center;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  .form-search {
+    margin-top: 44px;
+
+    input[type="text"] {
+      @include size(49px, 338px);
+      @include border-radius(6px);
+      @include box-shadow(inset 3px #000);
+      font-size: 26px;
+    }
+
+    input[type="submit"] {
+      @include size(58px, 148px);
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+
+  .help-block {
+    margin-top: 13px;
+    padding-left: 10px;
+    padding-right: 60px;
+    text-align: justify;
+
+    p + p {
+      margin-top: 37px;
+    }
+  }
+}
+
+.banner {
+  width: 900px;
+  border: 1px solid #e7e4dd;
+  background: #fff;
+  padding: 20px;
+  @include border-radius(5px);
+  position: relative;
+  top: 32px;
+  z-index: 1;
+}
+
+.informations {
+  padding-top: 75px;
+  background-color: #f7f4ed;
+  width: 100%;
+  border-top: 1px solid white;
+  padding-bottom: 63px;
+
+  hr {
+    border: none;
+    border-top: 1px solid #d7d4cd;
+    margin: 50px 0;
+  }
+}
+
+.teasers {
+  margin-top: 40px;
+
+  h4 {
+    font-size: 18px;
+    margin-top: 23px;
+    margin-bottom: 23px;
+  }
+
+  .next {
+    display: inline-block;
+    background: url(image-path('next.png')) no-repeat scroll 1px;
+    padding-left: 32px;
+    line-height: 25px;
+    height: 25px;
+  }
+}

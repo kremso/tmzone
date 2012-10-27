@@ -1,13 +1,23 @@
-<%= form_tag marks_search_path, id: 'search' do %>
-  <%= text_field_tag :q, '' %>
-  <%= submit_tag 'Search' %>
+<div class="container">
+  <div class="search clearfix">
+    <%= form_tag marks_search_path, id: 'search', class: 'form-search pull-left' do %>
+      <%= text_field_tag :q, '' %>
+      <%= submit_tag '', class: 'btn btn-warning' %>
+    <% end %>
+    <div class="help pull-right">
+      Skúste napríklad: <%= link_to 'Pepsi', marks_search_path(q: 'pepsi') %>, <%= link_to 'Coca-Cola', marks_search_path(q: 'coca-cola') %>, <%= link_to 'Eset', marks_search_path(q: 'eset') %>
+    </div>
+  </div>
+
+  <div class="paging">
+  </div>
+
+  <div class="errors">
+  </div>
+
+  <div class="results">
+  </div>
+
   <div class="status">
   </div>
-<% end %>
-
-<div class="errors">
-</div>
-<div class="paging">
-</div>
-<div class="results">
 </div>

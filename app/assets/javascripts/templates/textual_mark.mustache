@@ -1,4 +1,38 @@
 <div class="mark">
-  <h1>{{name}}</h1>
-  {{> mark}}
+  <div class="column-main">
+    <h3>{{name}}</h3>
+
+    <h4>Zoznam tovarov a služieb</h4>
+    {{#classes}}
+      <p>{{code}} - {{description}}</p>
+      </p>
+    {{/classes}}
+  </div>
+  <div class="column-middle">
+    {{#registration_number}}
+      <h4>Číslo zápisu</h4>
+      <em>{{registration_number}}</em>
+    {{/registration_number}}
+    {{^registration_number}}
+      <h4>Číslo prihlášky</h4>
+      <em>{{application_number}}</em>
+    {{/registration_number}}
+
+    <h4>Dátum podania</h4>
+    <p>{{application_date}}</p>
+
+    <h4>Dátum zápisu</h4>
+    <p>{{registration_date}}</p>
+
+    <h4>Dátum platnosti</h4>
+    <p>{{valid_until}}</p>
+  </div>
+  <div class="column-right">
+    <h4>Majiteľ/Prihlasovateľ</h4>
+    <p>{{owner}}</p>
+    <div class="action-watch">Sledovať známku</div>
+
+    <h4>Číslo prihlášky</h4>
+    <p>{{application_number}}</p>
+  </div>
 </div>

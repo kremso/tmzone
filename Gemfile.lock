@@ -85,6 +85,12 @@ GIT
       railties (>= 4.0.0.beta, < 5.0)
       sprockets (~> 2.4.3)
 
+GIT
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: 2a7c21d40692b512c02deb730fe8caefe1e474da
+  specs:
+    bootstrap-sass (2.1.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -201,6 +207,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_deprecated_finders!
   arel!
+  bootstrap-sass!
   coffee-rails!
   girl_friday
   hogan_assets

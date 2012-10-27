@@ -1,0 +1,139 @@
+@import 'bootstrap';
+
+body {
+  background-color: #edeae4;
+}
+
+a {
+  color: #be1400;
+  &:hover {
+    color: #be1400;
+  }
+}
+
+.centered {
+  text-align: center;
+}
+
+.starred {
+  background: url(image-path('star.png')) no-repeat;
+  padding-left: 30px;
+}
+
+.logo {
+  background: url(image-path('logo-small.png')) no-repeat;
+  padding-left: 36px;
+  line-height: 26px;
+  height: 26px;
+}
+
+.menu {
+  margin-top: 25px;
+  border-bottom: 3px solid #303030;
+  @include clearfix;
+
+  h1 {
+    background: url(image-path('logo.png')) no-repeat scroll 0 0;
+    padding-left: 40px;
+    font-size: 27px;
+    line-height: 34px;
+    display: block;
+    float: left;
+
+    a {
+      color: inherit;
+      &:hover {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .tabs {
+    float: left;
+    margin-left: 105px;
+    margin-top: 9px;
+    margin-bottom: 0;
+    .tab {
+      list-style-type: none;
+      display: inline-block;
+      @include size(44px, 150px);
+      border: 1px solid #757370;
+      color: white;
+      @include border-radius(5px 5px 0 0);
+      @include gradient-vertical(#4b4b4b, #323232);
+      line-height: 44px;
+      border-bottom: none;
+      text-align: center;
+      font-weight: bold;
+
+      &:hover {
+        background: darken(#969591, 10%);
+      }
+
+      &.active {
+        background: #969591;
+      }
+
+      a {
+        color: inherit;
+        @include size(inherit, inherit);
+        display: inline-block;
+        &:hover {
+          color: inherit;
+          background: darken(#969591, 10%);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .items {
+    float: right;
+    margin-top: 21px;
+    li {
+      list-style-type: none;
+      display: inline-block;
+      padding-right: 6px;
+
+      & + li {
+        border-left: 1px solid black;
+        padding-left: 10px;
+      }
+    }
+    a {
+      color: inherit;
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+}
+
+.footer {
+  @include gradient-vertical(#3a3a3a, #1d1d1d);
+  border-top: 1px solid #000;
+  color: #a0a0a0;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  font-size: 12px;
+
+  h5 {
+    color: #fff;
+    font-size: 13px;;
+  }
+
+  a {
+    color: inherit;
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  ul {
+    margin: 0;
+    li {
+      list-style: none;
+    }
+  }
+}

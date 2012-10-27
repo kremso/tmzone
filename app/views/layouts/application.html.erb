@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tmzone</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Tmzone</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu">
+        <h1><%= link_to 'Trademark Zone', root_path %></h1>
+        <ul class="tabs">
+          <li class="tab active"><a href="#">Vyhľadať</a></li>
+          <li class="tab"><a href="#">Sledovať</a></li>
+        </ul>
+        <ul class="items">
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <h5>Trademark Zone</h5>
+            <ul>
+              <li><a href="#">Čo je ochranná známka</a></li>
+              <li><a href="#">Ako sa môžem chrániť</a></li>
+              <li><a href="#">Typy ochranných známok</a></li>
+              <li><a href="#">Registrácia ochrannej známky</a></li>
+            </ul>
+          </div>
+          <div class="span2">
+            <h5>O vyhľadávači</h5>
+            <ul>
+              <li><a href="#">Podmienky používania</a></li>
+              <li><a href="#">Ochrana údajov</a></li>
+              <li><a href="#">O projekte</a></li>
+            </ul>
+          </div>
+          <div class="span4 offset3">
+            <h5 class="logo">Trademark Zone</h5>
+            <p>Trademark Zone je slovenský vyhľadávač registrovaných ochranných známok.</p>
+            <p>&copy; 2012 Trademark Zone</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

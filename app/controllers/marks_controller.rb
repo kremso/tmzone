@@ -6,8 +6,10 @@ require 'safe_queue'
 class MarksController < ApplicationController
   include ActionController::Live
 
-  def search
+  def index
+  end
 
+  def search
   end
 
   def search!
