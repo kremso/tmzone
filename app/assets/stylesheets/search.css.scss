@@ -1,9 +1,4 @@
-@import 'bootstrap';
-
-body {
-  background-color: #edeae4;
-  // TODO prec s tymto
-}
+@import 'bootstrap/mixins';
 
 .search {
   margin-top: 11px;
@@ -117,6 +112,7 @@ body {
 
       img {
         max-height: 200px;
+        max-width: 60%;
         margin-bottom: 20px;
       }
     }

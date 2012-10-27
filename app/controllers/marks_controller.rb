@@ -6,10 +6,22 @@ require 'safe_queue'
 class MarksController < ApplicationController
   include ActionController::Live
 
-  def index
+  def research
+    @active_tab = :research
+  end
+
+  def protect
+    @active_tab = :protect
   end
 
   def search
+    @active_tab = :research
+    @q = params[:q]
+  end
+
+  def watch
+    @active_tab = :protect
+    @q = params[:q]
   end
 
   def search!

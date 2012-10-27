@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="start-here">
+    <h1>Vaše podnikanie začína <strong>registráciou ochrannej známky</strong></h1>
+
+    <%= form_tag marks_search_path, method: :get, class: 'form-search' do %>
+      <%= text_field_tag :q, '' %>
+      <%= submit_tag 'Vyhľadať', class: 'btn btn-warning' %>
+      <div class="help-block">
+        <p>Skúste napríklad <%= link_to 'Pepsi', marks_search_path(q: 'pepsi') %>, <%= link_to 'Coca-Cola', marks_search_path(q: 'coca-cola') %>, <%= link_to 'Eset', marks_search_path(q: 'eset') %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="banner">
+    <span class="starred">Ak si chcete <strong>chrániť svoju ochrannú známku, <%= link_to 'kliknite sem', marks_protect_path %></strong>.</span>
+    <span class="pull-right"><a href="#">Prečo je dobré chrániť si svoju známku?</a></span>
+  </div>
+</div>
+
+<div class="informations clearfix">
+  <div class="container">
+    <h3>Čo je ochranná známka a ako si ju vybaviť?</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis,
+      tortor nec vehicula molestie, enim purus porttitor dui, eget gravida diam
+      enim egestas diam. Ut sed elit justo. Aliquam congue nibh a metus luctus
+      tristique. Suspendisse eget libero sit amet dolor blandit bibendum. Fusce
+      et luctus enim. In interdum dictum odio. Vestibulum faucibus, nunc eget
+      dignissim fringilla, urna odio placerat eros, at aliquam quam tellus ut.
+    </p>
+
+    <hr/>
+
+    <h3 class="centered">Prečítajte si viac o ochranných známkach</h3>
+
+    <div class="row-fluid teasers">
+      <div class="span4">
+        <%= image_tag 'illustration-document.png', class: 'img-polaroid' %>
+        <h4>Class aptent taciti sociosqu ad litora torquent per conubia</h4>
+        <p>
+          Vivamus ante lacus, aliquet in lacinia id, hendrerit non ipsum.
+          Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci
+          luctus et ultrices posuere cubilia Curae; Nulla vestibulum malesuada
+          tempus. Donec quis magna urna, et eleifend elit. Sed lobortis elit at
+          risus tempus non feugiat augue condimentum.
+        </p>
+        <a href="#" class="next">Čítajte ďalej</a>
+      </div>
+      <div class="span4">
+        <%= image_tag 'illustration-pen.png', class: 'img-polaroid' %>
+        <h4>Sed convallis libero lacinia purus pulvinar sodales</h4>
+        <p>
+          Proin viverra, ligula vitae molestie interdum, sapien orci sagittis
+          turpis, nec commodo turpis erat a eros. Fusce venenatis mauris at
+          neque imperdiet eget semper leo cursus. Nam arcu dolor, semper vitae
+          ultricies a, fermentum in erat. Nam iaculis faucibus neque, accumsan
+          lobortis magna scelerisque sed. In nisl nulla, iaculis placerat
+          lobortis sed, euismod et lectus.
+        </p>
+        <a href="#" class="next">Čítajte ďalej</a>
+      </div>
+      <div class="span4">
+        <%= image_tag 'illustration-document.png', class: 'img-polaroid' %>
+        <h4>Mauris posuere lacus sit amet urna tempor</h4>
+        <p>
+          Ut blandit turpis eget leo tempus a molestie ante imperdiet. Maecenas
+          volutpat accumsan magna, nec euismod nisi gravida a. Donec at sapien
+          nec nunc mattis tempor. In nec leo vel eros gravida porta nec et
+          orci.
+        </p>
+        <a href="#" class="next">Čítajte ďalej</a>
+      </div>
+    </div>
+  </div>
+</div>

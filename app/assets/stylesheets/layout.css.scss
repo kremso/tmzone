@@ -76,7 +76,7 @@ a {
       border: 1px solid #757370;
       color: white;
       @include border-radius(5px 5px 0 0);
-      @include gradient-vertical(#4b4b4b, #323232);
+      background: #969591;
       line-height: 44px;
       border-bottom: none;
       text-align: center;
@@ -87,7 +87,7 @@ a {
       }
 
       &.active {
-        background: #969591;
+        @include gradient-vertical(#4b4b4b, #323232);
       }
 
       a {

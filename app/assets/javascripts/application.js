@@ -31,6 +31,10 @@
 
       return false;
     });
+
+    $(document).ready(function() {
+      $('.autosubmit').submit();
+    });
   });
 
   TmZone.Searcher = function() {

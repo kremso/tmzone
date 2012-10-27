@@ -4,9 +4,6 @@
       <%= text_field_tag :q, @q %>
       <%= submit_tag '', class: 'btn btn-warning' %>
     <% end %>
-    <div class="help pull-right">
-      Skúste napríklad: <%= link_to 'Pepsi', marks_search_path(q: 'pepsi') %>, <%= link_to 'Coca-Cola', marks_search_path(q: 'coca-cola') %>, <%= link_to 'Eset', marks_search_path(q: 'eset') %>
-    </div>
   </div>
 
   <div class="paging">
