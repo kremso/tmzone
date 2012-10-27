@@ -74,6 +74,17 @@ body {
     position: relative;
     overflow: hidden;
 
+    .col {
+      float: left;
+      margin-bottom: -99999px;
+      padding-bottom: 99999px;
+
+      & + .col {
+        border-left: 1px solid #e7e4dd;
+        padding-left: 20px;
+      }
+    }
+
     h3 {
       color: #be1400;
       font-size: 18px;
@@ -98,7 +109,6 @@ body {
     }
 
     .column-main {
-      float: left;
       width: 400px;
 
       p {
@@ -112,33 +122,11 @@ body {
     }
 
     .column-middle {
-      float: left;
       width: 160px;
-      border-left: 1px solid #e7e4dd;
-      padding-left: 20px;
-
-      position: absolute;
-      height: 100%;
-      right: 320px;
     }
 
     .column-right {
-      border-left: 1px solid #e7e4dd;
-      padding: 0 20px;
       width: 280px;
-
-      position: absolute;
-      height: 100%;
-      right: 0;
-
-      .pull-left {
-        padding-right: 20px;
-      }
-
-      .pull-right {
-        border-left: 1px solid #e7e4dd;
-        padding-left: 20px;
-      }
     }
 
     .action-watch {
@@ -148,7 +136,7 @@ body {
       @include size(25px, 25px);
       position: absolute;
       right: 27px;
-      top: 6px;
+      top: 29px;
     }
   }
 }
