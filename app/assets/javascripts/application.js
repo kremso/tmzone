@@ -155,6 +155,7 @@
   }
   TmZone.Paging.prototype.consolidate = function() {
     this.data['total'] = this.data['fetched'];
+    this.data['finished?'] = true
     this.render();
   }
 
