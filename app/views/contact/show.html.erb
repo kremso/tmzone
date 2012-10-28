@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="contact">
+    <%= form_for contact_path, html: { class: 'form-horizontal' } do %>
+      <legend>Kontakujte nás</legend>
+      <div class="control-group">
+        <%= label_tag :email, 'Váš e-mail', class: 'control-label' %>
+        <div class="controls">
+          <%= text_field_tag :email, '', class: 'input-xlarge' %>
+          <span class='help-inline'>Na tento mail dostanete našu odpoveď.</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= label_tag :message, 'Vaša správa', class: 'control-label' %>
+        <div class="controls">
+          <%= text_area_tag :message, '', class: 'input-xxlarge', rows: 15 %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= submit_tag 'Odoslať', class: 'btn btn-warning' %>
+        </div>
+      </div>
+    <% end -%>
+  </div>
+</div>

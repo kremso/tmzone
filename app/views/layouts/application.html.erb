@@ -17,9 +17,15 @@
           </ul>
           <ul class="items">
             <li><a href="#">Menu</a></li>
-            <li><a href="#">Kontakt</a></li>
+            <li><%= link_to 'Kontakt', contact_path %></li>
           </ul>
         </div>
+
+        <% if flash[:notice] -%>
+          <div class="flash alert alert-success">
+            <%= flash[:notice] %>
+          </div>
+        <% end -%>
       </div>
 
       <%= yield %>

@@ -1,0 +1,12 @@
+@import 'bootstrap/mixins';
+
+.contact {
+  margin-top: 20px;
+  padding: 80px;
+  background: #fff;
+  @include border-radius(6px);
+
+  .btn {
+    @include size(40px, 100px);
+  }
+}

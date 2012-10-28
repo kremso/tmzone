@@ -16,6 +16,9 @@ Tmzone::Application.routes.draw do
 
   get 'info/:slug', to: 'static_pages#show', as: 'static_page'
 
+  get 'contact', to: 'contact#show'
+  post 'contact', to: 'contact#send_email'
+
   namespace :admin do
     resources :static_pages
   end
