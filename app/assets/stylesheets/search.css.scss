@@ -128,16 +128,6 @@
         width: 220px;
       }
     }
-
-    .action-watch {
-      text-indent: -9000px;
-      text-transform: capitalize;
-      background: url(image-path('watch.png')) no-repeat;
-      @include size(25px, 25px);
-      position: absolute;
-      right: 27px;
-      top: 29px;
-    }
   }
 }
 

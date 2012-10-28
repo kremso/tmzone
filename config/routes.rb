@@ -10,6 +10,7 @@ Tmzone::Application.routes.draw do
   get 'marks/search', to: 'marks#search'
   get 'marks/watch', to: 'marks#watch'
 
+  post 'marks/watch', to: 'marks#watch!'
   post 'marks/search', to: 'marks#search!'
   get 'marks/results', to: 'marks#results'
 end

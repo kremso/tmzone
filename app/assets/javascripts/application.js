@@ -163,6 +163,52 @@
       $('.hidden-classes', self.$el).show();
       return false;
     });
+    this.$el.delegate(".action-watch", "click", function() {
+      new TmZone.WatchingView($('.watch'), self.json).render();
+      return false;
+    });
+  }
+
+  TmZone.WatchingView = function($el, data) {
+    this.$el = $el;
+    this.data = data;
+
+    this.$el.delegate('input[type="submit"]', 'click', function() {
+      var form = $(this).parents('form');
+      $.ajax(form.attr('action'), {
+        type: 'POST',
+        data: form.serialize(),
+        error: function(jqXHR, textStatus, errorThrown) {
+          $('.watched-error').show();
+          setTimeout(function() {
+            $('.watched-error').hide();
+          }, 3000);
+        },
+        success: function(data, textStatus, jqXHR) {
+          $('.watched-successfuly').show();
+          setTimeout(function() {
+            $('.watched-successfuly').hide();
+          }, 3000);
+        }
+      });
+      $.modal.close();
+      return false;
+    });
+  }
+
+  TmZone.WatchingView.prototype.render = function() {
+    updateField = function($where, what) {
+      if(what.length > 50) {
+        $where.text(what.substr(0, 50) + "...");
+      } else {
+        $where.text(what);
+      }
+    };
+
+    updateField($('.mark-name', this.$el), this.data["name"]);
+    updateField($('.mark-owner', this.$el), this.data["owner"]);
+
+    this.$el.modal({focus: false, minHeight: '330px', minWidth: '600px'});
   }
 
   TmZone.Paging = function($el) {

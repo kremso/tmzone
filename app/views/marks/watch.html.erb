@@ -1,3 +1,10 @@
+<div class="hidden watched-successfuly alert alert-success">
+  <strong>Požiadavka na sledovanie bola úspešne odoslaná.</strong> Budeme Vás kontaktovať mailom.
+</div>
+<div class="hidden watched-error alert alert-error">
+  <strong>Pri odosielaní požiadavky sa vyskytol problém.</strong> Skúste Vašu požiadavku zopakovať neskôr. Na problém sme boli automaticky upozornení.
+</div>
+
 <div class="container">
   <div class="search clearfix">
     <%= form_tag marks_search_path, id: 'search', class: "form-search pull-left #{'autosubmit' if @q}" do %>
@@ -17,6 +24,26 @@
 
   <div class="status">
   </div>
+</div>
+
+<div class="watch">
+  <h1>Sledovanie ochrannej známky</h1>
+  <p>Pre sledovanie ochrannej známky musíte byť jej vlastníkom. Po vyplnení formulára budete kontaktovaný a zároveň informovaný o nasledujúcich krokoch.</p>
+
+  <div class="section">
+    <h4>Znenie ochrannej známky</h4>
+    <em class="mark-name"></em>
+  </div>
+  <div class="section">
+    <h4>Majiteľ</h4>
+    <em class="mark-owner"></em>
+  </div>
+
+  <%= form_tag marks_watch_path, class: 'form-inline' do %>
+    <%= text_field_tag :name, '', placeholder: 'Meno' %>
+    <%= email_field_tag :email, '', placeholder: 'E-mail' %>
+    <%= submit_tag 'Odoslať', class: 'input-medium btn btn-warning' %>
+  <% end -%>
 </div>
 
 <script>

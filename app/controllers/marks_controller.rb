@@ -19,16 +19,20 @@ class MarksController < ApplicationController
     @q = params[:q]
   end
 
-  def watch
-    @active_tab = :protect
-    @q = params[:q]
-  end
-
   def search!
     uuid = UUID.new.generate(:compact)
     TORT_QUEUE << { phrase: params[:q], job_id: uuid }
 
     render status: 202, text: marks_results_path(job: uuid)
+  end
+
+  def watch
+    @active_tab = :protect
+    @q = params[:q]
+  end
+
+  def watch!
+    render status: 200, nothing: true
   end
 
   def results
