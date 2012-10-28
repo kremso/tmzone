@@ -133,12 +133,29 @@
     this.template = template;
   }
   TmZone.MarkView.prototype.render = function() {
-    var html = HoganTemplates[this.template].render(this.json, { mark: HoganTemplates['_mark'].render(this.json) })
+    mark_partial = HoganTemplates['_mark'].render(this.json);
+    if(this.json["classes"].length <= 3) {
+      classes_partial = HoganTemplates['_classes_full'].render(this.json);
+    } else {
+      this.json["visible_classes"] = this.json["classes"].slice(0, 3);
+      this.json["hidden_classes"] = this.json["classes"].slice(3);
+      classes_partial = HoganTemplates['_classes_compact'].render(this.json);
+    }
+
+    partials = {
+      mark: mark_partial,
+      classes: classes_partial
+    };
+    var html = HoganTemplates[this.template].render(this.json, partials);
     this.$el.html(html);
 
     var self = this;
     this.$el.delegate(".show-details", "click", function() {
       $('.details', self.$el).show();
+      return false;
+    });
+    this.$el.delegate(".show-hidden-classes", "click", function() {
+      $('.hidden-classes', self.$el).show();
       return false;
     });
   }

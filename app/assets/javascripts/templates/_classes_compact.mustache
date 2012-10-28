@@ -1,0 +1,10 @@
+<h4>Zoznam tovarov a služieb</h4>
+{{#visible_classes}}
+  <p>{{code}} - {{description}}</p>
+{{/visible_classes}}
+<a href="#" class="show-hidden-classes">Zobraziť všetky tovary a služby</a>
+<div class="hidden hidden-classes">
+  {{#hidden_classes}}
+    <p>{{code}} - {{description}}</p>
+  {{/hidden_classes}}
+</div>
