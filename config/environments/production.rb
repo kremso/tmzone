@@ -71,4 +71,6 @@ Tmzone::Application.configure do
   # Default the production mode queue to an in-memory queue. You will probably
   # want to replace this with an out-of-process queueing solution
   config.queue = Rails::Queueing::Queue
+
+  config.eager_load = true
 end

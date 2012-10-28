@@ -1,0 +1,14 @@
+<div class="container static">
+  <div class="navigation col">
+    <ul>
+      <% @pages.each do |page| %>
+        <li><%= link_to_if @page.slug != page.slug, page.title, static_page_path(slug: page.slug) %></li>
+      <% end -%>
+    </ul>
+  </div>
+  <div class="col">
+    <div class="content">
+      <%== @markdown.to_html if @markdown %>
+    </div>
+  </div>
+</div>

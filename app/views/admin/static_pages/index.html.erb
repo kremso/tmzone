@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table table-striped table-hover table-bordered admin-table">
+    <thead>
+      <tr>
+        <th>Názov stránky</th>
+        <th>Obsah</th>
+        <th>Akcie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pages.each do |page| -%>
+        <tr>
+          <td><strong><%= page.title %></strong></td>
+          <td><%= truncate(page.content, length: 90) %></td>
+          <td><%= link_to 'Upraviť', edit_admin_static_page_path(page), class: 'btn btn-primary' %></td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>

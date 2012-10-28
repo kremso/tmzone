@@ -1,0 +1,21 @@
+<div class="container static admin">
+  <%= form_for @page, url: admin_static_page_path(@page), class: 'form-horizontal' do |f| %>
+    <div class="control-group">
+      <%= f.label :title, 'Názov' %>
+      <div class="controls">
+        <%= f.text_field :title, class: 'input-xxlarge' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :content, 'Obsah' %>
+      <div class="controls">
+        <%= f.text_area :content, rows: 20, class: 'input-xxlarge' %>
+        <span class="help-block">Môžete použiť <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a></span>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit 'Uložiť', class: 'btn btn-primary' %>
+      <%= link_to 'Späť', admin_static_pages_path, class: 'btn' %>
+    </div>
+  <% end -%>
+</div>

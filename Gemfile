@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails',     github: 'rails/rails'
+gem 'rails',     github: 'rails/rails', ref: 'b2063f2'
 gem 'journey',   github: 'rails/journey'
 gem 'arel',      github: 'rails/arel'
-gem 'active_record_deprecated_finders', github: 'rails/active_record_deprecated_finders'
+gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
 
 gem 'puma'
 
@@ -15,8 +15,11 @@ gem 'sinatra', require: nil
 gem 'girl_friday'
 
 gem 'redis'
+gem 'pg'
 
 gem 'uuid'
+
+gem 'redcarpet', require: 'redcarpet/compat'
 
 group :development do
   gem 'rvm-capistrano'

@@ -13,4 +13,10 @@ Tmzone::Application.routes.draw do
   post 'marks/watch', to: 'marks#watch!'
   post 'marks/search', to: 'marks#search!'
   get 'marks/results', to: 'marks#results'
+
+  get 'info/:slug', to: 'static_pages#show', as: 'static_page'
+
+  namespace :admin do
+    resources :static_pages
+  end
 end

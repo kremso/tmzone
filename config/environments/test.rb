@@ -32,4 +32,6 @@ Tmzone::Application.configure do
 
   # Use the testing queue
   config.queue = Rails::Queueing::TestQueue
+
+  config.eager_load = false
 end
