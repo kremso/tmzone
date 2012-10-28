@@ -207,6 +207,8 @@
 
     updateField($('.mark-name', this.$el), this.data["name"]);
     updateField($('.mark-owner', this.$el), this.data["owner"]);
+    $('.mark-registration-number', this.$el).val(this.data["registration_number"]);
+    $('.mark-application-number', this.$el).val(this.data["application_number"]);
 
     this.$el.modal({focus: false, minHeight: '330px', minWidth: '600px'});
   }

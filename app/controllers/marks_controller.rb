@@ -32,6 +32,7 @@ class MarksController < ApplicationController
   end
 
   def watch!
+    WatchingMailer.watching_request(params[:registration_number], params[:application_number], params[:name], params[:email]).deliver
     render status: 200, nothing: true
   end
 

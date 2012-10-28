@@ -40,6 +40,8 @@
   </div>
 
   <%= form_tag marks_watch_path, class: 'form-inline' do %>
+    <%= hidden_field_tag :registration_number, '', class: 'mark-registration-number' %>
+    <%= hidden_field_tag :application_number, '', class: 'mark-application-number' %>
     <%= text_field_tag :name, '', placeholder: 'Meno' %>
     <%= email_field_tag :email, '', placeholder: 'E-mail' %>
     <%= submit_tag 'Odoslať', class: 'input-medium btn btn-warning' %>
