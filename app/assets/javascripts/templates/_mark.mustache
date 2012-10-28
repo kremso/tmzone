@@ -20,7 +20,10 @@
 <div class="col column-right">
   <h4>Majiteľ/Prihlasovateľ</h4>
   <p>{{owner}}</p>
-  <div class="action-watch">Sledovať známku</div>
+
+  {{#showWatchButton}}
+    <div class="action-watch">Sledovať známku</div>
+  {{/showWatchButton}}
 
   <h4>Číslo prihlášky</h4>
   <p>{{application_number}}</p>

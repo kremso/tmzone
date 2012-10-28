@@ -17,11 +17,9 @@
 
 
 ;(function() {
-  var TmZone = {};
+  var TmZone = window.TmZone = {};
 
   $(document).ready(function() {
-    var searcher = new TmZone.Searcher();
-
     $('#search').submit(function() {
       var form = $(this);
 
@@ -37,7 +35,12 @@
     });
   });
 
-  TmZone.Searcher = function() {
+  TmZone.Searcher = function(mode) {
+    if(mode == "search") {
+      this.showWatchButton = false;
+    } else {
+      this.showWatchButton = true;
+    }
     this.searchInProgress = false;
 
     this.marks = new TmZone.Marks($('.results'));
@@ -67,7 +70,7 @@
     self.status.searchStarted();
 
     self.source.addEventListener('results', function(e) {
-      self.marks.appendMarks($.parseJSON(e.data));
+      self.marks.appendMarks($.parseJSON(e.data), self.showWatchButton);
     });
 
     self.source.addEventListener('failure', function(e) {
@@ -94,13 +97,13 @@
   TmZone.Marks = function($el) {
     this.$el = $el;
   }
-  TmZone.Marks.prototype.appendMarks = function(marks) {
+  TmZone.Marks.prototype.appendMarks = function(marks, showWatchButton) {
     var self = this;
     $.each(marks, function(index, mark) {
       var $markEl = $('<div>');
       self.$el.append($markEl);
       var markView = TmZone.MarkViewFactory.viewFor(mark, $markEl);
-      markView.render();
+      markView.render(showWatchButton);
     });
   }
   TmZone.Marks.prototype.reset = function() {
@@ -132,7 +135,9 @@
     this.json = json;
     this.template = template;
   }
-  TmZone.MarkView.prototype.render = function() {
+  TmZone.MarkView.prototype.render = function(showWatchButton) {
+    this.json["showWatchButton"] = showWatchButton;
+
     mark_partial = HoganTemplates['_mark'].render(this.json);
     if(this.json["classes"].length <= 3) {
       classes_partial = HoganTemplates['_classes_full'].render(this.json);
