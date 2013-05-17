@@ -9,7 +9,7 @@ gem 'puma'
 
 gem 'therubyracer'
 
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.6.0.rc1'
 
 gem 'sinatra', require: nil
 gem 'girl_friday'
