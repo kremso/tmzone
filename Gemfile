@@ -1,11 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails',     github: 'rails/rails', ref: 'b2063f2'
-gem 'journey',   github: 'rails/journey'
-gem 'arel',      github: 'rails/arel'
-gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.0.rc1'
 
-gem 'puma'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0.rc1'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
 
 gem 'therubyracer'
 
@@ -21,23 +26,13 @@ gem 'uuid'
 
 gem 'redcarpet', require: 'redcarpet/compat'
 
+gem 'bootstrap-sass'#, '~> 2.3.1.0'
+gem 'hogan_assets'
+gem 'jquery-rails'
+
 group :development do
   gem 'rvm-capistrano'
-end
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sprockets-rails', github: 'rails/sprockets-rails'
-  gem 'sass-rails',   github: 'rails/sass-rails'
-  gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
-  gem 'coffee-rails', github: 'rails/coffee-rails'
-  gem 'hogan_assets'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', platforms: :ruby
-
-  gem 'uglifier', '>= 1.0.3'
+  gem 'puma'
 end
 
 group :test do
@@ -45,20 +40,3 @@ group :test do
   gem 'vcr'
   gem 'webmock'
 end
-
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano', group: :development
-
-# To use debugger
-# gem 'debugger'
