@@ -46,4 +46,4 @@ production:
   database: tmzone_production
   pool: 5
   username: tmzone
-  password:
+  password: tmzone
