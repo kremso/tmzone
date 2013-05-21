@@ -9,11 +9,17 @@ class Admin::StaticPagesController < ApplicationController
   end
 
   def update
-    @page.update_attributes(params[:static_page])
+    @page.update_attributes(page_params)
     redirect_to admin_static_pages_path
   end
 
   def find_page
     @page = StaticPage.find(params[:id])
+  end
+
+  private
+
+  def page_params
+    params.require(:static_page).permit(:title, :content)
   end
 end
