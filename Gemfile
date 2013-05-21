@@ -14,8 +14,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'therubyracer'
 
-gem 'strong_parameters'
-
 gem 'nokogiri', '~> 1.6.0.rc1'
 
 gem 'sinatra', require: nil
