@@ -21,7 +21,7 @@ class MarksController < ApplicationController
 
   def search!
     uuid = UUID.new.generate(:compact)
-    TORT_QUEUE << { phrase: params[:q], job_id: uuid }
+    TORT_QUEUE.push({ phrase: params[:q], job_id: uuid })
 
     render status: 202, text: marks_results_path(job: uuid)
   end
