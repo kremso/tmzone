@@ -80,6 +80,7 @@ GEM
     net-ssh (2.6.7)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    newrelic_rpm (3.6.3.104)
     nokogiri (1.6.0.rc1)
       mini_portile (~> 0.5.0)
     pg (0.15.1)
@@ -172,6 +173,7 @@ DEPENDENCIES
   girl_friday
   hogan_assets
   jquery-rails
+  newrelic_rpm
   nokogiri (~> 1.6.0.rc1)
   pg
   puma

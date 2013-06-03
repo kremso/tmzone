@@ -30,6 +30,8 @@ gem 'bootstrap-sass'#, '~> 2.3.1.0'
 gem 'hogan_assets'
 gem 'jquery-rails'
 
+gem 'newrelic_rpm'
+
 group :development do
   gem 'rvm-capistrano'
   gem 'puma'
